@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "linkedInWebAPI", "linkedInWebAPI.csproj", "{971E623C-859E-4F51-BBC1-A6025585976F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{971E623C-859E-4F51-BBC1-A6025585976F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{971E623C-859E-4F51-BBC1-A6025585976F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{971E623C-859E-4F51-BBC1-A6025585976F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{971E623C-859E-4F51-BBC1-A6025585976F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B1A7184-E172-45D6-9C8B-E238551C8FEB}
+	EndGlobalSection
+EndGlobal
