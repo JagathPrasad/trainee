@@ -1,4 +1,5 @@
 ﻿using linkedInWebAPI.DataAccessLayer;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,6 +7,7 @@ namespace linkedInWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors]
     public class FollowerController : ControllerBase
     {
 

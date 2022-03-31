@@ -1,4 +1,5 @@
 ﻿using linkedInWebAPI.DataAccessLayer;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,9 +7,9 @@ namespace linkedInWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+ 
     public class UserController : ControllerBase
     {
-        
 
         [Route("getverifyuser/{emaild}/{password}")]
         public IActionResult GetVerifyUser(string emaild, string password)
