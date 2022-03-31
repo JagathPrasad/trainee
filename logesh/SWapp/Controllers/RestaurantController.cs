@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using SWapp.Data;
 using SWapp.Model;
 
@@ -6,6 +7,7 @@ namespace SWapp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+  
     public class RestaurantController : Controller
     {
         
