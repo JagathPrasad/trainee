@@ -72,8 +72,9 @@ namespace Twitter.Model
 
                 foreach (DataRow row in user_table.Rows)
                 {
+                    user_data.Id = new Guid(Convert.ToString(row["Id"]));
                     user_data.Username = Convert.ToString(row["Username"]);
-                    user_data.password = Convert.ToString(row["password"]);
+                    //user_data.password = Convert.ToString(row["password"]);
 
 
                 }
@@ -120,8 +121,7 @@ namespace Twitter.Model
 
 public class Users
 {
-    internal string user_id;
-    internal string post_id;
+    public Guid Id { get; set; }
 
     public string Username { get; internal set; }
     public string password { get; internal set; }
