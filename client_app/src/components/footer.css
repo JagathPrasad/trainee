@@ -1,0 +1,12 @@
+.footer{
+    position: relative;
+    bottom:-5px;
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    color: darkblue;
+    font-style: oblique;
+    border-top: 0.5px solid lightgrey;
+    height: 50px;
+}
+

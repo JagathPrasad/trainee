@@ -1,0 +1,263 @@
+.App {
+    text-align: center;
+    background-color: rgb(250, 246, 246);
+  }
+  
+  .App-logo {
+    height: 60vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+  
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .bg {
+    background-color: #edf2f7;
+  }
+  
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+  .homeContainer {
+    flex: 16;
+  
+  }
+  
+  .sidenav {
+    width: 200px;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    left: 0px;
+    background-color: rgb(235, 232, 227);
+    overflow-x: hidden;
+    padding: 25px 0;
+  }
+  
+  .btn-group button {
+    background-color: rgb(241, 241, 241);
+    border-radius: 25px;
+    color: #070606;
+    padding: 10px 24px;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+  }
+  
+  .bt-group button {
+    background-color: rgb(96, 153, 222);
+    border-radius: 25px;
+    color: rgb(199, 63, 63);
+    padding: 10px 24px;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+  }
+  
+  /* .side-menu .side-menu__icon {
+    color: #495584;
+    font-size: 18px;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 5px;
+    position: relative;
+    top: -1px;
+  } */
+  
+  .box {
+  
+    text-align: left;
+  
+    height: 10%;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 14%;
+    right: 4%;
+    
+  }
+  
+  .wrapper>div {
+    background-color: whitesmoke;
+    border: 8px solid white;
+    border-radius: 4%;
+    width: 36%;
+    height: 12px;
+    padding: 50px;
+    margin: 60px 21px;
+    position: relative;
+    justify-content: space-between;
+  }
+  
+  
+  .wrapper {
+    margin: auto;
+    width: 80%;
+  }
+  
+  .text {
+    font-style: bold;
+    font-size: 14px;
+    color: #070606;
+    align-items: center;
+    display: flex;
+  }
+  
+  .li {
+    width: calc((100vw / 3) - 20px);
+    display: inline-block;
+  }
+  
+  .icon {
+    height: 50px;
+    width: 50px;
+    background-color: aquamarine;
+    align-items: right;
+    top: 10px;
+    border-radius: 25px;
+  }
+  
+  .icon1 {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(122, 196, 221);
+    align-items: right;
+    top: 10px;
+    border-radius: 35px;
+  }
+  
+  .icon2 {
+    height: 45px;
+    width: 45px;
+    background-color: rgb(219, 236, 102);
+    align-items: right;
+    top: 10px;
+    border-radius: 25px;
+  }
+  
+  .icon3 {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(244, 107, 232);
+    align-items: right;
+    top: 10px;
+    border-radius: 25px;
+  }
+  
+  .top {
+    align-self: center;
+  }
+  
+  .graph {
+  background-color: white;
+  border-radius: 15px;
+    width: 57%;
+    height: 55%;
+    display: flex;
+    position: absolute;
+    top: 37%;
+    left: 17.5%;
+  }
+  
+  .graphb {
+    top: 37%;
+    left: 15%;
+  
+  }
+  
+  .box2 {
+    background-color: white;
+    border: 8px solid white;
+    border-radius: 4%;
+    width: 17%;
+    height: 50%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 37%;
+    left: 79%;
+  
+  }
+  
+  .heading2 {
+    background-color: white;
+    border-bottom: 2px #070606;
+  
+    border-radius: 4%;
+    width: 17%;
+    height: 3%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    left: 79%;
+  
+  }
+  
+  .heading1 {
+    background-color: white;
+    border-radius: 4%;
+    width: 57.5%;
+    height: 3%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top:30% ;
+    left: 17.5%;
+  
+  }
+  
+  .txt1 {
+    right: 5%;
+    color: #070606;
+  }
+  
+  .test {
+    background-color: rgb(177, 35, 35);
+    width: 17%;
+    height: 40%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 750px;
+    left: 270px;
+  
+  }
+  
+  .icon-size {
+    width: 18%;
+    height: 30%;
+    position: absolute;
+    top: 36%;
+    left: 62%;
+  }

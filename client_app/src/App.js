@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import Login from './component/Login'
-import Register from './component/Register'
+import Login from './component/Login';
+import Register from './component/Register';
+import Home from './Component/Home';
+import User from './Component/User';
 
 import {
   BrowserRouter as Router,
@@ -19,7 +21,7 @@ function App() {
   //   <>
   //     {/* <Router /> */}
   //       <Login />
-        
+
   //     {/* <Route path="/register" Component={Register} /> */}
 
   //   </>
@@ -29,7 +31,9 @@ function App() {
   let routes = useRoutes([
     { path: "/", element: <Login /> },
     { path: "/login", element: <Login /> },
-    { path: "/register", element: <Register/> }
+    { path: "/register", element: <Register /> },
+    { path: "/home", element: <Home /> },
+    { path: "/user", element: <User /> }
     // ...
   ]);
   return routes;

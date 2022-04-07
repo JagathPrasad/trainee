@@ -1,14 +1,13 @@
-import logo from '../logo.svg';
-import '../App.css';
+import React from 'react'
+import './footer.css';
 
-function Footer() {
-
-
-    return (
-        <div >
-            Footer
-        </div>
-    );
+const Footer = () => {
+  return (
+    <div className="footer">
+    <h6>Copyright 2022 Zanex .Designed with Love by Monospear team All rights reserved</h6>
+    
+    </div>
+  )
 }
 
-export default Footer;
+export default Footer
