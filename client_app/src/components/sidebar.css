@@ -1,0 +1,93 @@
+.homeContainer {
+  flex: 6;
+}
+
+/* .App {
+    display: flex;
+  } */
+
+.sidebar {
+  flex: 1;
+  width: 200px;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 55px;
+  left: 0px;
+  background-color: white;
+  overflow-x: hidden;
+  padding: 25px 0;
+  border-right: 0.5px solid lightgrey;
+  min-height: 120vh;
+}
+
+.bt-group {
+  background-color: rgb(127, 131, 201);
+  border-radius: 20px;
+  color: white;
+  padding: 5px 24px;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+}
+
+
+hr {
+  height: 0;
+  border: 0.5px solid lightgray;
+}
+
+.center {
+  padding-left: 20px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+/* .title {
+  font-size: 10px;
+  font-weight: bold;
+  color: #999;
+  margin-top: 15px;
+  margin-bottom: 5px;
+} */
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+}
+
+/* hover{
+    background-color: #ece8ff;
+  }
+   */
+svg path {
+  font-size: 1px;
+  color:darkblue!important;
+  height: 25px;
+  width: 25px;
+}
+
+button {
+  font-size: 18px;
+  font-weight: 600;
+  color: darkblue;
+  margin-left: 5px;
+}
+.option {
+  font-size: 15px;
+  font-weight: 600;
+  color: darkblue;
+  margin-left: 5px;
+
+}
+
+/* .side--collapsed{
+    width:var(icon-width);
+  } */

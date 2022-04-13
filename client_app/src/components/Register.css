@@ -1,0 +1,28 @@
+.main {
+    justify-content: center;
+    height: 450px;
+    width: 40%;
+    display: grid;
+    box-sizing: border-box;
+    /* box-shadow: 11px 12px 13px 12px rgb(207, 207, 207);  */
+    padding: 50px 50px;
+    background-color: white;
+        text-align: center;
+        display: grid;
+        box-sizing: border-box;
+    
+
+}
+
+.custom-control-label {
+    vertical-align: middle;
+    position: unset;
+    margin-bottom: 0;
+}
+
+.title-rs {
+    text-align: center;
+    padding-top: 60px;
+}
+
+

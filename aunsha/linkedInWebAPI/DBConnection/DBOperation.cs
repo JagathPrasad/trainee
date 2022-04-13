@@ -14,6 +14,7 @@ namespace linkedInWebAPI.DBConnection
                 
                 try
                 {
+		
                     sqlConnection.Open();
                     sqlCommand.Connection = sqlConnection;
                     SqlDataAdapter da = new SqlDataAdapter();

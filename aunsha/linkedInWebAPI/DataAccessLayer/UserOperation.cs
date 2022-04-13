@@ -101,5 +101,41 @@ namespace linkedInWebAPI.DataAccessLayer
 
             return dbOperation.SaveData(sqlCommand);
         }
+        public List<User> Userdata()
+        {
+            List<User> users_data = new List<User>();
+            DBOperation dbOperation = new DBOperation();
+            SqlCommand sqlCommand = new SqlCommand("UserData");
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            //sqlCommand.Parameters.AddWithValue("@User_Id", User_Id);
+
+
+            DataTable user_table = dbOperation.GetData(sqlCommand);
+
+            if (user_table.Rows.Count > 0)
+            {
+                foreach (DataRow row in user_table.Rows)
+                {
+
+                    User user = new User();
+                    user.Id = new Guid(Convert.ToString(row["Id"]));
+                    user.Emaild = row["Emaild"].ToString();
+                    //user.Password = row["Password"].ToString();
+                    user.Name = Convert.ToString(row["Name"]);
+                    user.MobileNo = Convert.ToString(row["MobileNo"]);
+
+                    users_data.Add(user);
+
+                }
+            }
+
+            return users_data;
+        }
+
+
+
     }
+
+
+   
 }

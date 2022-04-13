@@ -1,4 +1,6 @@
 ﻿using linkedInWebAPI.DataAccessLayer;
+using linkedInWebAPI.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,9 +8,9 @@ namespace linkedInWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+ 
     public class UserController : ControllerBase
     {
-        
 
         [Route("getverifyuser/{emaild}/{password}")]
         public IActionResult GetVerifyUser(string emaild, string password)
@@ -44,6 +46,21 @@ namespace linkedInWebAPI.Controllers
 
             }
         }
+        [Route("getalluser")]
+        public IActionResult GetAllUser()
+        {
+            try
+            {
+                UserOperation user = new UserOperation();
+                var user_details = user.Userdata();
+                return Ok(user_details);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex);
+            }
+        }
     }
     public class UserHelper
     {
@@ -53,4 +70,8 @@ namespace linkedInWebAPI.Controllers
         public string mobileno { get; set;}
 
     }
+
+    
+
 }
+
