@@ -1,9 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
-import Login from './component/Login';
-import Register from './component/Register';
-import Home from './Component/Home';
-import User from './Component/User';
+import Login from './components/Login';
+import Register from './components/Register';
+import Home from './components/Home';
+import User from './components/User';
+import Delivery from './components/Delivery';
+import Vendordelivery from './components/Vendordelivery';
+import Userdelivery from './components/Userdelivery';
+
+
+
 
 import {
   BrowserRouter as Router,
@@ -11,6 +17,7 @@ import {
   Route,
   useRoutes,
 } from "react-router-dom";
+
 
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -29,11 +36,14 @@ function App() {
   // );
 
   let routes = useRoutes([
-    { path: "/", element: <Login /> },
+    { path: "/", element: <Login login_details="aflksdja"/> },
     { path: "/login", element: <Login /> },
     { path: "/register", element: <Register /> },
     { path: "/home", element: <Home /> },
-    { path: "/user", element: <User /> }
+    { path: "/user", element: <User /> },
+    { path: "/delivery", element: <Delivery /> },
+    { path: "/vendordelivery", element: <Vendordelivery /> },
+    { path: "/userdelivery", element: <Userdelivery /> },
     // ...
   ]);
   return routes;
@@ -43,7 +53,7 @@ function App() {
 
 const AppWrapper = () => {
   return (
-    <Router>
+    <Router >
       <App />
     </Router>
   );

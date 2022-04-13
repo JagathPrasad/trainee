@@ -48,18 +48,18 @@ ul {
 
 }
 
-.title {
+/* .title {
   font-size: 10px;
   font-weight: bold;
   color: #999;
   margin-top: 15px;
   margin-bottom: 5px;
-}
+} */
 
 li {
   display: flex;
   align-items: center;
-  padding: 5px;
+  padding: 15px;
   cursor: pointer;
 }
 
@@ -75,7 +75,7 @@ svg path {
 }
 
 button {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: darkblue;
   margin-left: 5px;

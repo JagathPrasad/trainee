@@ -1,42 +1,31 @@
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import '../App.css';
 import './Login.css';
+import axios from 'axios';
 // import AuthContext from "./context/AuthProvider";
 
 // import axios from './api/axios';
 // const LOGIN_URL = '/auth';
 
-const Login = () => {
+const Login = (props) => {
+    console.log('asdlfjas',props.login_details);
     // const {setAuth} = useContext(AuthContext);
     // const history = useHistory();
-    const [email, setEmail] = useState('');
+    const [emaild, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         const response = await axios.post(
-    //             JSON.stringify({ email, password }),
-    //             {
-    //                 headers: { 'Content-Type': 'application/json' },
-    //                 withcredentials: true
-    //             }
-    //         );
-    //         console.log(JSON.stringify(response?.data))
-    //         const accessToken = response?.data?.accessToken;
-    //         const roles = response?.data?.roles;
-    //         // setAuth({email, password, accessToken});
-    //         setEmail('');
-    //         setPassword('')
-    //     }
-
-    //     catch (err) {
-
-
-    //     }
-    // }
-
+    const Getusers = () => {
+        axios.get('https://localhost:7101/api/User/getverifyuser/anusha@gmail.com/12345678').then((res) => {
+            console.log(res,'success');
+        }).catch((error)=> {
+            console.log(error, 'success');
+        });
+    }
+    useEffect(()=> {
+        Getusers();
+    },
+    []);
     const GoToRegistration = () => {
         //     history.push('register');
         // }
