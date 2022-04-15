@@ -8130,11 +8130,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mangai\\source\\repos\\Twitter\\Twitter.csproj",
+      "projectUniqueName": "D:\\Mangai\\Git\\trainee\\mangai\\Twitter\\Twitter.csproj",
       "projectName": "Twitter",
-      "projectPath": "C:\\Users\\Mangai\\source\\repos\\Twitter\\Twitter.csproj",
+      "projectPath": "D:\\Mangai\\Git\\trainee\\mangai\\Twitter\\Twitter.csproj",
       "packagesPath": "C:\\Users\\Mangai\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mangai\\source\\repos\\Twitter\\obj\\",
+      "outputPath": "D:\\Mangai\\Git\\trainee\\mangai\\Twitter\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
