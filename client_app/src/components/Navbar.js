@@ -6,7 +6,7 @@ Description : To Show Navbar in Dashboard
 
 import './Navbar.css';
 import React, { useCallback, useState } from 'react';
-import '../App.css';
+
 
 
 
@@ -90,7 +90,7 @@ const Navbar = (props) => {
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
           </div>
-          {user_name}
+       
         </div>
 
       </div>

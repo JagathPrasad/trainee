@@ -28,25 +28,26 @@
   .logo{
     font-size: 30px;
     font-weight:bold ;
-    color: darkblue;
-  
-    
+    color: darkblue;   
   }
   .search{
     position: relative;
     display: flex;
     align-items: center;
     border: 0.5px solid lightgray;
-    border-radius: 26px;
-    padding: 5px 50px;
+    border-radius: 30px;
+    padding: 2px 25px;
   }
+
   input{
     border: none;
     outline: none;
+    background-color: transparent;
   }
   .items {
     display: flex;
     align-items: center;
+    
   }
   
       .item{
@@ -73,7 +74,7 @@
     height: 10px;
     position: absolute;
     top: 25px;
-    right: 160px;
+    right: 115px;
     background-color: green;
     border-radius: 50%;
     display:flex ;
