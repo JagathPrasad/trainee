@@ -8,7 +8,7 @@ import Payment from './components/Payment';
 import Details from './components/Details';
 import Address from './components/Address';
 import Order from './components/Order';
-import Payment from './components/Payment';
+//import Payment from './components/Payment';
 import Items from './components/Items';
 import Itemdetails from './components/Itemdetails';
 import Approval from './components/Approvals';

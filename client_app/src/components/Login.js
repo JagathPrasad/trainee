@@ -43,6 +43,8 @@ const Login = () => {
     const Getusers = () => {
         debugger;
         if (Username != '' || Username != null && (password != '' || password != null)) {
+            //if (true) {
+            alert();
             axios.get('https://cometh.prelinehealthcare.com/api/user/getloginuser/984012356').then((res) => {
                 //debugger;
                 console.log(res.data, 'success');
@@ -77,7 +79,7 @@ const Login = () => {
             <div className='sub-main'>
 
                 <h1><b>Login</b></h1>
-                <form >
+                <div >
 
                     <input type="text" placeholder="Enter Username" name="Username" required onChange={(e) => setUsername(e.target.value)} />
                     <br />
@@ -87,7 +89,7 @@ const Login = () => {
                     <br />
 
                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" onClick={() => Getusers()}>Login</button>
-                </form>
+                </div>
 
                 <a href="forgot-password.html" className="text-primary">Forgot Password?</a>
 
