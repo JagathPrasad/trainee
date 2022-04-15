@@ -1,9 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import Login from './component/Login';
-import Register from './component/Register';
-import Home from './Component/Home';
-import User from './Component/User';
+import Login from './components/Login';
+import Register from './components/Register';
+import Home from './components/Home';
+import User from './components/User';
+import Payment from './components/Payment';
+import Details from './components/Details';
+import Address from './components/Address';
+
 
 import {
   BrowserRouter as Router,
@@ -11,6 +15,7 @@ import {
   Route,
   useRoutes,
 } from "react-router-dom";
+
 
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -33,7 +38,12 @@ function App() {
     { path: "/login", element: <Login /> },
     { path: "/register", element: <Register /> },
     { path: "/home", element: <Home /> },
-    { path: "/user", element: <User /> }
+    { path: "/user", element: <User /> },
+    { path: "/payment", element: <Payment /> },
+    { path: "/details", element: <Details /> },
+    { path: "/address", element: <Address /> }
+    
+
     // ...
   ]);
   return routes;
