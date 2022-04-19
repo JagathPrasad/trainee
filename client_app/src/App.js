@@ -15,7 +15,7 @@ import Approval from './components/Approvals';
 import Delivery from './components/Delivery';
 import Vendordelivery from './components/Vendordelivery';
 import Userdelivery from './components/Userdelivery';
-
+import ControlledPopup from './components/popup';
 
 import {
   BrowserRouter as Router,
@@ -50,7 +50,7 @@ function App() {
     { path: "/payment", element: <Payment /> },
     { path: "/details", element: <Details /> },
     { path: "/address", element: <Address /> },
-    
+    { path: "/ControlledPopup", element: <ControlledPopup /> },
 
     { path: "/Order", element: <Order /> },
     { path: "/items", element: <Items /> },

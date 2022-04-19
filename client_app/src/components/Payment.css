@@ -6,9 +6,7 @@
     
     }
     .container {
-        max-width: 75%;
+        max-width: 50%;
+        margin-left: 12%;
     }
-    .px-5 {
-        padding-left: 13.25rem;
-        padding-right: 1.25rem;
-    }
+   
