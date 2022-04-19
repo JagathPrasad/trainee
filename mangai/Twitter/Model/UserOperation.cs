@@ -70,7 +70,7 @@ namespace Twitter.Model
                 DataTable user_table = dbOperation.GetData(sqlCommand);
                 //SqlDataReader sdr = sqlCommand.ExecuteReader();
 
-                foreach (DataRow row in user_table.Rows)
+                    foreach (DataRow row in user_table.Rows)
                 {
                     user_data.Username = Convert.ToString(row["Username"]);
                     user_data.password = Convert.ToString(row["password"]);
