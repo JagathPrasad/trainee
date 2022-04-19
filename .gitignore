@@ -25,3 +25,4 @@ yarn-error.log*
 aunsha/linkedInWebAPI/.vs
 aunsha/linkedInWebAPI/obj
 aunsha/linkedInWebAPI/bin
+client_app/package-lock.json
