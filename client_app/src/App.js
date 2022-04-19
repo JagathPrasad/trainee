@@ -12,6 +12,7 @@ import Approval from './components/Approvals';
 import Delivery from './components/Delivery';
 import Vendordelivery from './components/Vendordelivery';
 import Userdelivery from './components/Userdelivery';
+import Vendors from './components/Vendors';
 
 
 
@@ -53,7 +54,8 @@ function App() {
     { path: "/Approval", element: <Approval /> },
     { path: "/delivery", element: <Delivery /> },
     { path: "/vendordelivery", element: <Vendordelivery /> },
-    { path: "/userdelivery", element: <Userdelivery /> }
+    { path: "/userdelivery", element: <Userdelivery /> },
+    {path:"/Vendors",element:<Vendors/>}
     // ...
   ]);
   return routes;

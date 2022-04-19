@@ -1,0 +1,11 @@
+.size{
+    width:50%;
+    height:40%;
+    align-self: center;
+    display: flex;
+    
+    }
+    .container {
+        max-width: 50%;
+        margin-left: 12%;
+    }
