@@ -32,4 +32,10 @@
   .hide {
     display: none;
   }
+  .right{
+    margin-left:105%;
+    margin-top: -30%;
+    width:75%;
+  }
+  
   

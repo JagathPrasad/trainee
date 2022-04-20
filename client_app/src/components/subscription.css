@@ -1,0 +1,10 @@
+.container{
+    max-width: 50%;
+    margin-left:12%;
+  }
+
+  .right{
+    margin-left:105%;
+    margin-top: -30%;
+    width:75%;
+  }

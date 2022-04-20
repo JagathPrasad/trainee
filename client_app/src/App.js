@@ -13,6 +13,7 @@ import Items from './components/Items';
 import Itemdetails from './components/Itemdetails';
 import Approval from './components/Approvals';
 import Delivery from './components/Delivery';
+import Subscription from './components/Subscription';
 import Vendordelivery from './components/Vendordelivery';
 import Userdelivery from './components/Userdelivery';
 
@@ -58,6 +59,7 @@ function App() {
     { path: "/Itemdetails", element: <Itemdetails /> },
     { path: "/Approval", element: <Approval /> },
     { path: "/delivery", element: <Delivery /> },
+    { path: "/subscription", element: <Subscription /> },
     { path: "/vendordelivery", element: <Vendordelivery /> },
     { path: "/userdelivery", element: <Userdelivery /> }    // ...
   ]);

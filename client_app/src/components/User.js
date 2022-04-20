@@ -204,8 +204,8 @@ const User = () => {
   }
   return (
     <div>
-      <Navbar />
-      <Sidebar />
+      {/* <Navbar />
+      <Sidebar /> */}
 
       <div class=" container mx-auto px-4 sm:px-8">
         <div class="py-8">
@@ -315,7 +315,7 @@ const User = () => {
           </div> */}
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
 
 
