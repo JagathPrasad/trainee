@@ -9,4 +9,8 @@
         max-width: 50%;
         margin-left: 12%;
     }
-   
+    .right{
+        margin-left:105%;
+        margin-top: -40%;
+        width:75%;
+    }

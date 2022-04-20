@@ -19,3 +19,8 @@
   .texttype{
     font-style: bold;
   }
+  .right{
+    margin-left:105%;
+    margin-top: -50%;
+    width:75%;
+}

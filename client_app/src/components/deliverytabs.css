@@ -20,3 +20,16 @@
   .texttype{
     font-style: bold;
   }
+  .container{
+    max-width: 50%;
+    margin-left:12%;
+  }
+
+  .show {
+    display: block;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
