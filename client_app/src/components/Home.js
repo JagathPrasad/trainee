@@ -77,8 +77,8 @@ const Home = (props) => {
   return (
 
         <div>
-            <Navbar />
-            <Sidebar />
+            {/* <Navbar />
+            <Sidebar /> */}
             
             
          <header className="App-header">
@@ -172,7 +172,7 @@ const Home = (props) => {
     </div>
     
     </header>
-    <Footer />
+    {/* <Footer /> */}
     
 </div>
   );
