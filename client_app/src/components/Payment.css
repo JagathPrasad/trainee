@@ -1,8 +1,10 @@
+    
     .container {
         width: 50%;
-    margin-left: 15%;
+    margin-left: 12%;
+    
     }
-    .px-8 {
+    /* px-8 {
         
         padding-right: 2rem;
         width: 30%;
@@ -11,8 +13,17 @@
         display: flex;
     text-align: center;
  
-    }
+    } */
     
     .text-center {
         text-align: center;
     }
+
+    .right{
+        
+        margin-left:105%;
+        margin-top: -35%;
+        width:70%;
+        border-color:black ;
+        border-width: 20%;
+      }
