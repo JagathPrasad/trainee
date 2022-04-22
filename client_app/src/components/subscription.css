@@ -1,10 +1,19 @@
-.container{
+.containers{
     max-width: 50%;
     margin-left:12%;
+    margin-top: 1%;
   }
 
   .right{
     margin-left:105%;
-    margin-top: -30%;
+    margin-top: -47%;
     width:75%;
+  }
+
+  .dropposition{
+    margin-left: 25%;
+    font-style:normal;
+    font-size: large;
+    color: blue;
+    font-weight:bold;
   }
