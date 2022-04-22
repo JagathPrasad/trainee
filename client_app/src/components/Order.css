@@ -1,0 +1,17 @@
+.container {
+    width: 50%;
+margin-left: 3%;
+}
+
+.right{
+        
+    margin-left:105%;
+    margin-top: -35%;
+    width:70%;
+    border-style: groove;
+    border-width: 20%;
+    box-sizing: border-box;
+    background-color: rgb(188, 181, 181);
+    
+  }
+

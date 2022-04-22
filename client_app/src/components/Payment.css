@@ -1,7 +1,7 @@
     
     .container {
         width: 50%;
-    margin-left: 12%;
+    margin-left: 5%;
     
     }
     /* px-8 {
@@ -19,11 +19,22 @@
         text-align: center;
     }
 
+    svg path { 
+
+        color:darkblue!important;
+    
+      } 
+
+
+
     .right{
         
         margin-left:105%;
         margin-top: -35%;
         width:70%;
-        border-color:black ;
+            border-style: groove;
         border-width: 20%;
+        box-sizing: border-box;
+        border-color: #555;
+         background-color: #555; 
       }
