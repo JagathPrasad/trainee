@@ -1,14 +1,29 @@
-.size{
-    width:50%;
-    height:40%;
-    align-self: center;
-    display: flex;
+    
+    .container {
+        width: 50%;
+    margin-left: 12%;
     
     }
-    .container {
-        max-width: 75%;
+    /* px-8 {
+        
+        padding-right: 2rem;
+        width: 30%;
+        
+    height:5%;
+        display: flex;
+    text-align: center;
+ 
+    } */
+    
+    .text-center {
+        text-align: center;
     }
-    .px-5 {
-        padding-left: 13.25rem;
-        padding-right: 1.25rem;
-    }
+
+    .right{
+        
+        margin-left:105%;
+        margin-top: -35%;
+        width:70%;
+        border-color:black ;
+        border-width: 20%;
+      }

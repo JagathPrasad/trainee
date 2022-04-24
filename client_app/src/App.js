@@ -5,7 +5,7 @@ import Register from './components/Register';
 import Home from './components/Home';
 import User from './components/User';
 import Payment from './components/Payment';
-import Details from './components/Details';
+
 import Address from './components/Address';
 import Order from './components/Order';
 //import Payment from './components/Payment';
@@ -51,7 +51,7 @@ function App() {
     { path: "/home", element: <Home /> },
     { path: "/user", element: <User /> },
     { path: "/payment", element: <Payment /> },
-    { path: "/details", element: <Details /> },
+    
     { path: "/address", element: <Address /> },
 
 
