@@ -36,7 +36,7 @@ const User = () => {
     //   setUserType(type);
     // }else{
     // }
-    
+
     //for handling true or false in if method
     //setTrue(true);
   }
@@ -61,9 +61,9 @@ const User = () => {
           <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Email address</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">margotfoster@example.com</dd>
-          </div>        
-        
-          
+          </div>
+
+
         </dl>
       </div>
     </div>;
@@ -170,7 +170,7 @@ const User = () => {
       {/* <Navbar />
       <Sidebar /> */}
 
-      <div class=" container mx-auto px-4 sm:px-8">
+      <div class="mx-auto  px-4 sm:px-8">
         <div class="py-8">
           <div>
             <h2 class="text-2xl font-semibold leading-tight text-center text-blue-900">USERS</h2>
@@ -179,7 +179,7 @@ const User = () => {
             <div
               class="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
             >
-              <table class="min-w-full leading-normal">
+              <table class="w-100 leading-normal">
                 <thead>
                   <tr>
                     <th

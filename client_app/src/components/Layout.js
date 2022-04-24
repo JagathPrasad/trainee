@@ -14,14 +14,16 @@ const Layout = (props) => {
 
             {(() => {
                 if (page != 'login') {
-                    return <div><Navbar />
+                    return <div>
                         <Sidebar />
+                        <Navbar />
+
                         {props.children}
                         <Footer />
                     </div>;
                 } else {
                     return <div>
-                       
+
                         {props.children}
                     </div>;
                 }

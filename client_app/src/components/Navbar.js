@@ -24,7 +24,7 @@ const Navbar = (props) => {
     <div className="navbar">
       <div className="topbarwrapper">
         <div className="topleft">
-          <span className="logo">Zanex</span>
+          {/* <span className="logo">Zanex</span> */}
         </div>
         
         <div className="search">

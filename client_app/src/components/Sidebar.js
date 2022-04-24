@@ -43,7 +43,7 @@ const Sidebar = (props) => {
                     </button>
                 ) :
                 (
-                    <div className="sidebar">
+                    <div className={'duration-1000 top-0 left-0 fixed bg-slate-50 w-200'}>
                         <hr />
                             <button class="text-xl text-blue fixed left-40"
                             onClick={() => setIsOpen(!isOpen)}>

@@ -3,7 +3,9 @@ import './deliverytabs.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import popup from './popup';
-
+import moment from 'moment';
+import 'tw-elements';
+//reference for date formats https://momentjs.com/
 
 
 
@@ -13,7 +15,7 @@ const Delivery = () => {
   const [bind_details, setBindDetails] = useState({});
 
   const [user_type, setUserType] = useState('');
- // const { DateTime } = luxon;
+  // const { DateTime } = luxon;
   const [showpopup, setPopup] = useState(false);
   const [allvendor_details, setallVendorDetails] = useState([]);
   //const [show_delivery, setDelivery] = useState(false);
@@ -79,9 +81,9 @@ const Delivery = () => {
           </div>
           <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Delivery Date</dt>
-            <span>{ (new Date(bind_details.delivereddate)).toLocaleDateString() }</span>
-            {/* <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{bind_details.delivereddate}</dd> */}
-            {/* <dd const value = {moment('2014-08-20 15:30:00').format('MM/DD/YYYY h:mm a')}></dd> */}
+            {/* <span>{ (new Date(bind_details.delivereddate)).toLocaleDateString() }</span> */}
+            {/* <span>{moment(bind_details.delivereddate).format("YYYY/MM/DD")}</span> */}
+            <span>{moment(bind_details.delivereddate).format('MMMM Do YYYY, h:mm:ss a')}</span>
           </div>
           <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Amount</dt>
@@ -139,7 +141,7 @@ const Delivery = () => {
             <dt class="text-sm font-medium text-gray-500">Serving</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{bind_details.serving}</dd>
           </div>
-         
+
           <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Vendor Is Active</dt>
             {(() => {
@@ -184,101 +186,102 @@ const Delivery = () => {
     return <div>
 
       <div class="mt-10 sm:mt-0 righht">
-        
-          <div class="px-4 sm:px-0">
-              <h3 class="text-xl font-medium leading-6 text-blue-900">Delivery Details</h3>
-            </div>
-            <br></br>
-          <div class="mt-5 md:mt-0 md:col-span-2">
-            <form action="#" method="POST">
-              <div class="shadow overflow-hidden sm:rounded-md">
-                <div class="px-4 py-5 bg-gray-200 sm:p-6">
-                  <div class="grid grid-cols-6 gap-6">
-                    <div class="col-span-3 sm:col-span-4">
-                      <label for="address" class="block text-sm font-medium text-gray-700"> Address</label>
-                      <input type="text" name="address" id="address" autocomplete="address" value={bind_details.address} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                    </div>
-                    
-                    <div class="col-span-4 sm:col-span-3">
+
+        <div class="px-4 sm:px-0">
+          <h3 class="text-xl font-medium leading-6 text-blue-900">Delivery Details</h3>
+        </div>
+        <br></br>
+        <div class="mt-5 md:mt-0 md:col-span-2">
+          <form action="#" method="POST">
+            <div class="shadow overflow-hidden sm:rounded-md">
+              <div class="px-4 py-5 bg-gray-200 sm:p-6">
+                <div class="grid grid-cols-6 gap-6">
+                  <div class="col-span-3 sm:col-span-4">
+                    <label for="address" class="block text-sm font-medium text-gray-700"> Address</label>
+                    <input type="text" name="address" id="address" autocomplete="address" value={bind_details.address} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  </div>
+
+                  <div class="col-span-4 sm:col-span-3">
                     <div class="flex items-center justify-center">
                       <div class="datepicker relative form-floating mb-3 xl:w-96" data-mdb-toggle-button="false">
-                      <input type="text" 
-                      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                      placeholder="Select a date" data-mdb-toggle="datepicker" />
-                      <label for="floatingInput" class="text-gray-700">Select a date</label>
+                        <input type="text"
+                          class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                          placeholder="Select a date" data-mdb-toggle="datepicker" />
+                        <label for="floatingInput" class="text-gray-700">Select a date</label>
                       </div>
-                      </div>
                     </div>
 
-                      <div class="col-span-6 sm:col-span-3">
-                      <label for="country" class="block text-sm font-medium text-gray-700">Status</label>
-                      <select id="country" name="country" autobg-whitecomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option>Confirmed</option>
-                        <option>Pending</option>
-                        <option>Cancel</option>
-                      </select>
-                    </div>
+                  </div>
 
-                      <div class="col-span-3 sm:col-span-3">
-                      <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
-                      <input type="text" name="amount" id="amount" autocomplete="amount" value={bind_details.amount} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                    </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="country" class="block text-sm font-medium text-gray-700">Status</label>
+                    <select id="country" name="country" autobg-whitecomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <option>Confirmed</option>
+                      <option>Pending</option>
+                      <option>Cancel</option>
+                    </select>
+                  </div>
 
-                    <div class="col-span-3 sm:col-span-3">
-                      <label for="country" class="block text-sm font-medium text-gray-700">Daily</label>
-                      <select id="country" name="country" autobg-whitecomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option>No</option>
-                        <option>Yes</option>
-                      </select>
-                    </div>
+                  <div class="col-span-3 sm:col-span-3">
+                    <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
+                    <input type="text" name="amount" id="amount" autocomplete="amount" value={bind_details.amount} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  </div>
 
-                    <div class="col-span-3">
-                      <label for="distance" class="block text-sm font-medium text-gray-700">Distance</label>
-                      <input type="text" name="distance" id="distance" autocomplete="distance" value={bind_details.distance} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                    </div>
-                    <div class="col-span-6 sm:col-span-3">
-                      <label for="country" class="block text-sm font-medium text-gray-700">Delivered</label>
-                      <select id="country" name="country" autobg-whitecomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option>No</option>
-                        <option>Yes</option>
-                      </select>
-                    </div>
-                    <div class="col-span-6 sm:col-span-3">
-                      <label for="country" class="block text-sm font-medium text-gray-700">Weekly</label>
-                      <select id="country" name="country" autobg-whitecomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option>No</option>
-                        <option>Yes</option>
-                      </select>
-                    </div>
-                    <div class="col-span-6 sm:col-span-3">
-                      <label for="country" class="block text-sm font-medium text-gray-700">Monthly</label>
-                      <select id="country" name="country" autobg-whitecomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option>No</option>
-                        <option>Yes</option>
-                      </select>
-                    </div>
-                    <div class="col-span-6 sm:col-span-3">
-                      <label for="country" class="block text-sm font-medium text-gray-700">Vender Is Active</label>
-                      <select id="country" name="country" autobg-whitecomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        <option>Yes</option>
-                        <option>No</option>
-                      </select>
-                    </div>
-                    <div class="col-span-3 sm:col-span-3">
-                      <label for="serving" class="block text-sm font-medium text-gray-700">Serving</label>
-                      <input type="text" name="serving" id="serving" autocomplete="serving" value={bind_details.serving} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                    </div>
+                  <div class="col-span-3 sm:col-span-3">
+                    <label for="country" class="block text-sm font-medium text-gray-700">Daily</label>
+                    <select id="country" name="country" autobg-whitecomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <option>No</option>
+                      <option>Yes</option>
+                    </select>
+                  </div>
+
+                  <div class="col-span-3">
+                    <label for="distance" class="block text-sm font-medium text-gray-700">Distance</label>
+                    <input type="text" name="distance" id="distance" autocomplete="distance" value={bind_details.distance} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="country" class="block text-sm font-medium text-gray-700">Delivered</label>
+                    <select id="country" name="country" autobg-whitecomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <option>No</option>
+                      <option>Yes</option>
+                    </select>
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="country" class="block text-sm font-medium text-gray-700">Weekly</label>
+                    <select id="country" name="country" autobg-whitecomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <option>No</option>
+                      <option>Yes</option>
+                    </select>
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="country" class="block text-sm font-medium text-gray-700">Monthly</label>
+                    <select id="country" name="country" autobg-whitecomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <option>No</option>
+                      <option>Yes</option>
+                    </select>
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="country" class="block text-sm font-medium text-gray-700">Vender Is Active</label>
+                    <select id="country" name="country" autobg-whitecomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <option>Yes</option>
+                      <option>No</option>
+                    </select>
+                  </div>
+                  <div class="col-span-3 sm:col-span-3">
+                    <label for="serving" class="block text-sm font-medium text-gray-700">Serving</label>
+                    <input type="text" name="serving" id="serving" autocomplete="serving" value={bind_details.serving} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
                 </div>
-                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
-                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
-                </div>
               </div>
-            </form>
-          </div>
+              <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
+                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
+              </div>
+            </div>
+          </form>
         </div>
-    
+      </div>
+
 
     </div>;
   }
@@ -322,7 +325,7 @@ const Delivery = () => {
                   return (
                     <tr key={index}>
                       <td class="px-2 py-3 border-b border-gray-200 bg-white text-sm">
-                      
+
                         <div class="flex">
 
                           <div class="ml-3">
@@ -332,11 +335,11 @@ const Delivery = () => {
 
                           </div>
                         </div>
-                      
+
                       </td>
                       <td class="px-3 py-5 border-b border-gray-200 bg-white text-sm">
-                        <p class="text-gray-900 whitespace-no-wrap">{x.delivereddate}</p>
-
+                        {/* <p class="text-gray-900 whitespace-no-wrap">{x.delivereddate}</p> */}
+                        <p class="text-gray-900 whitespace-no-wrap">{moment(x.delivereddate).format('MMMM Do YYYY, h:mm:ss a')}</p>
                       </td>
                       <td class="px-3 py-5 border-b border-gray-200 bg-white text-sm">
                         <p class="text-gray-900 whitespace-no-wrap">{x.amount}</p>
@@ -352,9 +355,9 @@ const Delivery = () => {
 
               </tbody>
             </table>
-          </div>      
+          </div>
         </div>
-    </div>  
+      </div>
     </div>;
   }
 
@@ -440,11 +443,11 @@ const Delivery = () => {
                     return (
                       <tr key={index}>
                         <td class="px-2 py-3 border-b border-gray-200 bg-white text-sm">
-                        <button onClick={() => ShowDetails(x, 'vendorview')}>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                        </svg>
-                        </button>  
+                          <button onClick={() => ShowDetails(x, 'vendorview')}>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                            </svg>
+                          </button>
                           <div class="flex">
                             <div class="ml-3">
                               <p class="text-gray-900 whitespace-no-wrap">
@@ -453,10 +456,11 @@ const Delivery = () => {
 
                             </div>
                           </div>
-                          
+
                         </td>
                         <td class="px-3 py-5 border-b border-gray-200 bg-white text-sm">
-                          <p class="text-gray-900 whitespace-no-wrap">{x.delivereddate}</p>
+                          {/* <p class="text-gray-900 whitespace-no-wrap">{x.delivereddate}</p> */}
+                          <p class="text-gray-900 whitespace-no-wrap">{moment(x.delivereddate).format('MMMM Do YYYY, h:mm:ss a')}</p>
 
                         </td>
                         <td class="px-3 py-5 border-b border-gray-200 bg-white text-sm">

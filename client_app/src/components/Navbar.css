@@ -1,191 +1,192 @@
-.navbar{
- 
-    height: 81px;
-    border-bottom: 0.5px solid lightgrey;
-    font-size: 14px;
-    align-self: center;
-    color:#555;
-    display: flex;
-    background-color: white;
-  
-  }
-  
-  .topbarwrapper{
-    
-    width: 100%;
-    padding: -50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .top{
-    height:50px;
-    display: flex;
-    align-items: center;
-    
-    }
-  .logo{
-    font-size: 30px;
-    font-weight:bold ;
-    color: darkblue;   
-  }
-  .search{
-    position: relative;
-    display: flex;
-    align-items: center;
-    border: 0.5px solid lightgray;
-    border-radius: 30px;
-    padding: 2px 25px;
-  }
+.navbar {
 
-  input{
-    border: none;
-    outline: none;
-    background-color: transparent;
-  }
-  .items {
-    display: flex;
-    align-items: center;
-    
-  }
-  
-      .item{
-        display: flex;
-        align-items: center;
-        margin-right: 20px;
-  
-      }
-    
-  .avatar{
-    border: 30px;
-    height: 30px;
-    border-radius: 50%;
-  }
-  /* .topright{
+  height: 81px;
+  border-bottom: 0.5px solid lightgrey;
+  font-size: 14px;
+  align-self: center;
+  color: #555;
+  display: flex;
+  background-color: white;
+  position: inherit;
+
+}
+
+.topbarwrapper {
+
+  width: 100%;
+  padding: -50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top {
+  height: 50px;
+  display: flex;
+  align-items: center;
+
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: darkblue;
+}
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 0.5px solid lightgray;
+  border-radius: 30px;
+  padding: 2px 25px;
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.items {
+  display: flex;
+  align-items: center;
+
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+
+}
+
+.avatar {
+  border: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+/* .topright{
     display: flex;
     align-items: center;
   }
   .navbarIconContainer{
     position: fixed;
   } */
-  .navIconBadge{
-    width:10px ;
-    height: 10px;
-    position: absolute;
-    top: 25px;
-    right: 115px;
-    background-color: green;
-    border-radius: 50%;
-    display:flex ;
-    align-items: center;
-  }
-  .iconBadge{
-    width:10px ;
-    height: 10px;
-    position: absolute;
-    top: 25px;
-    right: 200px;
-    background-color: red;
-    border-radius: 50%;
-    display:flex ;
-    align-items: center;
-    position: fixed;
-  }
+.navIconBadge {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 25px;
+  right: 115px;
+  background-color: green;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.iconBadge {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 25px;
+  right: 200px;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+}
 
 
-  .profile {
-    display: flex;
-    text-align: center;
-    margin-top: 5px;
+.profile {
+  display: flex;
+  text-align: center;
+  margin-top: 5px;
 }
 
 .profile img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 2px solid red;
-    cursor: pointer;
-    
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid red;
+  cursor: pointer;
+
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f6eded;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    top:50px;
-    transition: all 2s
-    
+  display: none;
+  position: absolute;
+  background-color: #f6eded;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 50px;
+  transition: all 2s
 }
 
 .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    align-content: center;
-    display: block
-
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  align-content: center;
+  display: block
 }
 
 .dropdown-content a:hover {
-    background-color: #ddd
+  background-color: #ddd
 }
 
 .dropdown:hover .dropdown-content {
-    display: block
+  display: block
 }
 
 .profile ul {
-    background-color: whitesmoke;
-    width: 200px;
-    height: auto;
-    border-radius: 10px;
-    right: 25px;
-    top: 7px;
-    position: absolute;
-    padding: 8px;
-    transition: all 0.5s;
-    z-index: 1
+  background-color: whitesmoke;
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  right: 25px;
+  top: 7px;
+  position: absolute;
+  padding: 8px;
+  transition: all 0.5s;
+  z-index: 1
 }
 
 .profile ul::before {
-    content: '';
-    position: absolute;
-    background-color: #fff;
-    height: 10px;
-    width: 10px;
-    top: -5px;
-    transform: rotate(45deg)
+  content: '';
+  position: absolute;
+  background-color: #fff;
+  height: 10px;
+  width: 10px;
+  top: -5px;
+  transform: rotate(45deg)
 }
 
 .profile ul li {
-    list-style: none;
-    text-align: left;
-    font-size: 15px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    transition: all 0.5s;
-    cursor: pointer;
-    border-radius: 4px
+  list-style: none;
+  text-align: left;
+  font-size: 15px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s;
+  cursor: pointer;
+  border-radius: 4px
 }
 
 .profile ul li:hover {
-    background-color:#eee;
+  background-color: #eee;
 }
 
 .profile ul li i {
-    margin-right: 7px
+  margin-right: 7px
 }
-.name{
+
+.name {
   color: rgb(45, 45, 168);
   text-align: center;
-  
+
 }
-
-
-  
-  
