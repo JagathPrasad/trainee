@@ -16,6 +16,7 @@ import Delivery from './components/Delivery';
 import Subscription from './components/Subscription';
 import Vendordelivery from './components/Vendordelivery';
 import Userdelivery from './components/Userdelivery';
+import Vendors from './components/Vendors';
 
 
 import {
@@ -61,7 +62,8 @@ function App() {
     { path: "/delivery", element: <Delivery /> },
     { path: "/subscription", element: <Subscription /> },
     { path: "/vendordelivery", element: <Vendordelivery /> },
-    { path: "/userdelivery", element: <Userdelivery /> }    // ...
+    { path: "/userdelivery", element: <Userdelivery /> },
+    { path: "/Vendors", element: <Vendors /> }   // ...
   ]);
   return routes;
 }
