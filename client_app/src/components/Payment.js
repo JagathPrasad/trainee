@@ -11,6 +11,7 @@ import './Payment.css';
 const Payments = () => {
 
     const [payment_details, setPaymentDetails] = useState([]);
+    const [user_details, setuserDetails] = useState([]);
     const [bind_user, setBindUser] = useState({});
     const [user_type, setUserType] = useState('');
 
@@ -23,8 +24,20 @@ const Payments = () => {
             console.log(error, 'success');
         });
     }
+
+    const Getusers = (x) => {
+        axios.get('https://cometh.prelinehealthcare.com/api/user/getuserpayment/fcb3f9b4-845d-4eee-ba46-74368b9a69c1').then((res) => {
+            console.log(res.data, 'success');
+            setuserDetails(res.data);
+            console.log('user_details', user_details);
+        }).catch((error) => {
+            console.log(error, 'success');
+        });
+    }
+
     useEffect(() => {
         Getpayments();
+        Getusers();
     },
         []);
 
@@ -90,7 +103,7 @@ const Payments = () => {
             <div class="mt-10 sm:mt-0 right">
                 <div class="md:grid md:grid-cols-3  bg-gray-200 md:gap-6">
 
-                    <div class="mt-5 md:mt-0 md:col-span-2">
+                    <div class="mt-5 md:mt-0 md:col-span-3">
                         <form action="#" method="POST">
                             <div class="shadow overflow-hidden sm:rounded-md">
                                 <div class="px-4 py-5 bg-white sm:p-6">
@@ -118,6 +131,7 @@ const Payments = () => {
                                             <label for="street-address" class="block text-sm font-medium text-gray-700">Mobile No</label>
                                             <input type="text" name="street-address" id="street-address" autocomplete="street-address" value={bind_user.mobileno} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                         </div>
+                                        <br />
 
 
                                         <div class="col-span-2">
@@ -161,8 +175,6 @@ const Payments = () => {
         </div>;
     }
 
-    
-
     const RenderDelete = () => {
         return <div class="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full center">
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
@@ -187,10 +199,80 @@ const Payments = () => {
         </div>;
     }
 
+    const RenderuserView = () => {
+        console.log('bind', bind_user);
+        return (
+        <div class=" container px-4 sm:px-8 right-1">
+        <div class="py-8">
+            <div>
+                <h2 class="text-2xl font-semibold leading-tight text-left text-blue-900">User details</h2>
+            </div>
+            <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                <div
+                    class="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
+                >
+                    <table class="min-w-full leading-normal">
+                        <thead>
+                            <tr>
+                                <th
+                                    class="px-15 py-6 border-b-2 border-gray-200 bg-gray-100 text-left text-xm font-semibold text-blue-700 uppercase tracking-wider"
+                                >
+                                    DATE
+                                </th>
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xm font-semibold text-blue-700 uppercase tracking-wider"
+                                >
+                                    amount
+                                </th>
+                                
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {user_details.map((x, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <div class="ml-3">
+                                            <p class="text-gray-900 whitespace-no-wrap">
+                                             {x.date}
+                                            </p>
+
+                                        </div>
+
+                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+
+                                            <div class="flex">
+                                                <div class="flex-shrink-0 w-10 h-10">
+                                                    {x.amount}
+
+                                                </div>
+
+                                            </div>
+                                            </td>
+                                        
+                                    </tr>
+
+                                );
+                            })}
+
+
+                        </tbody>
+
+
+                    </table>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+    )
+
+    }
+
+
     return (
         <div>
-
-
             <div class=" container px-4 sm:px-8">
                 <div class="py-8">
                     <div>
@@ -236,7 +318,19 @@ const Payments = () => {
                                             <tr key={index}>
                                                 <div class="ml-3">
                                                     <p class="text-gray-900 whitespace-no-wrap">
-                                                        {x.name}
+                                                    
+<td class="px-5 py-5 border-b border-gray-200  text-sm">
+                                                    <button
+                                                        type="button"
+                                                        class="inline-block text-gray-500 hover:text-gray-700"
+                                                        
+                                                    >
+                                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"  onClick={() => ShowDetails(x, 'globe')} />
+</svg>
+                                                        
+                                                    </button> {x.name}
+                                                    </td>
                                                     </p>
 
                                                 </div>
@@ -304,6 +398,7 @@ const Payments = () => {
                             case "view": return RenderView();
                             case "edit": return RenderEdit();
                             case "delete": return RenderDelete();
+                            case "globe": return RenderuserView();
                             default: return "";
                         }
                     })()}</div>

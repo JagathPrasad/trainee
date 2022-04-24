@@ -15,9 +15,6 @@
  
     } */
     
-    .text-center {
-        text-align: center;
-    }
 
     svg path { 
 
@@ -32,9 +29,16 @@
         margin-left:105%;
         margin-top: -35%;
         width:70%;
-            border-style: groove;
+        border-style: groove;
         border-width: 20%;
         box-sizing: border-box;
         border-color: #555;
          background-color: #555; 
       }
+
+
+    .right-1{
+        margin-left:150%;
+        margin-top: -35%; 
+        width:70%;
+    }
