@@ -5,7 +5,7 @@ import Register from './components/Register';
 import Home from './components/Home';
 import User from './components/User';
 import Payment from './components/Payment';
-import Details from './components/Details';
+
 import Address from './components/Address';
 import Order from './components/Order';
 //import Payment from './components/Payment';
@@ -13,9 +13,15 @@ import Items from './components/Items';
 import Itemdetails from './components/Itemdetails';
 import Approval from './components/Approvals';
 import Delivery from './components/Delivery';
+import Subscription from './components/Subscription';
 import Vendordelivery from './components/Vendordelivery';
 import Userdelivery from './components/Userdelivery';
+<<<<<<< HEAD
 import ControlledPopup from './components/popup';
+=======
+import Vendors from './components/Vendors';
+
+>>>>>>> dev
 
 import {
   BrowserRouter as Router,
@@ -49,7 +55,7 @@ function App() {
     { path: "/home", element: <Home /> },
     { path: "/user", element: <User /> },
     { path: "/payment", element: <Payment /> },
-    { path: "/details", element: <Details /> },
+    
     { path: "/address", element: <Address /> },
     { path: "/ControlledPopup", element: <ControlledPopup /> },
 
@@ -58,8 +64,10 @@ function App() {
     { path: "/Itemdetails", element: <Itemdetails /> },
     { path: "/Approval", element: <Approval /> },
     { path: "/delivery", element: <Delivery /> },
+    { path: "/subscription", element: <Subscription /> },
     { path: "/vendordelivery", element: <Vendordelivery /> },
-    { path: "/userdelivery", element: <Userdelivery /> }    // ...
+    { path: "/userdelivery", element: <Userdelivery /> },
+    { path: "/Vendors", element: <Vendors /> }   // ...
   ]);
   return routes;
 }

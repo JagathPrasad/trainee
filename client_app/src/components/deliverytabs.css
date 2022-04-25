@@ -33,3 +33,19 @@
     display: none;
   }
   
+  .righht{
+    margin-left:105%;
+    margin-top: -40%;
+    width:75%;
+  }
+  
+   .deletecenter{
+    margin-left:55%;
+    margin-top: -65%;
+    width:106%;
+  } 
+  
+  svg path {
+  
+    color:darkblue!important;
+  }
