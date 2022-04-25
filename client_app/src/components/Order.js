@@ -54,7 +54,7 @@ const Order = () => {
     console.log('order', bind_user);
     return <div>
 
-      <div class="mt-10 sm:mt-0 right">
+      <div class="mt-10 sm:mt-0 right-1">
         <div class="md:grid md:grid-cols-3  bg-gray-200 md:gap-6">
 
           <div class="mt-5 md:mt-0 md:col-span-5">
@@ -290,7 +290,7 @@ const Order = () => {
 
   const RenderView = () => {
     console.log('order', bind_user);
-    return <div class="bg-white shadow overflow-hidden sm:rounded-lg right">
+    return <div class="bg-white shadow overflow-hidden sm:rounded-lg right-1">
       <div class="px-4 py-5 sm:px-6">
         <h3 class="text-lg leading-6 font-medium text-gray-900">Order Information</h3>
 
@@ -397,7 +397,7 @@ const Order = () => {
       {/* <Navbar />
           <Sidebar /> */}
 
-      <div class=" container px-4 sm:px-8">
+      <div class=" container ">
         <div class="py-8">
           <div>
             <h2 class="text-2xl font-semibold leading-tight text-left text-blue-900">ORDER DETAILS</h2>

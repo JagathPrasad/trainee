@@ -98,79 +98,87 @@ const Payments = () => {
 
     const RenderEdit = () => {
         console.log('data', bind_user);
-        return <div>
+        return <div class="bg-white shadow overflow-hidden sm:rounded-lg right" >
 
-            <div class="mt-10 sm:mt-0 right">
-                <div class="md:grid md:grid-cols-3  bg-gray-200 md:gap-6">
+<div class="mt-10 sm:mt-0">
+        <div class="md:grid md:grid-cols-3  bg-gray-200 md:gap-6">
 
-                    <div class="mt-5 md:mt-0 md:col-span-3">
-                        <form action="#" method="POST">
-                            <div class="shadow overflow-hidden sm:rounded-md">
-                                <div class="px-4 py-5 bg-white sm:p-6">
-                                    <div class="md:col-span-1">
-                                        <div class="px-4 sm:px-0">
+          <div class="mt-5 md:mt-0 md:col-span-5">
+            <form action="#" method="POST">
+              <div class="shadow overflow-hidden sm:rounded-md">
+                <div class="px-4 py-5 bg-white sm:p-6">
+                  <div class="md:col-span-1">
+                    <div class="px-4 sm:px-0">
 
-                                            <h3 class="text-lg font-medium leading-6 text-gray-900">Payment Details</h3>
-                                            
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <br />
-                                    <div class="grid grid-cols-3 gap-3">
-                                        <div class="col-span-4 sm:col-span-3">
-                                            <label for="first-name" class="block text-sm font-medium text-gray-700">Name</label>
-                                            <input type="text" name="first-name" id="first-name" autocomplete="given-name" value={bind_user.name} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        </div>
+                      <h3 class="text-lg font-medium leading-6 text-gray-900">EDIT PAYMENT</h3>
 
-                                        <div class="col-span-3 sm:col-span-3">
-                                            <label for="Item_name" class="block text-sm font-medium text-gray-700">Item_Name</label>
-                                            <input type="text" name="Item_Name" id="Item_name" autocomplete="Item_Name" value={bind_user.item_name} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        </div>
-
-                                        <div class="col-span-2">
-                                            <label for="street-address" class="block text-sm font-medium text-gray-700">Mobile No</label>
-                                            <input type="text" name="street-address" id="street-address" autocomplete="street-address" value={bind_user.mobileno} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        </div>
-                                        <br />
-
-
-                                        <div class="col-span-2">
-                                            <label for="street-address" class="block text-sm font-medium text-gray-700">Amount</label>
-                                            <input type="text" name="Amount" id="Amount" autocomplete="Amount`" value={bind_user.amount} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        </div>
-
-                                       
-                                       
-
-
-
-                                        <div class="col-span-4">
-                                            <dt class="text-sm font-medium text-gray-500">transaction_date</dt>
-                                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{bind_user.transaction_date}</dd>
-
-                                        </div>
-
-                                        <div class="col-span-4">
-                                            <dt class="text-sm font-medium text-gray-500">transaction_id</dt>
-                                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{bind_user.transaction_id}</dd>
-                                        </div>
-
-
-
-                                    </div>
-                                </div>
-
-
-                                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-
-                                    <button class="h-10 px-5 m-2 text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800">Update</button>
-                                    <button class="h-10 px-5 m-2 text-red-100 transition-colors duration-150 bg-red-700 rounded-lg focus:shadow-outline hover:bg-red-800">Cancel</button>
-                                </div>
-                            </div>
-                        </form>
                     </div>
+                  </div>
+                  <br />
+                  <br />
+                  <div class="grid grid-cols-3 gap-3">
+                    <div class="col-span-4 sm:col-span-3">
+                      <label for="first-name" class="block text-sm font-medium text-gray-700">NAME</label>
+                      <input type="text" name="first-name" id="first-name" autocomplete="given-name" value={bind_user.name} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    </div>
+
+                    <div class="col-span-3 sm:col-span-3">
+                      <label for="Item_name" class="block text-sm font-medium text-gray-700">ITEM NAME</label>
+                      <input type="text" name="Item_Name" id="Item_name" autocomplete="Item_Name" value={bind_user.item_name} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    </div>
+
+                    <div class="col-span-2">
+                      <label for="street-address" class="block text-sm font-medium text-gray-700">MOBILE NO</label>
+                      <input type="text" name="street-address" id="street-address" autocomplete="street-address" value={bind_user.mobile_no} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    </div>
+                    <br />
+                    <br />
+
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+
+                      <dt class="text-sm font-medium text-gray-500"> image</dt>
+
+                      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+
+                        <img
+
+                          class="w-20 h-20 rounded-full"
+
+                          src="https://images.picxy.com/cache/2020/9/16/8a8e341b948292c167ffc00f197d39a9.jpg" alt="display image" /></dd>
+
+                    </div>                
+                    <br />
+                    <div class="col-span-2">
+                      <label for="street-address" class="block text-sm font-medium text-gray-700">delivery_time</label>
+                      <input type="text" name="Amount" id="Amount" autocomplete="Amount`" value={bind_user.order.delivery_time} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    </div>
+
+                    <div class="col-span-2">
+                      <label for="street-address" class="block text-sm font-medium text-gray-700">iscancelled</label>
+                      <input type="text" name="Amount" id="Amount" autocomplete="Amount`" value={bind_user.order.iscancelled} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    </div>
+
+
+
+                    <div class="col-span-2">
+                      <label for="street-address" class="block text-sm font-medium text-gray-700">isdelivered</label>
+                      <input type="text" name="Amount" id="Amount" autocomplete="Amount`" value={bind_user.item.isdelivered} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    </div>
+                  </div>
                 </div>
-            </div>
+
+
+                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+
+                  <button class="h-10 px-5 m-2 text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800">Update</button>
+                  <button class="h-10 px-5 m-2 text-red-100 transition-colors duration-150 bg-red-700 rounded-lg focus:shadow-outline hover:bg-red-800">Cancel</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
 
         </div>;
     }
