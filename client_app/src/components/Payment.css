@@ -4,7 +4,6 @@
     margin-left: 5%;
     
     }
-<<<<<<< HEAD
     .container {
         max-width: 50%;
         margin-left: 12%;
@@ -25,43 +24,3 @@
        
       
       }
-=======
-    /* px-8 {
-        
-        padding-right: 2rem;
-        width: 30%;
-        
-    height:5%;
-        display: flex;
-    text-align: center;
- 
-    } */
-    
-
-    svg path { 
-
-        color:darkblue!important;
-    
-      } 
-
-
-
-    .right{
-        
-        margin-left:105%;
-        margin-top: -35%;
-        width:70%;
-        border-style: groove;
-        border-width: 20%;
-        box-sizing: border-box;
-        border-color: #555;
-         background-color: #555; 
-      }
-
-
-    .right-1{
-        margin-left:150%;
-        margin-top: -35%; 
-        width:70%;
-    }
->>>>>>> dev

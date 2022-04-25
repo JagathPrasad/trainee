@@ -164,12 +164,8 @@ const User = () => {
   }
   return (
     <div>
-<<<<<<< HEAD
-      
-=======
       {/* <Navbar />
       <Sidebar /> */}
->>>>>>> dev
 
       <div class="mx-auto  px-4 sm:px-8">
         <div class="py-8">
@@ -289,11 +285,7 @@ const User = () => {
             }
           })()}</div>
       </div>
-<<<<<<< HEAD
-      
-=======
       {/* <Footer /> */}
->>>>>>> dev
     </div>
 
 

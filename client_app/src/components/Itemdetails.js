@@ -7,6 +7,7 @@ import axios from 'axios';
 
 const Itemdetails = () => {
     const [item_details, setItemDetails] = useState([]);
+   
     const [vendor_Items, ItemDetails] = useState([]);
     const [bind_details, setDetails] = useState({});
     const [user_type, setUserType] = useState('');
@@ -21,11 +22,12 @@ const Itemdetails = () => {
             console.log(error, 'success');
         });
     }
-    const Getvendoritem = () => {
-      axios.get('https://cometh.prelinehealthcare.com/api/item/getallvendoritem/1BAB575B-D40F-485A-A038-023747A29E82').then((res) => {
+    const Getvendoritem = (vendorid,type) => {
+      axios.get('https://cometh.prelinehealthcare.com/api/item/getallvendoritem/'+vendorid).then((res) => {
           console.log(res.data, 'success');
           //setTimeout(1000)      
          ItemDetails(res.data);
+         setUserType(type); 
           console.log('Vendor_Items', vendor_Items);
       }).catch((error) => {
           console.log(error, 'success');
@@ -34,19 +36,20 @@ const Itemdetails = () => {
 
     useEffect(() => {
         GetUsers();
-        Getvendoritem();
+        //Getvendoritem();
     }, []);
-   
     const ShowDetails = (data, type) => {
-      console.log('data', data);
-      setDetails(data);
-      setUserType(type);
-     
+      if (type == 'itemslist') {
+        Getvendoritem(data, type);
+      } else {
+        console.log('data', data);
+        setDetails(data);
+        setUserType(type);
+       
+      }
   
-      //crate html structure for showing details    
-      
-      //structure should bind in setDetails
     }
+   
     const RenderallView = () => {
       
       console.log('bind', bind_details);
@@ -410,7 +413,7 @@ const RenderDelete = () => {
               <td class="px-3 py-5 border-b border-gray-200 bg-white text-sm">
               
               
-              <button type="button" class="inline-block text-gray-500 hover:text-gray-700"onClick={() => ShowDetails(x, 'viewes')}>
+              <button type="button" class="inline-block text-gray-500 hover:text-gray-700"onClick={() => ShowDetails(x.vendorid, 'itemslist')}>
             
               <div class="flex">
                     <p class="text-gray-900 whitespace-no-wrap font-bold">
@@ -473,7 +476,7 @@ const RenderDelete = () => {
           </div>
           <div>{(() => {
             switch (user_type) {
-              case "viewes": return RenderallView();
+              case "itemslist": return RenderallView();
               case "view": return RenderView();
               case "edit": return RenderEdit();
               case "delete": return RenderDelete();

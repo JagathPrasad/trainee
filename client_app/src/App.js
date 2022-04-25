@@ -16,12 +16,8 @@ import Delivery from './components/Delivery';
 import Subscription from './components/Subscription';
 import Vendordelivery from './components/Vendordelivery';
 import Userdelivery from './components/Userdelivery';
-<<<<<<< HEAD
-import ControlledPopup from './components/popup';
-=======
 import Vendors from './components/Vendors';
 
->>>>>>> dev
 
 import {
   BrowserRouter as Router,
@@ -57,7 +53,7 @@ function App() {
     { path: "/payment", element: <Payment /> },
     
     { path: "/address", element: <Address /> },
-    { path: "/ControlledPopup", element: <ControlledPopup /> },
+   
 
     { path: "/Order", element: <Order /> },
     { path: "/items", element: <Items /> },
