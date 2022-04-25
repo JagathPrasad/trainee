@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AppWrapper from './App';
 import './App.css';
+import 'tw-elements';
 // import {AuthProvider} from './context/AuthProvider';
 
 

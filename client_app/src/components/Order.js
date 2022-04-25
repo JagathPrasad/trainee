@@ -23,10 +23,11 @@ const Order = () => {
     });
   }
 
-  const Getuserorder = (vendorid) => {
+  const Getuserorder = (vendorid, type) => {
     axios.get('https://cometh.prelinehealthcare.com/api/order/getvendororder/' + vendorid).then((res) => {
       console.log(res.data, 'success');
       setOtherDetails(res.data);
+      setUserType(type);
       console.log('setOtherDetails', other_details);
     }).catch((error) => {
       console.log(error, 'success');
@@ -41,7 +42,7 @@ const Order = () => {
 
   const ShowDetails = (data, type) => {
     if (type = 'userorder') {
-      Getuserorder(data);
+      Getuserorder(data, type);
     } else {
       console.log('data', data);
       setBindUser(data);
@@ -454,7 +455,7 @@ const Order = () => {
                           <p class="text-gray-900 whitespace-no-wrap">
                             <button
                               class="inline-block text-gray-500 hover:text-gray-700"
-                              onClick={() => {ShowDetails(x.order.vendorid, 'userorder')}}
+                              onClick={() => { ShowDetails(x.order.vendorid, 'userorder') }}
                             >
                               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
