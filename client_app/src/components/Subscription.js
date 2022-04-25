@@ -51,7 +51,7 @@ const Subscription = () => {
 
   const RenderView = () => {
     console.log('bind', bind_details);
-    return <div class="bg-gray-200 shadow overflow-hidden sm:rounded-lg right">
+    return <div class="bg-gray-200 shadow overflow-hidden sm:rounded-lg rightt">
       <div class="px-4 py-5 sm:px-6">
         <h3 class="text-lg leading-6  font-medium text-blue-900">Subscription</h3>
       </div>
@@ -120,7 +120,7 @@ const Subscription = () => {
             </svg>
           </div>
           <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-            <h3 class="text-lg leading-6 font-medium text-blue-900" id="modal-title">Delete Delivery Details</h3>
+            <h3 class="text-lg leading-6 font-medium text-blue-900" id="modal-title">Delete Subscription Details</h3>
             <div class="mt-2">
               <p class="text-sm text-gray-500">Are you sure you want to delete your details? All of your data will be permanently removed. This action cannot be undone.</p>
             </div>
@@ -137,7 +137,7 @@ const Subscription = () => {
   const RenderEdit = () => {
     return <div>
 
-      <div class="mt-10 sm:mt-0 right">
+      <div class="mt-10 sm:mt-0 rightt">
 
         <div class="px-4 sm:px-0">
           <h3 class="text-xl font-medium leading-6 text-blue-900">Subscription Details</h3>
@@ -238,62 +238,20 @@ const Subscription = () => {
     //call api by sending type
     //bind the response in setSubscriptionDetails
   }
-  // const Dropdown = ({
-  //   options
-  // }) => {
-  //   const [subscribe_details, setSubscribeDetails] = useState(options[0].value);
-
-  //   return (
-  //       <select
-  //         value={subscribe_details}
-  //         onChange={x => setSubscribeDetails(x.target.value)}>
-  //         {options.map(o => (
-  //           <option key={o.value} value={o.value}>{o.label}</option>
-  //         ))}
-  //       </select>
-  //   );
-  // };
+  
 
 
   return (
     <div>
       <br></br>
-      {/* <div class=" dropposition relative inline-block text-left">
-    <div>
-    <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="menu-button" aria-expanded="true" aria-haspopup="true">
-      Options
       
-      <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-      </svg>
-    </button>
-  </div>
-
-  
-  <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-    <div class="py-1" role="none">
-      
-    <button type="submit" class="text-gray-700 block w-full text-left px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">subscribe 1</button>
-    <button type="submit" class="text-gray-700 block w-full text-left px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">subscribe 2</button>
-    <button type="submit" class="text-gray-700 block w-full text-left px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">subscribe 3</button> 
-    </div>
-  </div>
-</div> */}
-      <select onChange={(event) => ChangeSubscription(event.target.value)} name="list" id="list" accesskey="target">
+      {/* <select onChange={(event) => ChangeSubscription(event.target.value)} name="list" id="list" accesskey="target">
         <option value='0' selected>--Select--</option>
         <option value="1">Breakfast</option>
         <option value="2">Lunch</option>
         <option value="3">Dinner</option>
-      </select>
-      {/* <form>
-<select name="list" id="list" accesskey="target">
-    <option value='none' selected>Choose a theme</option>
-    <option value="index.html">Theme 1</option>
-    <option value="theme2.html">Theme 2</option>
-    <option value="theme3.html">Theme 3</option>
-</select>
-<input  value="Go" onclick={() => ShowDetails(x, 'delete')} />
-</form> */}
+      </select> */}
+      
       <br></br>
       <div class=" containers mx-auto px-4 sm:px-8">
         <h1 class=" text-2xl font-bold leading-tight text-left text-blue-900">SUBSCRIPTION</h1>

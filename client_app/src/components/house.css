@@ -4,14 +4,15 @@
     margin-top: 1%;
   }
 
-  .rightt{
+  .right{
     margin-left:105%;
-    margin-top: -43%;
+    margin-top: -47%;
     width:75%;
   }
 
   .dropposition{
-    margin-left: 25%;
+    margin-left: 0%;
+    margin-top: 3%;
     font-style:normal;
     font-size: large;
     color: blue;
