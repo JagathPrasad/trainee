@@ -7,13 +7,15 @@ import React, { useEffect, useState } from 'react'
 
 const Approvals = () => {
   const [pending, setApprovalDetails] = useState([]);
+  const [approval,setapproved]=useState([]);
+  const [disapprove,setdisapproved]=useState([]);
   const [bind_details, setDetails] = useState({});
   const [user_type, setUserType] = useState('');
-  const [showpopup, setPopup] = useState(false);
+  
   const GetApproval = () => {
     axios.get('https://cometh.prelinehealthcare.com/api/admin/getpendingapproval').then((res) => {
       console.log(res.data, 'success');
-      //setTimeout(1000)      
+           
       setApprovalDetails(res.data);
       console.log('Pending', pending);
     }).catch((error) => {
@@ -21,8 +23,32 @@ const Approvals = () => {
     });
 
   }
+  const Approved = (user_id,  type) => {
+    axios.get('https://cometh.prelinehealthcare.com/api/admin/getapprovevendor/'+ user_id / + type).then((res) => {
+      console.log(res.data, 'success');
+        
+      setapproved(res.data);
+      console.log('approval', approval);
+    }).catch((error) => {
+      console.log(error, 'success');
+    });
+
+  }
+  const Disapproved = (user_id,  type) => {
+    axios.get('https://cometh.prelinehealthcare.com/api/admin/getapprovevendor/'+ user_id /+ type).then((res) => {
+      console.log(res.data, 'success');
+        
+      setdisapproved(res.data);
+      console.log('disapprove', disapprove);
+    }).catch((error) => {
+      console.log(error, 'success');
+    });
+
+  }
   useEffect(() => {
     GetApproval();
+    Approved()
+   
   }, []);
   {/* {renderAll()} */ }
 
@@ -34,16 +60,25 @@ const Approvals = () => {
   }
 
 
-  const ShowDelete = () => {
-    console.log('showdelete', showpopup)
-    setPopup(true);
-  }
 
-  const Approve = (vendorid, approve) => {
-    console.log('Status is Approved', vendorid, approve)
+
+  const Approve = (event) => {    
+   if (event = Disapproved ){
+    Approved('approved');
+    GetApproval();
+   }
+    else{
+      Disapproved('Rejected')
+      GetApproval();
+  
+
+    }
+    //call the api for approval or dissapproval 
+    // after the response you have to refresh the grid
   }
-  const disApprove = (vendorid, Disapprove) => {
-    console.log('Status is Dis approved', vendorid, Disapprove)
+  const disApprove = () => {    
+ 
+  
   }
   const RenderView = () => {
     console.log('bind', bind_details);
@@ -94,7 +129,7 @@ const Approvals = () => {
             <dt class="text-sm font-medium text-gray-500">Approval Status</dt>
 
             {(() => {
-              if (bind_details.kyc.verified != true) {
+              if (bind_details.kyc.verified == true) {
                 return <dd class="mt-1 text-sm text-green-600 sm:mt-0 sm:col-span-2">Approved
 
                 </dd>
@@ -102,8 +137,8 @@ const Approvals = () => {
                 return <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Pending
                   <br></br>
                   <br></br>
-                  <button onClick={() => {alert('APPROVED');Approve(bind_details.user_id, 'approve')}} class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Approve</button>
-                  <button onClick={() => {alert('REJECTED');disApprove(bind_details.user_id, 'disapprove')}} class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Reject</button>
+                  <button onClick={(event) => Approve(bind_details.user_id, 'approve')} class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Approve</button>
+                  <button onClick={(event) => Approve(bind_details.user_id, 'disapprove')} class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Reject</button>
 
 
                 </dd>

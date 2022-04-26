@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './tabs.css';
-
+import { useNavigate } from "react-router-dom";
 
 import axios from 'axios';
 
@@ -48,6 +48,11 @@ const Itemdetails = () => {
        
       }
   
+    }
+    let navigate = useNavigate(); 
+    const routeadd = () =>{ 
+    let path = `/additems`;
+    navigate(path);
     }
    
     const RenderallView = () => {
@@ -155,7 +160,7 @@ const Itemdetails = () => {
     
 const RenderView = () => {
   console.log('bind', bind_details);
-  return <div class="bg-white shadow overflow-hidden sm:rounded-lg w-6/12 right">
+  return <div class="bg-blue-200 shadow overflow-hidden sm:rounded-lg w-6/12 right">
     <div class="px-4 py-5 sm:px-6">
       <h3 class="text-lg leading-6 font-medium  text-gray-900">Food Information</h3>
     
@@ -239,9 +244,12 @@ const RenderView = () => {
 const RenderEdit = () => {
 
 
-  return <div>
-
-    <div class="mt-10 sm:mt-0 right bg-grey-200">
+  return <div class="bg-white shadow overflow-hidden sm:rounded-lg w-6/12 right">
+    <div class="px-4 py-5 sm:px-6">
+      <h3 class="text-lg leading-6 font-medium  text-gray-900">Food Information</h3>
+    
+    </div>
+    <div class="mt-10 sm:mt-0  bg-grey-200">
       <div class="md:grid md:grid-cols-3 md:gap-6 ">
         
         <div class="mt-5 md:mt-0 md:col-span-2">
@@ -368,7 +376,11 @@ const RenderDelete = () => {
             <div class=" container mx-auto px-4 sm:px-8 w-6/12">
                 <div class="py-8">
                     <div>
-                        <h2 class="text-2xl font-semibold leading-tight text-center text-blue-900">MENU</h2>
+                        <h2 class="text-2xl font-semibold leading-tight text-left  text-blue-900">MENU</h2>
+
+                   
+                        <button onClick={routeadd} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">ADD
+</button>
                     </div>
                     <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                         <div
