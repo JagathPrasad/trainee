@@ -8,10 +8,8 @@ import './Navbar.css';
 import React, { useCallback, useState } from 'react';
 
 
-
-
 const Navbar = (props) => {
-  
+
   //const user = sessionStorage.getItem("user") ?? '';
   
   
@@ -20,6 +18,18 @@ const Navbar = (props) => {
 
   // }
   const[user_name,setUserName]=useState('Anusha')
+  const MyContext = React.createContext();
+
+  const setuser = (data) => {
+    if(data) {
+        sessionStorage.setItem('user_name', data.name);
+        setUserName({username: data.name});
+        console.log('Data in user: ', data);
+    } else {
+        sessionStorage.setItem('user_name', null);
+        
+    }
+  }
   return (
     <div className="navbar">
       <div className="topbarwrapper">
@@ -64,7 +74,7 @@ const Navbar = (props) => {
         <div class="profile"> <img src={`../profile_fhgfgh.jpg`} className="avatar"></img>
             <div class="dropdown-content">
                 <ul>
-                 
+                <MyContext.Provider value={{ user_name, setUserName: setuser }}>
                     <li className="name"><h2> {user_name}</h2></li>
                     <hr/>
                     <li><button>Settings</button></li>
@@ -72,6 +82,7 @@ const Navbar = (props) => {
                     <li><button>Inbox</button></li>
                     <li><button>Help</button></li>
                     <li><button>Logout</button></li>
+                 </MyContext.Provider>
                     
                 </ul>
             </div>

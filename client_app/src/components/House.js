@@ -262,7 +262,7 @@ const House = () => {
                                         <th
                                             class="px-3 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xm font-semibold text-blue-700 uppercase tracking-wider"
                                         >
-                                            Friday Item
+                                            Monday to Friday Item
                                         </th>
                                         <th
                                             class="px-3 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xm font-semibold text-blue-700 uppercase tracking-wider"
@@ -309,7 +309,7 @@ const House = () => {
                                                     </div>
                                                 </td>
                                                 <td class="px-3 py-5 border-b border-gray-200 bg-white text-sm">
-                                                    <p class="text-gray-900 whitespace-no-wrap">{x.fri}</p>
+                                                    <p class="text-gray-900 whitespace-no-wrap">{x.mon}<br></br>{x.tue}<br></br>{x.wed}<br></br>{x.thu}<br></br>{x.fri}</p>
 
                                                 </td>
                                                 <td class="px-3 py-5 border-b border-gray-200 bg-white text-sm">

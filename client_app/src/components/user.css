@@ -7,4 +7,10 @@ display: flex;
 }
 .container {
     max-width:50%;
+    margin-left:10px;
 }
+.rights{
+    margin-left:65%;
+    margin-top: -60%;
+    width:50%;
+  }

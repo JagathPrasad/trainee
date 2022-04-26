@@ -233,26 +233,13 @@ const Subscription = () => {
     </div>;
   }
 
-  const ChangeSubscription = (event) => {
-    //console.log('type', event);
-    //call api by sending type
-    //bind the response in setSubscriptionDetails
-  }
+  
   
 
 
   return (
     <div>
-      <br></br>
       
-      {/* <select onChange={(event) => ChangeSubscription(event.target.value)} name="list" id="list" accesskey="target">
-        <option value='0' selected>--Select--</option>
-        <option value="1">Breakfast</option>
-        <option value="2">Lunch</option>
-        <option value="3">Dinner</option>
-      </select> */}
-      
-      <br></br>
       <div class=" containers mx-auto px-4 sm:px-8">
         <h1 class=" text-2xl font-bold leading-tight text-left text-blue-900">SUBSCRIPTION</h1>
 
