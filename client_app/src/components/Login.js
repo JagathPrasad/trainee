@@ -22,54 +22,74 @@ const Login = () => {
         navigate(path);
     }
 
-    // state = {
-    //         Mobileno: '',
-    //         password: ''
-    //     }
+    
 
 
-    // const handleFormChange = (e) => {
-    //     debugger;
-    //     this.setState({
-    //         Mobileno: e.target.value,
-    //         password: e.target.value
-    //     });
+    const[user_details, setuserDetails] = useState('');
+    const [mobileno, setmobileno] = useState('');
+    const [OTP, setotp] = useState('');
 
-    // }
-
-    const [Username, setUsername] = useState('');
-    const [password, setpassword] = useState('');
-
-    const Getusers = () => {
+    const Getloginuser = (mobileno) => {
         debugger;
-        if (Username != '' || Username != null && (password != '' || password != null)) {
+        
             //if (true) {
-            alert();
-            axios.get('https://cometh.prelinehealthcare.com/api/user/getloginuser/984012356').then((res) => {
+            //alert();
+            axios.get('https://cometh.prelinehealthcare.com/api/user/getloginuser/' +mobileno).then((res) => {
                 //debugger;
                 console.log(res.data, 'success');
                 //debugger;
-                sessionStorage.setItem('user_details', res.data);
-                goHome();
+               sessionStorage.setItem('user_details', res.data);
+              // goGetuserotp();
 
             }).catch((error) => {
                 console.log(error, 'success');
             });
 
-        }
-        else {
-            // show ? <h4>Something seriously bad happened.</h4> : null
+        
         }
 
+        const Getuserotp = () => {
+            debugger;
+            
+            
+                //if (true) {
+                //alert();
+                axios.get('https://cometh.prelinehealthcare.com/api/user/getloginuser/12345/ef41f8ef-430a-499d-80df-2f6e11e33d75/').then((res) => {
+                    //debugger;
+                    console.log(res.data, 'success');
+                    //debugger;
+                   sessionStorage.setItem('user_details', res.data);
+                  //  goHome();
+    
+                }).catch((error) => {
+                    console.log(error, 'success');
+                });
+    
+            
+            }   
 
-    }
+    
 
     useEffect(() => {
-        //Getusers();
+        Getloginuser();
+      
         //goHome();
 
     },
         []);
+
+        
+
+        // if (test == true) 
+        //             {
+                        
+        //         alert("Type OTP")
+        //                gotest1()   
+        //                  return ()  
+        //              }
+        //             else  {
+        //             alert("NOT Matching")
+        //                 } 
 
 
     return (
@@ -78,18 +98,39 @@ const Login = () => {
 
             <div className='sub-main'>
 
-                <h1><b>Login</b></h1>
+                <h1><b>Login Form</b></h1>
+                <br />
                 <div >
+                    
+                
+                    
+                    
+                
 
-                    <input type="text" placeholder="Enter Username" name="Username" required onChange={(e) => setUsername(e.target.value)} />
+                    <input id= "test" type="number" placeholder="Enter Mobile No" name="mobile" required onChange={e => {setmobileno(e.target.value); }} />
                     <br />
-                    <br />
-                    <input type="password" name="password" placeholder="Enter password" onChange={(e) => setpassword(e.target.value)} />
-                    <br />
-                    <br />
-
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" onClick={() => Getusers()}>Login</button>
+                    <br />  
+                  <button  className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" onClick={() => Getloginuser()}>Submit</button>
+                    
                 </div>
+                <br />
+            
+
+                <div>
+                <input id= "test1" type="password" placeholder="Enter OTP" name="otp" required onChange={(e) => setotp(e.target.value)} />
+                <br />
+                <br />
+
+                <button  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"onClick={() => Getuserotp()} >Login</button>
+                </div>
+
+                {(() => {
+            if (test == true) {
+                return <Redirect to={test1} />;
+            } 
+            
+          })()}
+                <br />
 
                 <a href="forgot-password.html" className="text-primary">Forgot Password?</a>
 

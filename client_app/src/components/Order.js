@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Footer from './Footer';
 import './Order.css';
+import moment from 'moment';
 
 
 const Order = () => {
@@ -41,7 +42,8 @@ const Order = () => {
   }, []);
 
   const ShowDetails = (data, type) => {
-    if (type = 'userorder') {
+    console.log('(data, type', data, type);
+    if (type == 'userorder') {
       Getuserorder(data, type);
     } else {
       console.log('data', data);
@@ -192,7 +194,7 @@ const Order = () => {
         <div class=" right-2">
           <div>
             <div>
-              <h2 class="text-2xl font-semibold leading-tight text-left text-blue-900">Venodr Details</h2>
+              <h2 class="text-2xl font-semibold leading-tight text-left text-blue-900">Vendor Details</h2>
             </div>
             <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
               <div
@@ -315,14 +317,14 @@ const Order = () => {
 
           <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">delivery_time</dt>
-            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{bind_user.order.delivery_time}</dd>
+            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{bind_user.delivery_time}</dd>
           </div>
           <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">iscancelled</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
               {(() => {
 
-                if (bind_user.order.iscancelled == true) {
+                if (bind_user.iscancelled == true) {
 
                   return <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Yes</dd>
 
