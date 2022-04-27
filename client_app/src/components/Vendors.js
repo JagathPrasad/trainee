@@ -42,12 +42,12 @@ const Vendors = () => {
     }
     const RenderView = () => {
       console.log('bind', bind_user);
-      return <div class="bg-white shadow overflow-hidden sm:rounded-lg w-6/12 right">
-        <div class="px-3 py-4 sm:px-3">
-          <h3 class="text-lg leading-6 font-medium text-gray-900">Vendor Information</h3>
-
-        </div>
-        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 left-top">
+      return <div class="bg-gray-200 shadow overflow-hidden sm:rounded-lg side">
+      <div class="px-4 py-5 sm:px-6">
+        <h3 class="text-lg leading-6  font-medium text-blue-900">Vendor </h3>
+      </div>
+        
+      <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 left-top">
               <dt class="text-sm font-medium text-gray-500">Photo</dt>
               <img
 
@@ -317,7 +317,7 @@ transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-
                         <td class="px-0 py-5 border-b border-gray-200 bg-white text-sm text-right">
                           <button onClick={() => ShowDetails(x, 'view')}>
 
-                            <td >
+                            <td >  
 
                               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 24 24" stroke="blue" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />

@@ -33,11 +33,10 @@ const Banner = () => {
 
         const RenderView = () => {
             console.log('bind', bind_user);
-            return <div class="bg-white shadow overflow-hidden sm:rounded-lg w-6/12 right">
-              <div class="px-3 py-4 sm:px-3">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">Banner</h3>
-      
-              </div>
+            return <div class="bg-gray-200 shadow overflow-hidden sm:rounded-lg side">
+            <div class="px-4 py-5 sm:px-6">
+              <h3 class="text-lg leading-6  font-medium text-blue-900">Banner </h3>
+            </div>
               
               <div class="border-t border-gray-200">
                 <dl>
@@ -65,87 +64,48 @@ const Banner = () => {
             </div>;
           }
           const RenderEdit = () => {
-            return <div class="bg-white shadow overflow-hidden sm:rounded-lg w-6/12 right">
-               <div class="mt-10 sm:mt-0">
-                <div class="md:grid md:grid-cols-3 bg-gray-200 md:gap-6">
-                  <div class="md:col-span-1">
-                    <div class="px-3 sm:px-0">
-                    </div>
-                  </div>
-                  <div class="mt-5 md:mt-0 md:col-span-3">
-                    <form action="#" method="POST">   
-                      <div class="shadow overflow-hidden sm:rounded-md">
-                        <div class="px-3 py-2 bg-white sm:p-6">
-                          <div class="grid grid-cols-6 gap-6">
-                            {/* <div class="col-span-6 sm:col-span-3">
-                              <label for="first-name" class="block text-sm font-medium text-gray-700 ">identity_card</label>
-                              <img
-                                      class="w-full h-full rounded-full"
-                                      // src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                      src={bind_user.identity_card}
-                                      alt=""
-                                    />
-                              
-                            </div> */}
+            console.log('bind', bind_user);
+            return <div>
         
-                            <div class="col-span-6 sm:col-span-3 ">
-                              <label for="Full-name" class="block text-sm font-medium text-gray-700">Full name</label>
-                              <input type="text" name="full-name" id="full-name" autocomplete="family-name" value={bind_user.name} class="mt-1 focus:ring-indigo-500  bg-gray-100 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-grey-300 rounded-md" />
-                            </div>
+              <div class="mt-10 sm:mt-0 righht">
         
-                            <div class="col-span-6 sm:col-span-3">
+                <div class="px-4 sm:px-0">
+                 
+                </div>
+                <br></br>
+                <div class="mt-5 md:mt-0 md:col-span-2">
+                  <form action="#" method="POST">
+                    <div class="shadow overflow-hidden sm:rounded-md">
+                      <div class="px-4 py-5 bg-gray-200 sm:p-6">
+                        <div class="grid grid-cols-6 gap-6">
+                          <div class="col-span-3 sm:col-span-4">
+                            <label for="address" class="block text-sm font-medium text-gray-700"> Full Name</label>
+                            <input type="text" name="full name" id="fullname" autocomplete="name" value={bind_user.name} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                          </div>
+        
+                          <div class="col-span-6 sm:col-span-3">
                               <label for="first-name" class="block text-sm font-medium text-gray-700 ">Image</label>
                               <img
                                       class="w-full h-full rounded-full"
-                                      // src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
+                                      
                                       src={bind_user.image}
                                       alt=""
                                     />
                               
                             </div>
         
-                            {/* <div class="col-span-6 sm:col-span-3">
-                              <label for="Isfemaile" class="block text-sm font-medium text-gray-700">Isfemaile</label>
-                              <select id="Isfemaile" name="Isfemaile" autocomplete="" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                <option>True</option>
-                                <option>False</option>
-                              
-                              </select>
-                            </div>  */}
-        
+        </div>
                           
-        
-        <div class="col-span-6 sm:col-span-4">
-      
-      <label for="email-address" class="block text-sm font-medium text-gray-700">Image</label>
-      
-      <div class="flex justify-center">
-      
-      <div class="mb-3 w-96">
-      
-      <label for="formFile" class="form-label inline-block mb-2 text-gray-700"> Select an Iamge</label>
-      
-      <input class="form-control  block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  border border-solid border-gray-300 rounded
-      
-      transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="formFile"></input>
-      
-      </div>
-      
-      </div> </div>
-        
-                            
-                          </div> 
-                        </div>
-                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6sm:flex sm:flex-row-reverse">
-                          <button type="update" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">update</button>
-                        
-                          <button type="cancel" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">cancel</button>
-                        </div>
+                      <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
+                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
                       </div>
-                    </form>
-                  </div>
+                    </div>
+                    </div>
+                  </form>
                 </div>
               </div>
+        
         
             </div>;
           }
@@ -237,15 +197,15 @@ const Banner = () => {
                                                                 src={x.image}
                                                                 alt=""
                                                             />
-                                                        </div>
+                                                        </div>              
                                                         
                                                         
                                                                                                            </div>
                                                 </td>
-                                                <td class="px-2 py-4  b    border-b border-gray-200 bg-white text-sm text-right">
+                                                <td class="px-0 py-5 border-b border-gray-200 bg-white text-sm text-right">
                           <button onClick={() => ShowDetails(x, 'view')}>
 
-                            <td >
+                            <td >  
 
                               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 24 24" stroke="blue" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />

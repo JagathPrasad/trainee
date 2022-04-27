@@ -8,14 +8,14 @@
     .container {
         max-width:50%;
         margin-left: 10%;
-        display: flex;
+       
 
     }
     
  .right{
      margin-left:106%; 
-     margin-top: -30%; 
-     width:75%;
+     margin-top: -93%; 
+     width:100%;
     }
     .deletecenter{
         margin-top: -55%;
@@ -23,3 +23,5 @@
         width: 106%;
         
     }
+   
+    
