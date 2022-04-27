@@ -9,8 +9,13 @@ display: flex;
     max-width:50%;
     margin-left:10px;
 }
-.rights{
-    margin-left:65%;
-    margin-top: -60%;
+.righ2ts{
+    margin-left:95%;
+    margin-top: -95%;
+    width:50%;
+  }
+  .urigh2ts{
+    margin-left:95%;
+    margin-top: -102%;
     width:50%;
   }

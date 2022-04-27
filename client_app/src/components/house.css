@@ -4,9 +4,15 @@
     margin-top: 1%;
   }
 
-  .right{
+  .riight{
     margin-left:105%;
-    margin-top: -43%;
+    margin-top: -41%;
+    width:75%;
+  }
+
+  .hriight{
+    margin-left:105%;
+    margin-top: -34%;
     width:75%;
   }
 

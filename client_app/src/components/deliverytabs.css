@@ -1,25 +1,4 @@
 
-.tab-list {
-    
-    padding-left: 20%;
-    color:blue;
-    font-size:large;
-  }
-  
-  .tab-list-item {
-    display: inline-block;
-    list-style: none;
-    margin-bottom: -1px;
-    padding: 0.5rem 0.75rem;
-  }
-  
-  .tab-list-active {
-    background-color: white;
-    
-  }
-  .texttype{
-    font-style: bold;
-  }
   .container{
     max-width: 50%;
     margin-left:12%;
@@ -35,7 +14,18 @@
   
   .righht{
     margin-left:105%;
-    margin-top: -40%;
+    margin-top: -35%;
+    width:75%;
+  }
+  .drighht{
+    margin-left:105%;
+    margin-top: -28%;
+    width:75%;
+  }
+
+  .vrighht{
+    margin-left:105%;
+    margin-top: -38.5%;
     width:75%;
   }
   
