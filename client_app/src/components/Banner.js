@@ -54,10 +54,7 @@ const Banner = () => {
                           src={bind_user.image} alt=""  />
                     
                   </div>
-                 
-                  
-                 
-                 
+
                  
                 </dl>
               </div>
@@ -65,26 +62,19 @@ const Banner = () => {
           }
           const RenderEdit = () => {
             console.log('bind', bind_user);
-            return <div>
-        
-              <div class="mt-10 sm:mt-0 righht">
-        
-                <div class="px-4 sm:px-0">
-                 
-                </div>
-                <br></br>
-                <div class="mt-5 md:mt-0 md:col-span-2">
+            return <div class="mt-4 md:mt-0 md:col-span-3 right">
+                
                   <form action="#" method="POST">
                     <div class="shadow overflow-hidden sm:rounded-md">
-                      <div class="px-4 py-5 bg-gray-200 sm:p-6">
-                        <div class="grid grid-cols-6 gap-6">
-                          <div class="col-span-3 sm:col-span-4">
+                      <div class="px-2 py-3 bg-gray-200 sm:p-5">
+                        <div class="grid grid-cols-0 gap-0">
+                          <div class="col-span-4 sm:col-span-4">
                             <label for="address" class="block text-sm font-medium text-gray-700"> Full Name</label>
                             <input type="text" name="full name" id="fullname" autocomplete="name" value={bind_user.name} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                           </div>
         
-                          <div class="col-span-6 sm:col-span-3">
-                              <label for="first-name" class="block text-sm font-medium text-gray-700 ">Image</label>
+                          <div class="col-span-3 sm:col-span-3">
+                              <label for="image" class="block text-sm font-medium text-gray-700 ">Image</label>
                               <img
                                       class="w-full h-full rounded-full"
                                       
@@ -93,23 +83,23 @@ const Banner = () => {
                                     />
                               
                             </div>
-        
         </div>
-                          
-                      <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
-                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
-                      </div>
+     
+        <div class="px-3 py-4 bg-gray-50 text-right sm:px-4sm:flex sm:flex-row-reverse">
+                          <button type="update" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">update</button>
+                        
+                          <button type="cancel" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">cancel</button>
+                        </div>
                     </div>
                     </div>
                   </form>
                 </div>
-              </div>
+         
         
         
-            </div>;
+            ;
           }
-          const RenderDelete = () => {
+   const RenderDelete = () => {
             return <div class="relative inline-block  align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full deletecenter">
               <div class="bg-white px-6 pt-6 pb-4 sm:p-6 sm:pb-4">
                 <div class="sm:flex sm:items-start">
@@ -163,11 +153,7 @@ const Banner = () => {
                       class="px-3 py-4 border-b-2 border-gray-200 bg-gray-100 text-left text-xm font-semibold text-blue-700 uppercase tracking-wider"
                     >
                       Action
-                    </th>
-
-
-
-                                    </tr>
+                    </th>            </tr>
                                 </thead>
 
                                 <tbody>
@@ -184,9 +170,7 @@ const Banner = () => {
                                                             </p>
 
                                                         </div>
-                                                        
-                                                        
-                                                                                                           </div>
+                                                      </div>
                                                 </td>
                                                 <td class="px-4 py-6 border-b border-gray-100 bg-white text-sm ">
                                                     <div class="flex">
@@ -198,11 +182,9 @@ const Banner = () => {
                                                                 alt=""
                                                             />
                                                         </div>              
-                                                        
-                                                        
-                                                                                                           </div>
+  </div>
                                                 </td>
-                                                <td class="px-0 py-5 border-b border-gray-200 bg-white text-sm text-right">
+                                                <td class="px-2 py-5 border-b border-gray-200 bg-white text-sm text-right">
                           <button onClick={() => ShowDetails(x, 'view')}>
 
                             <td >  

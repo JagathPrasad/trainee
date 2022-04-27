@@ -6,16 +6,16 @@
   
   }
   .container {  
-      max-width:60%;
-      margin-left: 10%;
+      max-width:25%;
+      margin-left: 8%;
       display: flex;
 
   }
   
 .right{
    margin-left:106%; 
-   margin-top: -30%; 
-   width:75%;
+   margin-top: -75%; 
+   width:200%;
   }
   .deletecenter{
       margin-top: -55%;
