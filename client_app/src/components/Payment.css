@@ -1,7 +1,7 @@
     
     .container {
         width: 50%;
-    margin-left: 5%;
+    margin-left: 2%;
     
     }
     /* px-8 {
@@ -26,19 +26,25 @@
 
     .right{
         
-        margin-left:105%;
-        margin-top: -35%;
-        width:70%;
-        border-style: groove;
-        border-width: 20%;
+        margin-left:100%;
+        margin-top: -29%;
+        width:69%;
+        border-style: groove;    
         box-sizing: border-box;
-        border-color: #555;
-         background-color: #555; 
+        
+         
       }
 
+      .right-3 {
+        width: 66%;
+        margin-left: 70%;
+        margin-top: -35%;
+      }
+      
 
-    .right-1{
-        margin-left:150%;
-        margin-top: -35%; 
-        width:70%;
+
+    
+    .text-right {
+
+    text-align: center;
     }

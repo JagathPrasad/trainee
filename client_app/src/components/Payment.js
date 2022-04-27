@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import axios from 'axios';
 import './Payment.css';
+import moment from 'moment'
 
 
 const Payments = () => {
@@ -25,10 +26,11 @@ const Payments = () => {
         });
     }
 
-    const Getusers = (x) => {
-        axios.get('https://cometh.prelinehealthcare.com/api/user/getuserpayment/fcb3f9b4-845d-4eee-ba46-74368b9a69c1').then((res) => {
+    const Getuserdetails = (user_id, type) => {
+        axios.get('https://cometh.prelinehealthcare.com/api/user/getuserpayment/' + user_id).then((res) => {
             console.log(res.data, 'success');
             setuserDetails(res.data);
+            setUserType(type);
             console.log('user_details', user_details);
         }).catch((error) => {
             console.log(error, 'success');
@@ -37,7 +39,7 @@ const Payments = () => {
 
     useEffect(() => {
         Getpayments();
-        Getusers();
+      //  Getusers();
     },
         []);
 
@@ -45,9 +47,14 @@ const Payments = () => {
 
     //{renderAll()}
     const ShowDetails = (data, type) => {
-        console.log('data', data);
-        setBindUser(data);
-        setUserType(type);
+        console.log('(data, type', data, type);
+    if (type == 'userdetails') {
+      Getuserdetails(data, type);
+    } else {
+      console.log('data', data);
+      setBindUser(data);
+      setUserType(type);
+    }
 
     }
     const RenderView = () => {
@@ -72,13 +79,13 @@ const Payments = () => {
                     
                     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">transaction_date</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">let {bind_user.transaction_date} = new Date(0)</dd>
+                        <p>{moment(bind_user.transaction_date).format('MMMM Do YYYY, h:mm:ss a')}</p>
 
                     </div>
 
                     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">transaction_id</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{bind_user.transaction_date}</dd>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{bind_user.transaction_id}</dd>
                     </div>
                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Item_Name</dt>
@@ -98,79 +105,89 @@ const Payments = () => {
 
     const RenderEdit = () => {
         console.log('data', bind_user);
-        return <div>
+        return <div class="bg-white shadow overflow-hidden sm:rounded-lg right" >
 
-            <div class="mt-10 sm:mt-0 right">
-                <div class="md:grid md:grid-cols-3  bg-gray-200 md:gap-6">
+<div class="mt-10 sm:mt-0">
+        <div class="md:grid md:grid-cols-3  bg-gray-200 md:gap-6">
 
-                    <div class="mt-5 md:mt-0 md:col-span-3">
-                        <form action="#" method="POST">
-                            <div class="shadow overflow-hidden sm:rounded-md">
-                                <div class="px-4 py-5 bg-white sm:p-6">
-                                    <div class="md:col-span-1">
-                                        <div class="px-4 sm:px-0">
+          <div class="mt-5 md:mt-0 md:col-span-5">
+            <form action="#" method="POST">
+              <div class="shadow overflow-hidden sm:rounded-md">
+                <div class="px-4 py-5 bg-white sm:p-6">
+                  <div class="md:col-span-1">
+                    <div class="px-4 sm:px-0">
 
-                                            <h3 class="text-lg font-medium leading-6 text-gray-900">Payment Details</h3>
-                                            
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <br />
-                                    <div class="grid grid-cols-3 gap-3">
-                                        <div class="col-span-4 sm:col-span-3">
-                                            <label for="first-name" class="block text-sm font-medium text-gray-700">Name</label>
-                                            <input type="text" name="first-name" id="first-name" autocomplete="given-name" value={bind_user.name} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        </div>
+                      <h3 class="text-lg font-medium leading-6 text-gray-900">EDIT PAYMENT</h3>
 
-                                        <div class="col-span-3 sm:col-span-3">
-                                            <label for="Item_name" class="block text-sm font-medium text-gray-700">Item_Name</label>
-                                            <input type="text" name="Item_Name" id="Item_name" autocomplete="Item_Name" value={bind_user.item_name} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        </div>
-
-                                        <div class="col-span-2">
-                                            <label for="street-address" class="block text-sm font-medium text-gray-700">Mobile No</label>
-                                            <input type="text" name="street-address" id="street-address" autocomplete="street-address" value={bind_user.mobileno} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        </div>
-                                        <br />
-
-
-                                        <div class="col-span-2">
-                                            <label for="street-address" class="block text-sm font-medium text-gray-700">Amount</label>
-                                            <input type="text" name="Amount" id="Amount" autocomplete="Amount`" value={bind_user.amount} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                                        </div>
-
-                                       
-                                       
-
-
-
-                                        <div class="col-span-4">
-                                            <dt class="text-sm font-medium text-gray-500">transaction_date</dt>
-                                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{bind_user.transaction_date}</dd>
-
-                                        </div>
-
-                                        <div class="col-span-4">
-                                            <dt class="text-sm font-medium text-gray-500">transaction_id</dt>
-                                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{bind_user.transaction_id}</dd>
-                                        </div>
-
-
-
-                                    </div>
-                                </div>
-
-
-                                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-
-                                    <button class="h-10 px-5 m-2 text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800">Update</button>
-                                    <button class="h-10 px-5 m-2 text-red-100 transition-colors duration-150 bg-red-700 rounded-lg focus:shadow-outline hover:bg-red-800">Cancel</button>
-                                </div>
-                            </div>
-                        </form>
                     </div>
+                  </div>
+                  <br />
+                  <br />
+                  <div class="grid grid-cols-3 gap-3">
+                    <div class="col-span-4 sm:col-span-3">
+                      <label for="first-name" class="block text-sm font-medium text-gray-700">NAME</label>
+                      <input type="text" name="first-name" id="first-name" autocomplete="given-name" value={bind_user.name} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    </div>
+
+                    <div class="col-span-3 sm:col-span-3">
+                      <label for="Item_name" class="block text-sm font-medium text-gray-700">ITEM NAME</label>
+                      <input type="text" name="Item_Name" id="Item_name" autocomplete="Item_Name" value={bind_user.item_name} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    </div>
+
+                    <div class="col-span-2">
+                      <label for="street-address" class="block text-sm font-medium text-gray-700">MOBILE NO</label>
+                      <input type="text" name="street-address" id="street-address" autocomplete="street-address" value={bind_user.mobile_no} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    </div>
+                    <br />
+                    <br />
+
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+
+                      <dt class="text-sm font-medium text-gray-500"> image</dt>
+
+                      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+
+                        <img
+
+                          class="w-20 h-20 rounded-full"
+
+                          src="https://images.picxy.com/cache/2020/9/16/8a8e341b948292c167ffc00f197d39a9.jpg" alt="display image" /></dd>
+
+                    </div>                
+                    <br />
+                    <div class="col-span-2">
+                      <label for="street-address" class="block text-sm font-medium text-gray-700">delivery_time</label>
+                      <input type="text" name="Amount" id="Amount" autocomplete="Amount`" value={bind_user.delivery_time} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    </div>
+
+                    <div class="col-span-2">
+                      <label for="street-address" class="block text-sm font-medium text-gray-700">iscancelled</label>
+                      <input type="text" name="Amount" id="Amount" autocomplete="Amount`" value={bind_user.iscancelled} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    </div>
+
+                    
+
+
+
+                    <div class="col-span-2">
+                      <label for="street-address" class="block text-sm font-medium text-gray-700">isdelivered</label>
+                      <input type="text" name="Amount" id="Amount" autocomplete="Amount`" value={bind_user.isdelivered} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    </div>
+                  </div>
                 </div>
-            </div>
+
+
+                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+
+                  <button class="h-10 px-5 m-2 text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800">Update</button>
+                  <button class="h-10 px-5 m-2 text-red-100 transition-colors duration-150 bg-red-700 rounded-lg focus:shadow-outline hover:bg-red-800">Cancel</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
 
         </div>;
     }
@@ -199,11 +216,11 @@ const Payments = () => {
         </div>;
     }
 
-    const RenderuserView = () => {
-        console.log('bind', bind_user);
+    const Renderuserdetails = () => {
+        console.log('userdetails', bind_user);
         return (
-        <div class=" container px-4 sm:px-8 right-1">
-        <div class="py-8">
+        <div class=" right-3">
+        <div class="py-8 right-3">
             <div>
                 <h2 class="text-2xl font-semibold leading-tight text-left text-blue-900">User details</h2>
             </div>
@@ -234,7 +251,8 @@ const Payments = () => {
                                     <tr key={index}>
                                         <div class="ml-3">
                                             <p class="text-gray-900 whitespace-no-wrap">
-                                             {x.date}
+                                            <p>{moment('{x.date}').format('MMMM Do YYYY, h:mm:ss a')}</p>
+                                             
                                             </p>
 
                                         </div>
@@ -271,7 +289,7 @@ const Payments = () => {
     }
 
 
-    return (
+   return (
         <div>
             <div class=" container px-4 sm:px-8">
                 <div class="py-8">
@@ -326,7 +344,7 @@ const Payments = () => {
                                                         
                                                     >
                                                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"  onClick={() => ShowDetails(x, 'globe')} />
+  <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"  onClick={() => { ShowDetails(x.user_id, 'userdetails') }} />
 </svg>
                                                         
                                                     </button> {x.name}
@@ -398,7 +416,7 @@ const Payments = () => {
                             case "view": return RenderView();
                             case "edit": return RenderEdit();
                             case "delete": return RenderDelete();
-                            case "globe": return RenderuserView();
+                            case "userdetails": return Renderuserdetails();
                             default: return "";
                         }
                     })()}</div>

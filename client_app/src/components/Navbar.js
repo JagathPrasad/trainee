@@ -7,6 +7,9 @@ Description : To Show Navbar in Dashboard
 import './Navbar.css';
 import React, { useCallback, useState,useContext, useEffect } from 'react';
 import { UserContext } from "../store/user";
+import React, { useCallback, useState, useHistory } from 'react';
+import './Login.js'
+
 
 
 
@@ -19,6 +22,21 @@ const Navbar = (props) => {
   // if (user != '' && user != null) {
 
   // }
+  
+  //const history = useHistory();
+  const[islogged, setLogged] = useState(true);
+  //const user = JSON.parse(sessionStorage.getItem("user_details"));
+  const logOut = () =>
+  {(() => {
+                  if(islogged == true) {
+                      alert('You are now logged out!')
+                      sessionStorage.clear();
+                      //history.push('/Login')
+                  }
+                  else {
+                    sessionStorage.setItem('user_details');  
+                  }
+              })}
   const[user_name,setUserName]=useState('Anusha')
   const MyContext = React.createContext();
   const { user, setUser } = useContext(UserContext);
@@ -88,6 +106,7 @@ const Navbar = (props) => {
                     <li><button>Help</button></li>
                     <li><button>Logout</button></li>
                  </MyContext.Provider>
+                    <li><button onClick={logOut()}>Logout</button></li>
                     
                 </ul>
             </div>
