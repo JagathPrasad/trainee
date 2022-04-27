@@ -399,8 +399,7 @@ const Order = () => {
     <div>
       {/* <Navbar />
           <Sidebar /> */}
-
-      <div class=" container ">
+      <div class="">
         <div class="py-8">
           <div>
             <h2 class="text-2xl font-semibold leading-tight text-left text-blue-900">ORDER DETAILS</h2>
@@ -550,11 +549,7 @@ const Order = () => {
           })()}</div>
         </div>
       </div>
-
     </div>
-
-
-
   );
 }
 export default Order;

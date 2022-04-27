@@ -246,7 +246,7 @@ const House = () => {
 
     return (
         <div>
-            <div class=" containers mx-auto px-4 sm:px-8">
+            <div class="mx-auto px-4 sm:px-8">
                 <h1 class=" text-2xl font-bold leading-tight text-left text-blue-900">House</h1>
                 <div className='dropposition'>
                 <select onChange={(event) => ChangeSubscription(event.target.value)} name="list" id="list" accesskey="target">

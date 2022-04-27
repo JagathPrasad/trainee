@@ -136,7 +136,7 @@ const User = () => {
       {/* <Navbar />
       <Sidebar /> */}
 
-      <div class="mx-auto container px-4 sm:px-8">
+      <div class="mx-auto px-4 sm:px-8">
         <div class="py-8">
           <div>
             <h2 class="text-2xl font-semibold leading-tight text-left text-blue-900">USERS</h2>
