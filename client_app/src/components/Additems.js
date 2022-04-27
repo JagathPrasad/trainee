@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import './Payment.css';
+import './additems.css';
 
 import axios from 'axios';
 
+
+
+  
+    
 
 const AddItems = () => {
     const [item_details, setItemDetails] = useState([]);
@@ -22,11 +26,8 @@ const AddItems = () => {
     }, []);
 
 
-    
-
-
-    return (
-        <div class="bg-white shadow overflow-hidden sm:rounded-lg ">
+return(
+        <div class=" overflow-hidden sm:rounded-lg additems">
         <div class="px-4 py-5 sm:px-6">
           <h3 class="text-lg leading-6 font-medium  text-gray-900">ADD FOOD DETAILS</h3>
         
@@ -35,7 +36,7 @@ const AddItems = () => {
           <div class="md:grid md:grid-cols-3 md:gap-6 ">
             
             <div class="mt-5 md:mt-0 md:col-span-2">
-              <form action="#" method="POST">
+              <form action="#" method="POST" class="w-full">
                 <div class="shadow overflow-hidden sm:rounded-md">
                   <div class="px-4 py-5 bg-white sm:p-6">
                     <div class="grid grid-cols-6 gap-6">
@@ -131,9 +132,9 @@ const AddItems = () => {
                     </div>
                   </div>
                   <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <button type="submit" onClick={() => AddItems('Added Succesfully')}class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">ADD</button>
+                    <button  onClick={() => AddItems('Added Succesfully')}class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">ADD</button>
                    
-                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
+                    <button  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
                  
                   </div>
                 </div>
@@ -143,8 +144,7 @@ const AddItems = () => {
         </div>
     
       </div>
-
-        )
-
+)
 }
+
     export default AddItems

@@ -22,16 +22,18 @@
   .texttype{
     font-style: bold;
   }
-  .right{
+  .view{
     margin-left:105%;
-    margin-top: -53%;
-    width:75%;
+    margin-top: -30%;
+    width:70%;
 }
-.righht{
+.rig2ht{
   margin-left:105%;
-  margin-top: -57%;
-  width:75%;
+  margin-top: -45%;
+  width:70%;
 }
+
+
 .deletecenter{
 
   margin-top: -55%;

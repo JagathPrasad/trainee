@@ -58,12 +58,11 @@ const Itemdetails = () => {
     const RenderallView = () => {
       
       console.log('bind', bind_details);
-      return <div class="bg-white shadow  right  ">
-      <div>
+      return <div class="  rig2ht">
+      
        
 
-       <div>
-           <div class="py-8">
+      
                <div>
                    <h2 class="text-xl font-semibold leading-tight text-left  text-blue-900">{bind_details.vendor_name}</h2>
                </div>
@@ -142,13 +141,13 @@ const Itemdetails = () => {
                 </tbody>
                            
                            </table>
-       </div>
-     </div>
+      
+    
     
      
    </div>
  </div>
- </div>
+ 
 
                            
                            
@@ -160,7 +159,7 @@ const Itemdetails = () => {
     
 const RenderView = () => {
   console.log('bind', bind_details);
-  return <div class="bg-blue-200 shadow overflow-hidden sm:rounded-lg w-6/12 right">
+  return <div class="shadow overflow-hidden sm:rounded-lg w-6/12 rig2ht">
     <div class="px-4 py-5 sm:px-6">
       <h3 class="text-lg leading-6 font-medium  text-gray-900">Food Information</h3>
     
@@ -171,7 +170,7 @@ const RenderView = () => {
           <dt class="text-sm font-medium text-gray-500">Food name</dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{bind_details.name}</dd>
         </div>
-        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">caption</dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{bind_details.caption}</dd>
         </div>
@@ -244,25 +243,22 @@ const RenderView = () => {
 const RenderEdit = () => {
 
 
-  return <div class="bg-white shadow overflow-hidden sm:rounded-lg w-6/12 right">
-    <div class="px-4 py-5 sm:px-6">
-      <h3 class="text-lg leading-6 font-medium  text-gray-900">Food Information</h3>
-    
-    </div>
-    <div class="mt-10 sm:mt-0  bg-grey-200">
-      <div class="md:grid md:grid-cols-3 md:gap-6 ">
-        
-        <div class="mt-5 md:mt-0 md:col-span-2">
+  return <div class=" shadow overflow-hidden sm:rounded-lg w-6/12 rig2ht">
+  <div class="px-4 py-5 sm:px-6">
+    <h3 class="text-lg leading-6 font-medium  text-gray-900">Food Information</h3>
+  </div>
+  <div class="border-t border-gray-200">
+  
           <form action="#" method="POST">
-            <div class="shadow overflow-hidden sm:rounded-md">
+            <div class="w-9/12">
               <div class="px-4 py-5 bg-white sm:p-6">
                 <div class="grid grid-cols-6 gap-6">
-                  <div class="col-span-6 sm:col-span-3">
+                  <div class="col-span-6 sm:col-span-6">
                     <label for="first-name" class="block text-sm  font-medium text-gray-700">Food Name</label>
                     <input type="text" name="first-name" id="first-name" autocomplete="given-name"value={bind_details.name} class="mt-1 bg-blue-100 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
 
-                  <div class="col-span-6 sm:col-span-3">
+                  <div class="col-span-6 sm:col-span-6">
                     <label for="last-name" class="block text-sm font-medium text-gray-700"> Capton</label>
                     <input type="text" name="last-name" id="last-name" autocomplete="family-name" value={bind_details.caption} class="mt-1 bg-blue-100 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
@@ -274,7 +270,7 @@ const RenderEdit = () => {
                   <div class="col-span-6 sm:col-span-4">
                     <label for="email-address" class="block text-sm font-medium text-gray-700"> Food Image</label>
                     <div class="flex justify-center">
-  <div class="mb-3 w-96">
+  <div class="mb-3 w-full">
     <label for="formFile" class="form-label inline-block mb-2 text-gray-700"> Select an Image</label>
     <input class="form-control
     block
@@ -293,10 +289,10 @@ const RenderEdit = () => {
     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="formFile"></input>
   </div>
 </div> 
-<div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+<div class="bg-gray-50 px-6 py-5 sm:grid sm:grid-cols-3 sm:gap-4 ">
           <dt class="text-sm font-medium text-gray-500">Existing Image</dt>
           <img
-                                class="w-full h-full rounded-full "
+                                class="col-span-6 sm:col-span-6 "
                                 src={bind_details.image}
                                 alt=""
                               /> </div>
@@ -306,18 +302,18 @@ const RenderEdit = () => {
                     <input type="text" name="email-address" id="email-address" autocomplete="email" value={bind_details.amount} class="mt-1 focus:ring-indigo-500 bg-blue-100 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
                  
-                  <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                  <div class="col-span-6 sm:col-span-6 lg:col-span-4">
                     <label for="city" class="block text-sm font-medium text-gray-700">Waiting Time</label>
                     <input type="text" name="city" id="city" autocomplete="address-level2" value={bind_details.vendorprepartiontime} class="mt-1 focus:ring-indigo-500 bg-blue-100 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
                   
 
-                  <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                  <div class="col-span-6 sm:col-span-6 lg:col-span-4">
                     <label for="city" class="block text-sm font-medium text-gray-700">Slots</label>
                     <input type="text" name="city" id="city" autocomplete="address-level2" value={bind_details.slots.slot1} class="mt-1 focus:ring-indigo-500 bg-blue-100 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
 
-                  <div class="col-span-6 sm:col-span-3">
+                  <div class="col-span-6 sm:col-span-4">
                     <label for="country" class="block text-sm font-medium text-gray-700">Status</label>
                     <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                       <option>Avaliable</option>
@@ -338,34 +334,45 @@ const RenderEdit = () => {
             </div>
           </form>
         </div>
-      </div>
-    </div>
+     
+   
 
   </div>;
 }
 
 const RenderDelete = () => {
-  return <div class="relative inline-block deletecenter align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-      <div class="sm:flex sm:items-start">
-        <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-          <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-          </svg>
-        </div>
-        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-          <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Delete Item</h3>
-          <div class="mt-2">
-            <p class="text-sm text-gray-500">Are you sure you want to delete the item ?your data will be permanently removed. This action cannot be undone.</p>
+  return <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+ 
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+  
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+    <div class="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+        <div class="sm:flex sm:items-start">
+          <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+            
+            <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Deactivate account</h3>
+            <div class="mt-2">
+              <p class="text-sm text-gray-500">Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.</p>
+            </div>
           </div>
         </div>
       </div>
+      <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+        <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Deactivate</button>
+        <button type="button"onClick={() => ShowDetails()} class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
+      </div>
     </div>
-    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-      <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Deactivate</button>
-      <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
-    </div>
-  </div>;
+  </div>
+</div>;
 }
 
     return (
