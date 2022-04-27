@@ -1,50 +1,22 @@
-    
-    .container {
-        width: 50%;
-    margin-left: 2%;
-    
-    }
-    /* px-8 {
-        
-        padding-right: 2rem;
-        width: 30%;
-        
-    height:5%;
-        display: flex;
-    text-align: center;
- 
-    } */
-    
+.container {
+    max-width: 50%;
+    margin-left: 12%;
+}
 
-    svg path { 
+.right {
+    margin-left: 105%;
+    margin-top: -30%;
+    width: 75%;
+}
 
-        color:darkblue!important;
-    
-      } 
+.deletecenter {
+
+    margin-top: -55%;
+
+    margin-left: 35%;
+
+    width: 106%;
 
 
 
-    .right{
-        
-        margin-left:100%;
-        margin-top: -29%;
-        width:69%;
-        border-style: groove;    
-        box-sizing: border-box;
-        
-         
-      }
-
-      .right-3 {
-        width: 66%;
-        margin-left: 70%;
-        margin-top: -35%;
-      }
-      
-
-
-    
-    .text-right {
-
-    text-align: center;
-    }
+}

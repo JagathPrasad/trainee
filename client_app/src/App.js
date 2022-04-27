@@ -18,6 +18,7 @@ import House from './components/House';
 import Vendordelivery from './components/Vendordelivery';
 import Userdelivery from './components/Userdelivery';
 import Vendors from './components/Vendors';
+import AddItems from './components/Additems';
 
 
 
@@ -53,13 +54,10 @@ function App() {
     { path: "/home", element: <Home /> },
     { path: "/user", element: <User /> },
     { path: "/payment", element: <Payment /> },
-    
-    { path: "/address", element: <Address /> },
-
-
-    { path: "/Order", element: <Order /> },
-    { path: "/items", element: <Items /> },
-    { path: "/Itemdetails", element: <Itemdetails /> },
+ { path: "/address", element: <Address /> },
+ { path: "/Order", element: <Order /> },
+ { path: "/Additems", element: <AddItems /> },
+    { path: "/Items", element: <Itemdetails /> },
     { path: "/Approval", element: <Approval /> },
     { path: "/delivery", element: <Delivery /> },
     { path: "/subscription", element: <Subscription /> },
