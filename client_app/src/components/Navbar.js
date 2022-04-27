@@ -5,20 +5,28 @@ Description : To Show Navbar in Dashboard
 */
 
 import './Navbar.css';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useHistory } from 'react';
+import './Login.js'
 
 
 
 
 const Navbar = (props) => {
   
-  //const user = sessionStorage.getItem("user") ?? '';
-  
-  
-  // const user = JSON.parse(sessionStorage.getItem("user"));
-  // if (user != '' && user != null) {
-
-  // }
+  //const history = useHistory();
+  const[islogged, setLogged] = useState(true);
+  const user = JSON.parse(sessionStorage.getItem("user_details"));
+  const logOut = () =>
+  {(() => {
+                  if(islogged == true) {
+                      alert('You are now logged out!')
+                      sessionStorage.clear();
+                      //history.push('/Login')
+                  }
+                  else {
+                    sessionStorage.setItem('user_details');  
+                  }
+              })}
   const[user_name,setUserName]=useState('Anusha')
   return (
     <div className="navbar">
@@ -71,7 +79,7 @@ const Navbar = (props) => {
                     <li><button>Profiles</button></li>
                     <li><button>Inbox</button></li>
                     <li><button>Help</button></li>
-                    <li><button>Logout</button></li>
+                    <li><button onClick={logOut()}>Logout</button></li>
                     
                 </ul>
             </div>

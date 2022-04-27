@@ -9,16 +9,17 @@
 .sub-main {
 
     justify-content: center;
-    height: 500px;
-    width:30%;
+    height: 391px;
+    width: 25%;
     display: grid;
     box-sizing: border-box;
     /* box-shadow: 11px 12px 13px 12px rgb(207, 207, 207);  */
-    padding: 40px 50px;
-    background-color:#7385b6;
+    padding: 49px 50px;
+    background-color:#cbd1e2;
     align-items: center;
     text-align: center;
-margin-top: -5%;
+margin-top: -15%;
+line-height: 250%;
 
 }
 
@@ -32,11 +33,10 @@ margin-top: -5%;
 }
 
 input {
-    width: 300px;
-    height: 40px;
-        border: solid 2px;
-    background-color: white;
-}
+    border: solid 2px;
+    width: 104%;
+    border-color: black;
+    }
 
    
    
@@ -51,4 +51,5 @@ input {
     font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
+    margin-top: -10%;
 }
