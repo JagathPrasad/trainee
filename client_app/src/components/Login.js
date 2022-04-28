@@ -34,20 +34,24 @@ const Login = () => {
     const [OTP, setotp] = useState('');
 
     const Getloginuser = (mobileno) => {
-        let user_a = [{ name: 'Jagath', user_id: 'haksdjkjasdlkjk' }];
-        setUser(user_a);
-        console.log('asdfdas user', user);
-        goHome();
-        // axios.get('https://cometh.prelinehealthcare.com/api/user/getloginuser/' + mobileno).then((res) => {
-        //     //debugger;
-        //     console.log(res.data, 'success');
-        //     // setLogged(false);
-        //     // setuserDetails(res.data);
-        //     sessionStorage.setItem('user_details', res.data);
-        //     setLogin(false);
-        // }).catch((error) => {
-        //     console.log(error, 'success');
-        // });
+        //added by jagath for testing
+        /* debugger;
+            // let user_a = [{ name: 'Jagath', user_id: 'haksdjkjasdlkjk' }];
+            // setUser(true);
+            // console.log('asdfdas user', user);
+            //goHome();
+            */
+        axios.get('https://cometh.prelinehealthcare.com/api/user/getloginuser/' + mobileno).then((res) => {
+            //debugger;
+            console.log(res.data, 'success');
+            // setLogged(false);
+            // setuserDetails(res.data);
+            sessionStorage.setItem('user_details', res.data);
+            setLogin(false);
+            setUser(true);//context api updated.
+        }).catch((error) => {
+            console.log(error, 'success');
+        });
     }
 
     const Getuserotp = () => {

@@ -22,7 +22,6 @@ const Layout = (props) => {
                     </div>;
                 } else {
                     return <div>
-
                         {props.children}
                     </div>;
                 }

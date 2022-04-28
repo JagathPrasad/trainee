@@ -6,7 +6,7 @@ export const UserContext = createContext();
 
 const UserWrapper = ({ children }) => {
     console.log('user wrapper');
-    const [user, setUser] = useState([]);
+    const [user, setUser] = useState(false);
 
 
     return (

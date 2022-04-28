@@ -19,7 +19,7 @@ const Navbar = (props) => {
   const logOut = () => {
     if (islogged == true) {
       sessionStorage.clear();
-      setUser([]);
+      setUser(false);
       //history.push('/Login')
     }
     else {
