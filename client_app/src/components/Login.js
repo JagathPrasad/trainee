@@ -12,6 +12,17 @@ import { UserContext } from '../store/user';
 const Login = () => {
 
     const { user, setUser } = useContext(UserContext);
+    const [islogin, setLogin] = useState(true);
+    const [user_details, setuserDetails] = useState('');
+    const [mobileno, setmobileno] = useState('');
+    const [OTP, setotp] = useState('');
+
+    
+    const componentDidMount = () => {
+        if (this.props.authenticated) {
+          // redirect the user
+        }
+    }
 
     // this.setState = {};
     let navigate = useNavigate();
@@ -26,12 +37,7 @@ const Login = () => {
     }
 
 
-    const [islogin, setLogin] = useState(true);
-
-
-    const [user_details, setuserDetails] = useState('');
-    const [mobileno, setmobileno] = useState('');
-    const [OTP, setotp] = useState('');
+    
 
     const Getloginuser = (mobileno) => {
         //added by jagath for testing
@@ -70,12 +76,15 @@ const Login = () => {
     }
 
     useEffect(() => {
-        //Getuserotp();
+        let isAuth = sessionStorage.setItem('user_details', res.data);
+        //IsAuth is a variable which returns true or false
+        if(isAuth & isAuth !== 'undefined') {
+            //The useEffect will run immediately and check the value of isAuth, if the user is already logged in
+           props.history.push('/home')
+        }
+     }, [])
 
-        //goHome();
 
-    },
-        []);
 
     return (
 
