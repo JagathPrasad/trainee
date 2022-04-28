@@ -1,0 +1,33 @@
+.containers{
+    max-width: 50%;
+    margin-left:12%;
+    margin-top: 1%;
+  }
+
+  .riight{
+    margin-left:105%;
+    margin-top: -41%;
+    width:75%;
+  }
+
+  .hriight{
+    margin-left:105%;
+    margin-top: -34%;
+    width:75%;
+  }
+
+  .dropposition{
+    margin-left: 0%;
+    margin-top: 3%;
+    font-style:normal;
+    font-size: large;
+    color: darkblue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+  }
+select{
+  background-color: lightblue;
+}
+ 
+  
+  

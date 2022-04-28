@@ -1,5 +1,5 @@
 .footer{
-    position: relative;
+    position:fixed;
     bottom:-5px;
     background-color: white;
     width: 100%;
@@ -8,5 +8,6 @@
     font-style: oblique;
     border-top: 0.5px solid lightgrey;
     height: 50px;
+    
 }
 

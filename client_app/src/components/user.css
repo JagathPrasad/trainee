@@ -6,10 +6,16 @@ display: flex;
 
 }
 .container {
-    max-width:40%;
+    max-width:50%;
+    margin-left:10px;
 }
-.right{
-    margin-left:105%;
-    margin-top: -55%;
-    width:75%;
-}
+.righ2ts{
+    margin-left:95%;
+    margin-top: -95%;
+    width:50%;
+  }
+  .urigh2ts{
+    margin-left:95%;
+    margin-top: -102%;
+    width:50%;
+  }
