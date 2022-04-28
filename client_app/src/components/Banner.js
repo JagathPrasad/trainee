@@ -2,13 +2,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './Banner.css';
+import { useNavigate } from "react-router-dom";
 
 
 const Banner = () => {
 
     const [banner_details, setBannerDetails] = useState([]);
     const [bind_user, setBindUser] = useState({});
-    const [user_type, setUserType] = useState('');
+    const [user_type, setUserType] = useState('');    
 
     const Getbanner = (x) => {
         axios.get('http://cometh.prelinehealthcare.com/api/admin/getallbanner').then((res) => {
@@ -23,6 +24,16 @@ const Banner = () => {
         Getbanner();
     },
         []);
+
+        let navigate = useNavigate();
+
+  const routeadd = () => {
+
+    let path = `/BannerAdd`;
+
+    navigate(path);
+
+  }
 
         const ShowDetails = (data, type) => {
             console.log('data', data);
@@ -127,12 +138,14 @@ const Banner = () => {
         <div>
 
 
-            <div class=" container mx-auto px-2 sm:px-4">
-                <div class="py-3">
+            <div class=" container mx-auto px-4 sm:px-5">
+                <div class="py-5">
                     <div>
+                      
                         <h2 class="text-2xl font-semibold leading-tight text-left text-blue-900">Banner</h2>
                     </div>
-                    <div class="-mx-4 sm:-mx-8 px-3 sm:px-8 py-3 overflow-x-auto">
+                    <div class="-mx-4 sm:-mx-8 px-3 sm:px-8 py- overflow-x-auto">
+                    <button type="Add"  onClick={routeadd}  class="inline-flex justify-center py-2 px-3 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add</button>
                         <div
                             class="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
                         >

@@ -18,6 +18,7 @@ import Vendordelivery from './components/Vendordelivery';
 import Userdelivery from './components/Userdelivery';
 import Vendors from './components/Vendors';
 import Banner from './components/Banner';
+import BannerAdd from './components/BannerAdd';
 
 
 import {
@@ -65,7 +66,8 @@ function App() {
     { path: "/vendordelivery", element: <Vendordelivery /> },
     { path: "/userdelivery", element: <Userdelivery /> },
     { path: "/Vendors", element: <Vendors /> }, 
-    { path: "/Banner", element: <Banner />}  // ...
+    { path: "/Banner", element: <Banner />},
+    {path: "/BannerAdd",element:<BannerAdd/>}  // ...
   ]);
   return routes;
 }
