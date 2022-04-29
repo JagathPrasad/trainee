@@ -1,28 +1,35 @@
 
-import React, { useEffect, useContext } from 'react'
-import { useState } from 'react';
+import React, { useEffect, useContext, useState } from 'react'
 import '../App.css';
 import './Login.css';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 //import { UserContext } from '../store/user';
 import { store } from '../store/user';
+import { Route, Redirect } from "react-router-dom";
+
 
 
 const Login = () => {
 
-    //const { user, setUser } = useContext(UserContext);
+    // const { username, setUsername } = useContext(UserContext);
     const [islogin, setLogin] = useState(true);
     const [user_details, setuserDetails] = useState('');
     const [mobileno, setmobileno] = useState('');
     const [OTP, setotp] = useState('');
+    const [auth, setauth] = useState('');
+    const [user_id, setUserId] = useState('');
 
-    
-    const componentDidMount = () => {
-        if (this.props.authenticated) {
-          // redirect the user
-        }
-    }
+
+    // const onusernameChange = (event) => {
+    //     setusername(event.target.value)
+    //   }
+
+    // const componentDidMount = () => {
+    //     if (this.props.authenticated) {
+    //       // redirect the user
+    //     }
+    // }
 
     const globalState = useContext(store);
     const { dispatch } = globalState;
@@ -39,7 +46,7 @@ const Login = () => {
     }
 
 
-    
+
 
     const Getloginuser = () => {
         //added by jagath for testing
@@ -53,7 +60,8 @@ const Login = () => {
             console.log(res.data, 'success');
             // setLogged(false);
             // setuserDetails(res.data);
-            sessionStorage.setItem('user_details', res.data);
+            //sessionStorage.setItem('user_details', res.data);
+            setUserId(res.data.user_id);
             setLogin(false);
 
         }).catch((error) => {
@@ -63,11 +71,11 @@ const Login = () => {
 
     const Getuserotp = () => {
 
-        axios.get('https://cometh.prelinehealthcare.com/api/user/getuserotp/12345/078d1927-d065-4771-9b03-e7934c5dcc9c').then((res) => {
+        axios.get('https://cometh.prelinehealthcare.com/api/user/getuserotp/' + OTP + '/' + user_id).then((res) => {
 
             console.log(res.data, 'success');
             //setuserDetails(res.data);
-            sessionStorage.setItem('user_details', res.data);
+            sessionStorage.setItem('user_details', JSON.stringify(res.data));
             //user Name hardcoded please pass it dynamically
             dispatch({ type: 'ADD_USER', payload: { userName: 'Jagath' } });//context api updated.
             goHome();
@@ -78,15 +86,14 @@ const Login = () => {
 
     }
 
-    useEffect(() => {
-        let isAuth = sessionStorage.setItem('user_details', res.data);
-        //IsAuth is a variable which returns true or false
-        if(isAuth & isAuth !== 'undefined') {
-            //The useEffect will run immediately and check the value of isAuth, if the user is already logged in
-           props.history.push('/home')
-        }
-     }, [])
 
+    useEffect(() => {
+        const loggedInUser = sessionStorage.getItem('user_details');
+        console.log('loggedInUser', loggedInUser);
+        if (loggedInUser != null) {
+            goHome();
+        }
+    }, []);
 
 
     return (
@@ -144,5 +151,7 @@ const Login = () => {
         </div>
 
     );
+
+
 }
 export default Login;
