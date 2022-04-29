@@ -92,20 +92,19 @@
   .box {
   
     text-align: left;
-  
     height: 10%;
     padding: 0px;
     display: flex;
     align-items: center;
     position: absolute;
-    top: 14%;
+    top:17%;
     right: 4%;
     
   }
   
   .wrapper>div {
     background-color: whitesmoke;
-    border: 8px solid white;
+    
     border-radius: 4%;
     width: 36%;
     height: 12px;
