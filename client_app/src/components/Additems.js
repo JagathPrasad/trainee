@@ -1,29 +1,45 @@
 import React, { useEffect, useState } from 'react'
 import './additems.css';
-
+import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
+ const AddItems = () => {
 
+    const { Add, handleSubmit} = useForm();
+//     const [item_details, setItemDetails] = useState([]);
+//     const Setitems = () => {
+//         axios.get('').then((res) => {
+//             console.log(res.data, 'success');
+//             //setTimeout(1000)      
+//             setItemDetails(res.data);
+//             console.log('Item_details', item_details);
+//         }).catch((error) => {
+//             console.log(error, 'success');
+//         });
+//     }
+    const onSubmit = (data, e) => {
+        
+        console.log("data", data);
+        axios.post('https://cometh.prelinehealthcare.com/api/item/postadditem', {
+          name: data.name,
+          caption: data.caption,
+          image: data.image,
+          description: data.description,
+          amount: data.amount,
+          serving: data.serving,
+          isveg: data.isveg,
+          coupon: data.coupon,
+          coupon_percentage: data.coupon_percentage,
+          is_premium: data.is_premium,
+          category_id: data.category_id,
 
-  
-    
-
-const AddItems = () => {
-    const [item_details, setItemDetails] = useState([]);
-    const Setitems = () => {
-        axios.get('https://cometh.prelinehealthcare.com/api/item/postadditem').then((res) => {
-            console.log(res.data, 'success');
-            //setTimeout(1000)      
-            setItemDetails(res.data);
-            console.log('Item_details', item_details);
-        }).catch((error) => {
-            console.log(error, 'success');
-        });
+          
+        }
+        )
     }
-
-    useEffect(() => {
-        Setitems();
-    }, []);
+    // useEffect(() => {
+    //     Setitems();
+    // }, []);
 
 
 return(
@@ -36,7 +52,7 @@ return(
           <div class="md:grid md:grid-cols-3 md:gap-6 ">
             
             <div class="mt-5 md:mt-0 md:col-span-2">
-              <form action="#" method="POST" class="w-full">
+              <form onSubmit={handleSubmit(onSubmit)} method="POST" class="w-full">
                 <div class="shadow overflow-hidden sm:rounded-md">
                   <div class="px-4 py-5 bg-white sm:p-6">
                     <div class="grid grid-cols-6 gap-6">
@@ -132,9 +148,9 @@ return(
                     </div>
                   </div>
                   <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <button  onClick={() => AddItems('Added Succesfully')}class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">ADD</button>
+                    <button  onClick={() => AddItems('Added Succesfully')}class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
                    
-                    <button  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
+                    <button  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Clear</button>
                  
                   </div>
                 </div>

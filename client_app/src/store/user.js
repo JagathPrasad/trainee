@@ -1,32 +1,39 @@
-import { createContext,useState,useReducer } from 'react';
-import { UserReducer, sumuser } from './userReducer'
+// import { createContext,useState } from 'react';
 
-export const UserContext = createContext();
+// export const UserContext = createContext();
 
-const storage = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : [];
-const initialState = { userdetails: storage, ...sumuser(storage)};
+//const storage = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : [];
+//const initialState = { userdetails: storage, ...sumuser(storage)};
 
-const UserWrapper = ({ children }) => {
-    console.log('user wrapper');
-    const [user, setUser] = useState(false);
-    const [state, dispatch] = useReducer(UserReducer, initialState);
-
-    const addUser = payload =>  dispatch({type: 'ADD_USER', payload})
-
-    const update = payload => dispatch({type: 'UPDATE', payload, isValid: true})
-
-    const contextValues = {
-        addUser,
-        update,
-       ...state
-    }
+// const UserWrapper = ({ children }) => {
+//     console.log('user wrapper');
+//     const [user, setUser] = useState(false);
 
 
-    return (
-        <UserContext.Provider value={{ user, setUser,contextValues }} >
-            {children}
-        </UserContext.Provider>
-    );
-}
+//     return (
+//         <UserContext.Provider value={{ user, setUser }} >
+//             {children}
+//         </UserContext.Provider>
+//     );
+// }
 
-export default UserWrapper;
+// export default UserWrapper;
+
+import React, { createContext, useReducer } from 'react';
+const initialState = {};
+const store = createContext(initialState);
+const { Provider } = store;
+const StateProvider = ({ children }) => {
+    const [state, dispatch] = useReducer((state, action) => {
+        console.log('state coming', action.payload.userName);
+        console.log('state coming', action.type);
+        switch (action.type) {
+            case 'ADD_USER':
+                return { ...state, userName: action.payload.userName }
+            default:
+                return state;
+        };
+    }, initialState);
+    return <Provider value={{ state, dispatch }}>{children}</Provider>;
+};
+export { store, StateProvider }

@@ -291,7 +291,7 @@ const Payments = () => {
 
     return (
         <div>
-            <div class="px-4 sm:px-8">
+            <div class="px-8">
                 <div class="py-8">
                     <div>
                         <h2 class="text-2xl font-semibold leading-tight text-left text-blue-900">Payment list</h2>

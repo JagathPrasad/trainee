@@ -5,14 +5,27 @@ import '../App.css';
 import './Login.css';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-import { UserContext } from '../store/user';
-
+//import { UserContext } from '../store/user';
+import { store } from '../store/user';
 
 
 const Login = () => {
 
-    const { user, setUser } = useContext(UserContext);
+    //const { user, setUser } = useContext(UserContext);
+    const [islogin, setLogin] = useState(true);
+    const [user_details, setuserDetails] = useState('');
+    const [mobileno, setmobileno] = useState('');
+    const [OTP, setotp] = useState('');
 
+    
+    const componentDidMount = () => {
+        if (this.props.authenticated) {
+          // redirect the user
+        }
+    }
+
+    const globalState = useContext(store);
+    const { dispatch } = globalState;
     // this.setState = {};
     let navigate = useNavigate();
     const goHome = () => {
@@ -26,21 +39,15 @@ const Login = () => {
     }
 
 
-    const [islogin, setLogin] = useState(true);
+    
 
-
-    const [user_details, setuserDetails] = useState('');
-    const [mobileno, setmobileno] = useState('');
-    const [OTP, setotp] = useState('');
-
-    const Getloginuser = (mobileno) => {
+    const Getloginuser = () => {
         //added by jagath for testing
-        /* debugger;
-            // let user_a = [{ name: 'Jagath', user_id: 'haksdjkjasdlkjk' }];
-            // setUser(true);
-            // console.log('asdfdas user', user);
-            //goHome();
-            */
+        /*
+        //dispatch({ type: 'ADD_USER', payload: { userName: 'Jagath' } });
+        //goHome();
+        */
+
         axios.get('https://cometh.prelinehealthcare.com/api/user/getloginuser/' + mobileno).then((res) => {
             //debugger;
             console.log(res.data, 'success');
@@ -48,7 +55,7 @@ const Login = () => {
             // setuserDetails(res.data);
             sessionStorage.setItem('user_details', res.data);
             setLogin(false);
-            setUser(true);//context api updated.
+
         }).catch((error) => {
             console.log(error, 'success');
         });
@@ -61,6 +68,8 @@ const Login = () => {
             console.log(res.data, 'success');
             //setuserDetails(res.data);
             sessionStorage.setItem('user_details', res.data);
+            //user Name hardcoded please pass it dynamically
+            dispatch({ type: 'ADD_USER', payload: { userName: 'Jagath' } });//context api updated.
             goHome();
 
         }).catch((error) => {
@@ -70,12 +79,15 @@ const Login = () => {
     }
 
     useEffect(() => {
-        //Getuserotp();
+        let isAuth = sessionStorage.setItem('user_details', res.data);
+        //IsAuth is a variable which returns true or false
+        if(isAuth & isAuth !== 'undefined') {
+            //The useEffect will run immediately and check the value of isAuth, if the user is already logged in
+           props.history.push('/home')
+        }
+     }, [])
 
-        //goHome();
 
-    },
-        []);
 
     return (
 
