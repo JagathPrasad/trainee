@@ -1,21 +1,21 @@
-.container {
-    max-width: 50%;
-    margin-left: 12%;
+.px-8 {
+    width: 56%;
+    margin-left: 10%;
 }
 
 .right {
-    margin-left: 105%;
+    margin-left: 100%;
     margin-top: -30%;
-    width: 75%;
+    width: 55%;
 }
 
-.deletecenter {
+.right-3 {
 
-    margin-top: -55%;
+    margin-top: -30%;
 
-    margin-left: 35%;
+    margin-left: 65%;
 
-    width: 106%;
+    width: 60%;
 
 
 

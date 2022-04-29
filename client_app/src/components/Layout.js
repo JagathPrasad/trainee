@@ -1,8 +1,12 @@
 import Footer from './Footer'
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
+import { store } from '../store/user';
+import React, { useState, useContext } from 'react';
 
 const Layout = (props) => {
+    const { state } = useContext(store);
+    console.log('asdfasdfsasfafdsafdsadfasdfasdfa', state.userName);
     const page = props.page;
     console.log('page', page);
     const renderPage = () => {
@@ -13,7 +17,7 @@ const Layout = (props) => {
         <div>
 
             {(() => {
-                if (page != 'login') {
+                if (state.userName != '' && state.userName != undefined) {
                     return <div>
                         <Sidebar />
                         <Navbar />
@@ -22,7 +26,9 @@ const Layout = (props) => {
                     </div>;
                 } else {
                     return <div>
+
                         {props.children}
+
                     </div>;
                 }
             })()}

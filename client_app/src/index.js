@@ -6,17 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import AppWrapper from './App';
 import './App.css';
 import 'tw-elements';
-import UserWrapper from './store/user';
+//import UserWrapper from './store/user';
 // import {AuthProvider} from './context/AuthProvider';
-
+import { StateProvider } from './store/user'
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <UserWrapper>
+    <StateProvider>
       <AppWrapper />
-    </UserWrapper>
+    </StateProvider>
   </React.StrictMode>
 );
 
