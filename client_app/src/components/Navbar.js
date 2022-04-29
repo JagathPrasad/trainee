@@ -34,7 +34,7 @@ const Navbar = (props) => {
     if (data) {
       sessionStorage.setItem('user', data.name);
       // setUserName({ username: data.name });
-      console.log('Data in setusers: ', data);
+      console.log('Data in setOtherusers: ', data);
       setUser([]);
     } else {
       sessionStorage.setItem('user', null);
