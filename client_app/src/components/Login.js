@@ -17,12 +17,12 @@ const Login = () => {
     const [mobileno, setmobileno] = useState('');
     const [OTP, setotp] = useState('');
 
-    
-    const componentDidMount = () => {
-        if (this.props.authenticated) {
-          // redirect the user
-        }
-    }
+
+    // const componentDidMount = () => {
+    //     if (this.props.authenticated) {
+    //       // redirect the user
+    //     }
+    // }
 
     const globalState = useContext(store);
     const { dispatch } = globalState;
@@ -39,7 +39,7 @@ const Login = () => {
     }
 
 
-    
+
 
     const Getloginuser = () => {
         //added by jagath for testing
@@ -53,7 +53,7 @@ const Login = () => {
             console.log(res.data, 'success');
             // setLogged(false);
             // setuserDetails(res.data);
-            sessionStorage.setItem('user_details', res.data);
+            //sessionStorage.setItem('user_details', res.data);
             setLogin(false);
 
         }).catch((error) => {
@@ -67,9 +67,10 @@ const Login = () => {
 
             console.log(res.data, 'success');
             //setuserDetails(res.data);
-            sessionStorage.setItem('user_details', res.data);
+            sessionStorage.setItem('user_details', JSON.stringify(res.data));
             //user Name hardcoded please pass it dynamically
-            dispatch({ type: 'ADD_USER', payload: { userName: 'Jagath' } });//context api updated.
+            //dispatch({ type: 'ADD_USER', payload: { userName: 'Jagath' } });//context api updated.
+            dispatch({ type: 'ADD_USER', payload: { user: res.data } });//context api updated.
             goHome();
 
         }).catch((error) => {
@@ -79,13 +80,14 @@ const Login = () => {
     }
 
     useEffect(() => {
-        let isAuth = sessionStorage.setItem('user_details', res.data);
-        //IsAuth is a variable which returns true or false
-        if(isAuth & isAuth !== 'undefined') {
-            //The useEffect will run immediately and check the value of isAuth, if the user is already logged in
-           props.history.push('/home')
-        }
-     }, [])
+        // let isAuth = sessionStorage.setItem('user_details', data);
+        // //IsAuth is a variable which returns true or false
+        // if (isAuth & isAuth !== 'undefined') {
+        //     //The useEffect will run immediately and check the value of isAuth, if the user is already logged in
+        //     //props.history.push('/home')
+
+        // }
+    }, [])
 
 
 
