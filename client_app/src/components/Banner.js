@@ -138,14 +138,14 @@ const Banner = () => {
         <div>
 
 
-            <div class=" container mx-auto px-4 sm:px-5">
+            <div class=" container mx-auto px-4     sm:px-5">
                 <div class="py-5">
                     <div>
                       
                         <h2 class="text-2xl font-semibold leading-tight text-left text-blue-900">Banner</h2>
                     </div>
                     <div class="-mx-4 sm:-mx-8 px-3 sm:px-8 py- overflow-x-auto">
-                    <button type="Add"  onClick={routeadd}  class="inline-flex justify-center py-2 px-3 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add</button>
+                   
                         <div
                             class="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
                         >
@@ -235,6 +235,7 @@ const Banner = () => {
                                 </tbody>
                             </table>
                         </div>
+                        <button type="Add"  onClick={routeadd}  class="inline-flex justify-center py-2 px-3 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add</button>
                     </div>
                     <div>{(() => {
             switch (user_type) {

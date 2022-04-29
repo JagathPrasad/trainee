@@ -1,29 +1,41 @@
 import React, { useEffect, useState } from 'react'
 import './BannerAdd.css';
-
+import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
 
-const BannerAdd = () => {
-    const [item_details, setItemDetails] = useState([]);
-    const Setitems = () => {
-        axios.get('').then((res) => {
-            console.log(res.data, 'success');
+const BannerAdd = (banner) => {
+  const { Add, handleSubmit} = useForm();
+    // const [item_details, setItemDetails] = useState([]);
+    // const Setitems = () => {   
+    //     axios.get('https://cometh.prelinehealthcare.com/api/admin/postaddbanner/'+ banner).then((res) => {
+    //         console.log(res.data, 'success');
                  
-            setItemDetails(res.data);
-            console.log('Item_details', item_details);
-        }).catch((error) => {
-            console.log(error, 'success');
-        });
-    }
+    //         setItemDetails(res.data);
+    //         console.log('Item_details', item_details);
+    //     }).catch((error) => {
+    //         console.log(error, 'success');
+    //     });
+    // }
 
-    useEffect(() => {
-        Setitems();
-    }, []);
+    // useEffect(() => {
+    //     Setitems();
+    // }, []);
+
+    const onSubmit = (data, e) => {
+        
+      console.log("data", data);
+      axios.post('https://cometh.prelinehealthcare.com/api/admin/postaddbanner/'+ banner, {
+        name: data.name,
+        image: data.image,
+       
+      }
+      )
+  }
 
 
 return(
-        <div class=" overflow-hidden sm:rounded-lg additems">
+        <div class=" overflow-hidden sm:rounded-lg banneradd">
         <div class="px-4 py-5 sm:px-6">
           <h3 class="text-lg leading-6 font-medium  text-gray-900">ADD BANNER DETAILS</h3>
         
@@ -32,7 +44,7 @@ return(
           <div class="md:grid md:grid-cols-3 md:gap-6 ">
             
             <div class="mt-5 md:mt-0 md:col-span-2">
-              <form action="#" method="POST" class="w-full">
+              <form onSubmit={handleSubmit(onSubmit)} method="POST" class="w-full">
                 <div class="shadow overflow-hidden sm:rounded-md">
                   <div class="px-4 py-5 bg-white sm:p-6">
                     <div class="grid grid-cols-6 gap-6">
