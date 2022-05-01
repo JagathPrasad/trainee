@@ -1,7 +1,4 @@
 import React from 'react'
-import Footer from './Footer';
-import Navbar from './Navbar';
-import Sidebar from './Sidebar';
 import './home.css';
 import { useState } from 'react';
 import Chart from "react-apexcharts";
@@ -77,8 +74,7 @@ const Home = (props) => {
   return (
 
     <div>
-      {/* <Navbar />
-            <Sidebar /> */}
+      
 
 
       <header className="App-header">

@@ -166,7 +166,7 @@ const Itemdetails = () => {
       </div>
       <div class="border-t border-gray-200">
         <dl>
-          <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <div class="bg-gray-200 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Food name</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{bind_details.name}</dd>
           </div>
@@ -381,9 +381,12 @@ const Itemdetails = () => {
       <div class="mx-auto px-4 sm:px-8 w-6/12">
         <div class="py-8">
           <div>
-            <h2 class="text-2xl font-semibold leading-tight text-left  text-blue-900">MENU</h2>
-            <button onClick={routeadd} class="bg-blue-500 hover:bg-blue-700 text-white font-bold  py-2 px-4 rounded">ADD
+          
+            <h2 class="text-2xl font-semibold leading-tight text-left  text-blue-900">MENU 
+            <button onClick={routeadd} class="add bg-blue-500 hover:bg-blue-700 text-white font-bold  py-2 px-4 rounded">ADD
             </button>
+            </h2>
+           
           </div>
           <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
             <div
