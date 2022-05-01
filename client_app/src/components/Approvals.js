@@ -80,11 +80,11 @@ const Approvals = () => {
               src={bind_details.kyc.identity_card}
               alt=""
             />  </div>
-          <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <div class=" px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Mobile No</dt>
             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{bind_details.moobile_no}</dd>
           </div>
-          <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <div class=" px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Gender</dt>
 
             {(() => {
@@ -98,7 +98,7 @@ const Approvals = () => {
               }
             })()}
           </div>
-          <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-sm font-medium text-gray-500">Approval Status</dt>
 
             {(() => {
@@ -137,7 +137,7 @@ const Approvals = () => {
           <div class="mt-5 md:mt-0 md:col-span-2 ">
             <form action="#" method="POST">
               <div class="shadow overflow-hidden sm:rounded-md">
-                <div class="px-4 py-5 bg-white sm:p-6">
+                <div class="px-4 py-5  sm:p-6">
                   <div class="grid grid-cols-6 gap-6">
                     <div class="col-span-6 sm:col-span-3">
                       <label for="first-name" class="block text-sm m-px  font-medium text-gray-700">User Name</label>
@@ -152,7 +152,7 @@ const Approvals = () => {
                     </div>
                     <div class="col-span-6 sm:col-span-3">
                       <label for="country" class="block text-sm font-medium text-gray-700">Approval</label>
-                      <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full py-2 px-3 bg-blue-100 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full py-2 px-3 bg-blue-100 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         <option>Approve</option>
                         <option>Reject</option>
 
@@ -161,7 +161,7 @@ const Approvals = () => {
 
                     <div class="col-span-6 sm:col-span-3">
                       <label for="country" class="block text-sm font-medium text-gray-700">Gender</label>
-                      <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full py-2 px-3 border bg-blue-100 border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                      <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full py-2 px-3 border bg-blue-100 border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         <option>Male</option>
                         <option>Female</option>
 

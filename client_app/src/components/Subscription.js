@@ -251,7 +251,7 @@ const Subscription = () => {
   return (
     <div>
       
-      <div class=" containers mx-auto px-4 sm:px-8">
+      <div class="w-6/12 px-4 sm:px-8">
         <h1 class=" text-2xl font-bold leading-tight text-left text-blue-900">SUBSCRIPTION</h1>
 
 

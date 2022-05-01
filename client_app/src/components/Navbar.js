@@ -15,14 +15,14 @@ import { store } from '../store/user';
 const Navbar = (props) => {
   //const { user, setUser } = useContext(UserContext);
   const { state } = useContext(store);
-  console.log('asdfasdfsasfafdsafdsadfasdfasdfa', state.userName);
+  console.log('asdfasdfsasfafdsafdsadfasdfasdfa', state.user);
   const [islogged, setLogged] = useState(true);
 
   const logOut = () => {
     if (islogged == true) {
       sessionStorage.clear();
       // setUser(false);
-      //history.push('/Login')
+      //history.push('/Login');
     }
     else {
       sessionStorage.setItem('user_details');
@@ -45,7 +45,7 @@ const Navbar = (props) => {
   }
 
   const RenderProfile = () => {
-    let userSection = (state.userName);
+    let userSection = (state.user);
   }
 
   return (
@@ -62,7 +62,7 @@ const Navbar = (props) => {
           </svg>
         </div>
         {(() => {
-          if (state.userName != '') {
+          if (state.user != '' && state.user != undefined) {
             return (<div className="items">
               <div className="item">
 
@@ -70,7 +70,8 @@ const Navbar = (props) => {
                   <div class="profile"> <img src={`../profile_fhgfgh.jpg`} className="avatar"></img>
                     <div class="dropdown-content">
                       <ul>
-                        <li className="name"><h2> {state.userName}</h2></li>
+                        {/* <li className="name"><h2> {state.user}</h2></li> */}
+                        <li className="name"><h2> {state.user.user_name}</h2></li>
                         <hr />
                         <li><button>Settings</button></li>
                         <li><button>Profiles</button></li>
