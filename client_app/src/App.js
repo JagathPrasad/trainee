@@ -20,6 +20,8 @@ import Userdelivery from './components/Userdelivery';
 import Vendors from './components/Vendors';
 import AddItems from './components/Additems';
 
+import Banner from './components/Banner';
+import BannerAdd from './components/BannerAdd';
 
 
 import {
@@ -64,7 +66,9 @@ function App() {
     { path: "/house", element: <House /> },
     { path: "/vendordelivery", element: <Vendordelivery /> },
     { path: "/userdelivery", element: <Userdelivery /> },
-    { path: "/Vendors", element: <Vendors /> }   // ...
+    { path: "/Vendors", element: <Vendors /> },
+    { path: "/Banner", element: <Banner /> },
+    { path: "/BannerAdd", element: <BannerAdd /> }  // ...
   ]);
   return routes;
 }
@@ -77,12 +81,12 @@ const AppWrapper = () => {
   return (
     <Router>
       <Layout page={location.substring(1)}>
-      <Switch>
-                        <PrivateRoute exact path="/" component={Home} />
-                        <Route path="/login" component={Login} />
-                        {/* <Redirect from="*" to="/" /> */}
-                    </Switch>
-      {/* <Route path="/login" component={NotAuthenticated ? Login : Home} /> */}
+        <Switch>
+          <PrivateRoute exact path="/" component={Home} />
+          <Route path="/login" component={Login} />
+          {/* <Redirect from="*" to="/" /> */}
+        </Switch>
+        {/* <Route path="/login" component={NotAuthenticated ? Login : Home} /> */}
         <App />
       </Layout>
     </Router>
