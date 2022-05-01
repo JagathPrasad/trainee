@@ -81,12 +81,12 @@ const AppWrapper = () => {
   return (
     <Router>
       <Layout page={location.substring(1)}>
-        <Switch>
-          <PrivateRoute exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
-          {/* <Redirect from="*" to="/" /> */}
-        </Switch>
-        {/* <Route path="/login" component={NotAuthenticated ? Login : Home} /> */}
+      {/* <Switch>
+                        <PrivateRoute exact path="/" component={Home} />
+                        <Route path="/login" component={Login} /> */}
+                        {/* <Redirect from="*" to="/" /> */}
+                    {/* </Switch> */}
+      {/* <Route path="/login" component={NotAuthenticated ? Login : Home} /> */}
         <App />
       </Layout>
     </Router>
