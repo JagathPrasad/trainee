@@ -2,8 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react'
 import './additems.css';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import { render } from '@testing-library/react';
-import { v4 as uuid } from 'uuid';
+
 
 const AddItems = () => {
 
@@ -22,6 +21,7 @@ const AddItems = () => {
     //     }
     const [selectedfile, setSelectedfile] = useState([]);
     const [image64, setImage64] = useState("");
+
     const image = (e) => {
         setSelectedfile(e.target.files);
         console.log(e.target.files[0]);
@@ -30,24 +30,25 @@ const AddItems = () => {
         console.log(e.target.files[0].type);
     };
 
-    const baseimg = (image) => {
+    const ConvertImageToBase64 = (event) => {
+        //console.log('event', event.target.files[0]);
+        let file = event.target.files[0];
         var reader = new FileReader();
-        console.log('file upload');
-        if (image) {
-            reader.ReaderAsDataURL();
-            reader.onload = () => {
-                var Base64 = reader.result;
-                console.log(Base64);
-                setImage64(Base64);
-            };
-            reader.onerror = (error) => {
-                console.log('error :', error);
-            };
-        }
-
+        //console.log('file upload');
+        let base64;
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            base64 = reader.result;
+            //  console.log('base64', base64);
+            setImage64(base64);
+        };
+        reader.onerror = (error) => {
+            console.log('error :', error);
+        };
     };
     //baseimg(selectedfile[0])
     const onSubmit = (data, e) => {
+        console.log('data',data);
         let item = {
             id: '00000000-0000-0000-0000-000000000000',
             name: data.name,
@@ -63,11 +64,11 @@ const AddItems = () => {
             category_id: data.category_id,
         };
         console.log("data", data);
-        axios.post('https://cometh.prelinehealthcare.com/api/item/postadditem', item).then((res) => {
+        // axios.post('https://cometh.prelinehealthcare.com/api/item/postadditem', item).then((res) => {
 
-        }).catch(() => {
+        // }).catch(() => {
 
-        })
+        // })
     }
     //  useEffect(() => {
     //    additems();
@@ -114,7 +115,7 @@ const AddItems = () => {
 
                                         <div class=" col-span-1 sm:col-span-3">
                                             <label for="image" class="block text-sm font-medium text-gray-700"> Food Image</label>
-                                            <input type="file" name="image" id="image" autocomplete="image" onChange={() => { baseimg('') }} class="mt-1 block w-6/12 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                            <input type="file" name="image" id="image" autocomplete="image" onChange={ConvertImageToBase64} class="mt-1 block w-6/12 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                         </div>
 
 

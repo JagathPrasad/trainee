@@ -83,11 +83,7 @@ const AppWrapper = () => {
     <Router>
       <Layout page={location.substring(1)}>
       {/* <Switch>
-<<<<<<< HEAD
-                    <PrivateRoute exact path="/" component={Home} />
-=======
                         <PrivateRoute exact path="/" component={Home} />
->>>>>>> dev
                         <Route path="/login" component={Login} /> */}
                         {/* <Redirect from="*" to="/" /> */}
                     {/* </Switch> */}

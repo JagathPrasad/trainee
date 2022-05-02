@@ -1,4 +1,3 @@
-
 import './tabs.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
@@ -255,17 +254,17 @@ const Approvals = () => {
 
   return (
     <div>
-      <div>
+      <div class="tainer px-6 sm:px-8 w-6/12">
 
 
-        <div class="mx-auto px-4 sm:px-8">
+        <div class="  mx-auto px-4 sm:px-8 ">
           <h2 class="text-xl font-semibold leading-tight text-left text-blue-900">PENDING APPROVAL</h2>
 
         </div>
 
 
 
-        <div label="Vendor  ">
+        <div >
 
           <div class="px-4 sm:px-8"  >
             <div class="py-8">
