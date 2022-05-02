@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+   import React, { useEffect, useState } from 'react'
 import './BannerAdd.css';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
@@ -6,6 +6,7 @@ import axios from 'axios';
 
 const BannerAdd = (banner) => {
   const { Add, handleSubmit} = useForm();
+  const [baseImage, setBaseImage] = useState("");
     // const [item_details, setItemDetails] = useState([]);
     // const Setitems = () => {   
     //     axios.get('https://cometh.prelinehealthcare.com/api/admin/postaddbanner/'+ banner).then((res) => {
@@ -31,7 +32,29 @@ const BannerAdd = (banner) => {
        
       }
       )
-  }
+ 
+ 
+    }
+
+    const uploadImage = async (e) => {
+      const file = e.target.files[0];
+      const base64 = await convertBase64(file);
+      setBaseImage(base64);
+    };
+    const convertBase64 = (file) => {
+      return new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+  
+        fileReader.onload = () => {
+          resolve(fileReader.result);
+        };
+  
+        fileReader.onerror = (error) => {
+          reject(error);
+        };
+      });
+    };
 
 
 return(
@@ -55,13 +78,14 @@ return(
     
                       <div class="col-span-6 sm:col-span-4">
                         <label for="email-address" class="block text-sm font-medium text-gray-700"> Food Image</label>
-                        <div class="flex justify-center">
+                                              <div class="flex justify-center">
       <div class="mb-3 w-96">
-        <label for="formFile" class="form-label inline-block mb-2 text-gray-700"> Select an Image</label>
-        <input class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-paddingborder border-solid border-gray-300 rounded transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="formFile"></input>
+      <input type="file" onChange={(e) => {uploadImage(e);
+        }}
+      />
+      <br></br>
+      <img src={baseImage} height="200px" />
+        
       </div>
     </div> 
    

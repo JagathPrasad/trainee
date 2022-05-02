@@ -7,10 +7,9 @@ const Vendors = () => {
   const [user_details, setUserDetails] = useState([]);
   const [bind_user, setBindUser] = useState({});
   const [user_type, setUserType] = useState('');
-  const [istrue, setTrue] = useState(false);
+  
 
-  const [showpopup, setPopup] = useState(false);
-
+  
   const Getusers = (x) => {
     axios.get('https://cometh.prelinehealthcare.com/api/admin/getactivevendors').then((res) => {
       console.log(res.data, 'success');
