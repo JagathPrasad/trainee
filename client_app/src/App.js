@@ -1,3 +1,4 @@
+
 import logo from './logo.svg';
 import './App.css';
 import Login from './components/Login';
@@ -5,10 +6,8 @@ import Register from './components/Register';
 import Home from './components/Home';
 import User from './components/User';
 import Payment from './components/Payment';
-
 import Address from './components/Address';
 import Order from './components/Order';
-//import Payment from './components/Payment';
 import Items from './components/Items';
 import Itemdetails from './components/Itemdetails';
 import Approval from './components/Approvals';
@@ -19,10 +18,10 @@ import Vendordelivery from './components/Vendordelivery';
 import Userdelivery from './components/Userdelivery';
 import Vendors from './components/Vendors';
 import AddItems from './components/Additems';
-
 import Banner from './components/Banner';
 import BannerAdd from './components/BannerAdd';
 
+import React, { useEffect, useNavigate } from 'react'
 
 import {
   BrowserRouter as Router,
@@ -33,7 +32,7 @@ import {
 import Layout from './components/Layout';
 
 
-// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 
 
 function App() {
@@ -48,6 +47,20 @@ function App() {
   //   </>
 
   // );
+
+  // let navigate = useNavigate();
+  //   const goLogin = () => {        
+  //       navigate("/Login");
+  //   };
+
+  useEffect(() => {
+    const loggedInUser = sessionStorage.getItem('user_details');
+    console.log('loggedInUser', loggedInUser);
+    if (loggedInUser == null) {
+      //goLogin();       
+
+    }
+}, []);
 
   let routes = useRoutes([
     { path: "/", element: <Login /> },
@@ -68,10 +81,13 @@ function App() {
     { path: "/userdelivery", element: <Userdelivery /> },
     { path: "/Vendors", element: <Vendors /> },
     { path: "/Banner", element: <Banner /> },
+    
     { path: "/BannerAdd", element: <BannerAdd /> }  // ...
   ]);
   return routes;
 }
+
+
 
 // export default App;
 
@@ -81,12 +97,7 @@ const AppWrapper = () => {
   return (
     <Router>
       <Layout page={location.substring(1)}>
-      {/* <Switch>
-                        <PrivateRoute exact path="/" component={Home} />
-                        <Route path="/login" component={Login} /> */}
-                        {/* <Redirect from="*" to="/" /> */}
-                    {/* </Switch> */}
-      {/* <Route path="/login" component={NotAuthenticated ? Login : Home} /> */}
+      
         <App />
       </Layout>
     </Router>
