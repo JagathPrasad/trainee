@@ -23,6 +23,7 @@ import AddItems from './components/Additems';
 
 
 import {
+ 
   BrowserRouter as Router,
   Routes,
   Route,
@@ -31,7 +32,7 @@ import {
 import Layout from './components/Layout';
 
 
-// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// import { BrowserRouter as Switch } from 'react-router-dom';
 
 
 function App() {
@@ -77,11 +78,11 @@ const AppWrapper = () => {
   return (
     <Router>
       <Layout page={location.substring(1)}>
-      <Switch>
-                        <PrivateRoute exact path="/" component={Home} />
-                        <Route path="/login" component={Login} />
+      {/* <Switch>
+                    <PrivateRoute exact path="/" component={Home} />
+                        <Route path="/login" component={Login} /> */}
                         {/* <Redirect from="*" to="/" /> */}
-                    </Switch>
+                    {/* </Switch> */}
       {/* <Route path="/login" component={NotAuthenticated ? Login : Home} /> */}
         <App />
       </Layout>

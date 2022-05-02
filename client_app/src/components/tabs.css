@@ -11,9 +11,9 @@
     margin-bottom: -1px;
     padding: 0.5rem 0.75rem;
   }
-  .containeer {
+  .tainer {
     max-width: 50%;
-   
+   left :12%;
 }
   .tab-list-active {
     background-color: white;
@@ -38,13 +38,7 @@
 }
 
 .deletecenter{
-
   margin-top: -55%;
-
   margin-left: 35%;
-
   width: 106%;
-
- 
-
 }
