@@ -40,7 +40,7 @@ const User = () => {
 
   const RenderView = () => {
     console.log('bind', bind_user);
-    return <div class="bg-gray-100 shadow overflow-hidden sm:rounded-lg righ2ts">
+    return <div class="bg-gray-100 shadow overflow-hidden sm:rounded-lg  righ2ts">
       <div class="px-4 py-5 sm:px-6">
         <h3 class="text-lg leading-6 font-medium text-blue-900">User Details</h3>
 
@@ -136,7 +136,7 @@ const User = () => {
       {/* <Navbar />
       <Sidebar /> */}
 
-      <div class="mx-auto px-4 sm:px-8">
+      <div class="w-6/12 px-4 sm:px-8">
         <div class="py-8">
           <div>
             <h2 class="text-2xl font-semibold leading-tight text-left text-blue-900">USERS</h2>

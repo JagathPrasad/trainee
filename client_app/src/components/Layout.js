@@ -6,7 +6,7 @@ import React, { useState, useContext } from 'react';
 
 const Layout = (props) => {
     const { state } = useContext(store);
-    console.log('asdfasdfsasfafdsafdsadfasdfasdfa', state.userName);
+    console.log('asdfasdfsasfafdsafdsadfasdfasdfa', state.user);
     const page = props.page;
     console.log('page', page);
     const renderPage = () => {
@@ -17,7 +17,7 @@ const Layout = (props) => {
         <div>
 
             {(() => {
-                if (state.userName != '' && state.userName != undefined) {
+                if (state.user != '' && state.user != undefined) {
                     return <div>
                         <Sidebar />
                         <Navbar />

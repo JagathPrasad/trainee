@@ -5,17 +5,17 @@ align-self: center;
 display: flex;
 
 }
-.container {
+/* .tainer {
     max-width:50%;
-    margin-left:10px;
-}
+    margin-left:10%;
+} */
 .righ2ts{
     margin-left:95%;
-    margin-top: -95%;
+    margin-top:-100%;
     width:50%;
   }
   .urigh2ts{
     margin-left:95%;
-    margin-top: -102%;
+    margin-top: -107%;
     width:50%;
   }

@@ -1,0 +1,32 @@
+.size{
+  width:30%;
+  height:50%;
+  align-self: center;
+  display: flex;
+  
+  }
+  .container {  
+      max-width:25%;
+      margin-left: 8%;
+      display: flex;
+
+  }
+  
+.right{
+   margin-left:106%; 
+   margin-top: -75%; 
+   width:200%;
+  }
+  .deletecenter{
+      margin-top: -55%;
+      margin-left: 35%;
+      width: 106%;
+      
+  }
+
+  .side{
+    margin-left:105%; 
+   margin-top: -73%; 
+   width:250%;
+   
+  }

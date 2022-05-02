@@ -425,7 +425,7 @@ const Delivery = () => {
     <div>
 
       <br></br>
-      <div class="mx-auto px-4 sm:px-8">
+      <div class="w-6/12 px-4 sm:px-8">
         <h1 class=" text-2xl font-bold leading-tight text-left text-blue-900">DELIVERY</h1>
 
 
