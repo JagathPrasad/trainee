@@ -4,7 +4,7 @@ import './footer.css';
 const Footer = () => {
   return (
     <div className="footer">
-    <h6>Copyright 2022 Zanex .Designed with Love by Monospear team All rights reserved</h6>
+    <h6>Copyright 2022.Designed with Love by Monospear team All rights reserved</h6>
     
     </div>
   )
