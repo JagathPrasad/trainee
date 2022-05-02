@@ -1,13 +1,14 @@
 .footer{
     position:fixed;
     bottom:-5px;
-    background-color: black;
+    background-color: slate;
     width: 100%;
     text-align: center;
-    color: white;
+    color: black;
     font-style: oblique;
     border-top: 0.5px solid lightgrey;
     height: 40px;
+    font-weight: 500;
     
 }
 
