@@ -24,13 +24,13 @@ import BannerAdd from './components/BannerAdd';
 import React, { useEffect, useNavigate } from 'react'
 
 import {
+
   BrowserRouter as Router,
   Routes,
   Route,
   useRoutes
 } from "react-router-dom";
 import Layout from './components/Layout';
-
 
 
 
@@ -60,7 +60,7 @@ function App() {
       //goLogin();       
 
     }
-}, []);
+  }, []);
 
   let routes = useRoutes([
     { path: "/", element: <Login /> },
@@ -81,7 +81,7 @@ function App() {
     { path: "/userdelivery", element: <Userdelivery /> },
     { path: "/Vendors", element: <Vendors /> },
     { path: "/Banner", element: <Banner /> },
-    
+
     { path: "/BannerAdd", element: <BannerAdd /> }  // ...
   ]);
   return routes;
@@ -97,7 +97,7 @@ const AppWrapper = () => {
   return (
     <Router>
       <Layout page={location.substring(1)}>
-      
+
         <App />
       </Layout>
     </Router>

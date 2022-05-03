@@ -378,7 +378,7 @@ const Itemdetails = () => {
   return (
 
     <div>
-      <div class="mx-auto px-4 sm:px-8 w-6/12">
+      <div class=" tainer px-6 sm:px-8 w-6/12">
         <div class="py-8">
           <div>
           
