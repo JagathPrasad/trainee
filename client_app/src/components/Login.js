@@ -81,7 +81,7 @@ const Login = () => {
             setuserDetails(res.data);
             sessionStorage.setItem('user_details', JSON.stringify(res.data));
             //user Name hardcoded please pass it dynamically
-            dispatch({ type: 'ADD_USER', payload: { userName: 'Jagath' } });//context api updated.
+            //dispatch({ type: 'ADD_USER', payload: { userName: 'Jagath' } });//context api updated.
             dispatch({ type: 'ADD_USER', payload: { user: res.data } });//context api updated.
             goHome();
 
