@@ -7,11 +7,13 @@ import { useNavigate } from "react-router-dom";
 //import { UserContext } from '../store/user';
 import { store } from '../store/user';
 import { Route, Redirect } from "react-router-dom";
+import { baseUrl } from './utility/api_config';
 
 
 
 const Login = () => {
-
+    //let x = api_config();
+    console.log('baseUrl', baseUrl);
     // const { username, setUsername } = useContext(UserContext);
     const [islogin, setLogin] = useState(true);
     const [user_details, setuserDetails] = useState('');
@@ -54,13 +56,14 @@ const Login = () => {
         //dispatch({ type: 'ADD_USER', payload: { userName: 'Jagath' } });
         //goHome();
         */
+       // baseUrl.get(`user/getloginuser/${this.state.mobileno}`).then((res) => {
 
-        axios.get('https://cometh.prelinehealthcare.com/api/user/getloginuser/' + mobileno).then((res) => {
+        axios.get(baseUrl+'user/getloginuser/'+ mobileno).then((res) => {
             //debugger;
             console.log(res.data, 'success');
             // setLogged(false);
-            // setuserDetails(res.data);
-            //sessionStorage.setItem('user_details', res.data);
+            setuserDetails(res.data);
+            sessionStorage.setItem('user_details', res.data);
             setUserId(res.data.user_id);
             setLogin(false);
 
@@ -71,13 +74,14 @@ const Login = () => {
 
     const Getuserotp = () => {
 
-        axios.get('https://cometh.prelinehealthcare.com/api/user/getuserotp/' + OTP + '/' + user_id).then((res) => {
+        //API.get(`user/getloginuser/${this.state.OTP}${this.state.user_id}`).then((res) => {
+        axios.get(baseUrl+'user/getuserotp/' + OTP + '/' + user_id).then((res) => {
 
             console.log(res.data, 'success');
-            //setuserDetails(res.data);
+            setuserDetails(res.data);
             sessionStorage.setItem('user_details', JSON.stringify(res.data));
             //user Name hardcoded please pass it dynamically
-            //dispatch({ type: 'ADD_USER', payload: { userName: 'Jagath' } });//context api updated.
+            dispatch({ type: 'ADD_USER', payload: { userName: 'Jagath' } });//context api updated.
             dispatch({ type: 'ADD_USER', payload: { user: res.data } });//context api updated.
             goHome();
 
@@ -92,6 +96,7 @@ const Login = () => {
         const loggedInUser = sessionStorage.getItem('user_details');
         console.log('loggedInUser', loggedInUser);
         if (loggedInUser != null) {
+
             goHome();
         }
     }, []);

@@ -7,7 +7,7 @@ import AppWrapper from './App';
 import './App.css';
 import 'tw-elements';
 //import UserWrapper from './store/user';
-// import {AuthProvider} from './context/AuthProvider';
+
 import { StateProvider } from './store/user'
 
 
