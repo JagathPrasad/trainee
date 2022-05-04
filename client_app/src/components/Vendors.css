@@ -12,10 +12,10 @@
 
     }
     
- .right{
+ .Right{
      margin-left:106%; 
-     margin-top: -92%; 
-     width:100%;
+     margin-top: -53%; 
+     width:220%;
     }
     .deletecenter{
         margin-top: -55%;
@@ -23,9 +23,9 @@
         width: 106%;
         
     }
-    .side{
+    .Side{
         margin-left:105%; 
-       margin-top: 10%; 
+       margin-top: -53%; 
        width:250%;
        
       }
