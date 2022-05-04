@@ -2,6 +2,7 @@ import './house.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import popup from './popup';
+import { baseUrl } from './utility/api_config';
 
 
 
@@ -18,7 +19,7 @@ const House = () => {
 
 
     const houselist = (type) => {
-        axios.get('https://cometh.prelinehealthcare.com/api/subscribe/gethouse/' + type).then((res) => {
+        axios.get(baseUrl+'subscribe/gethouse/' + type).then((res) => {
             console.log(res.data, 'success');
             setHouseDetails(res.data);
             //setUserType(type);

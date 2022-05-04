@@ -2,6 +2,7 @@ import './subscription.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import popup from './popup';
+import { baseUrl } from './utility/api_config';
 
 
 
@@ -18,7 +19,7 @@ const Subscription = () => {
 
 
   const subscriptionlist = (x) => {
-    axios.get('https://cometh.prelinehealthcare.com/api/subscribe/getallsubscription').then((res) => {
+    axios.get(baseUrl+'subscribe/getallsubscription').then((res) => {
       console.log(res.data, 'success');
       setSubscriptionDetails(res.data);
       console.log('subscription_details', subscription_details);
@@ -26,20 +27,20 @@ const Subscription = () => {
       console.log(error, 'success');
     });
   }
-  const subscribelist = (x) => {
-    axios.get('https://cometh.prelinehealthcare.com/api/subscribe/getallsubscription').then((res) => {
-      console.log(res.data, 'success');
-      setSubscribeDetails(res.data);
-      console.log('subscribe_details', subscribe_details);
-    }).catch((error) => {
-      console.log(error, 'success');
-    });
-  }
+  // const subscribelist = (x) => {
+  //   axios.get('https://cometh.prelinehealthcare.com/api/subscribe/getallsubscription').then((res) => {
+  //     console.log(res.data, 'success');
+  //     setSubscribeDetails(res.data);
+  //     console.log('subscribe_details', subscribe_details);
+  //   }).catch((error) => {
+  //     console.log(error, 'success');
+  //   });
+  // }
 
 
   useEffect(() => {
     subscriptionlist();
-    subscribelist();
+    //subscribelist();
   },
     []);
 

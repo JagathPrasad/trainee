@@ -4,14 +4,18 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+import { baseUrl } from './utility/api_config';
 
 const User = () => {
+  console.log('baseUrl', baseUrl);
   const [user_details, setUserDetails] = useState([]);
   const [bind_user, setBindUser] = useState({});
   const [user_type, setUserType] = useState('');
   const [istrue, setTrue] = useState(false);
+  const [user_delete, setUserDelete] = useState([]);
+
   const Getusers = (x) => {
-    axios.get('https://cometh.prelinehealthcare.com/api/admin/getactiveusers').then((res) => {
+    axios.get(baseUrl + 'admin/getactiveusers').then((res) => {
       console.log(res.data, 'success');
       setUserDetails(res.data);
       console.log('user_details', user_details);
@@ -19,10 +23,27 @@ const User = () => {
       console.log(error, 'success');
     });
   }
+
+
   useEffect(() => {
     Getusers();
   },
     []);
+
+  const Delete = (user_id) => {
+    //Getusers();
+    //Getdelete(user_id);
+    axios.delete(baseUrl + 'admin/deleteactiveuser/' + user_id).then((res) => {
+      console.log(res.data, 'success');
+      if (res.data == true) {
+        Getusers();
+      }
+      //setUserDelete(res.data);
+      console.log('user_delete', user_delete);
+    }).catch((error) => {
+      console.log(error, 'success');
+    });
+  }
 
   const ShowDetails = (data, type) => {
     console.log('data', data);
@@ -42,7 +63,7 @@ const User = () => {
 
   const RenderView = () => {
     console.log('bind', bind_user);
-    return <div class="bg-gray-100 shadow overflow-hidden sm:rounded-lg  righ2ts">
+    return <div class="bg-gray-100 shadow overflow-hidden sm:rounded-lg  uvrights">
       <div class="px-4 py-5 sm:px-6">
         <h3 class="text-lg leading-6 font-medium text-blue-900">User Details</h3>
 
@@ -67,7 +88,7 @@ const User = () => {
     console.log('bind', bind_user);
     return <div>
 
-      <div class="mt-10 sm:mt-0 urigh2ts">
+      <div class="mt-10 sm:mt-0 uerights">
 
         <div class="px-4 sm:px-0">
           <h3 class="text-xl font-medium leading-6 text-blue-900">User Details</h3>
@@ -106,7 +127,7 @@ const User = () => {
       buttons: [
         {
           label: 'Yes',
-          onClick: () => alert('Click Yes')
+          onClick: () => Delete('')
         },
         {
           label: 'No',
@@ -115,6 +136,7 @@ const User = () => {
       ]
     })
   }
+
   return (
     <div>
       {/* <Navbar />
