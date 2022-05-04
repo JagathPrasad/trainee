@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import './tabs.css';
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from './utility/api_config';
 
 import axios from 'axios';
 
 
 const Itemdetails = () => {
   const [item_details, setItemDetails] = useState([]);
-
+  console.log('baseUrl', baseUrl);
   const [vendor_Items, ItemDetails] = useState([]);
   const [bind_details, setDetails] = useState({});
   const [user_type, setUserType] = useState('');
   const [showpopup, setPopup] = useState(false);
+  
+ 
+ 
   const GetUsers = () => {
     axios.get('https://cometh.prelinehealthcare.com/api/item/getvendoritems').then((res) => {
       console.log(res.data, 'success');
@@ -32,12 +36,33 @@ const Itemdetails = () => {
     }).catch((error) => {
       console.log(error, 'success');
     });
+  }  
+
+  const Delete = (vendorid) => {
+    axios.delete(baseUrl+'/item/deletevendoritem/'+ vendorid).then((res) => {
+      console.log(res.data, 'success');
+      //setTimeout(1000)      
+      //setItemDetails(res.data);
+      if(res.data == true)
+      {
+        Getvendoritem();
+      }
+      console.log('Item_details', item_details);
+    }).catch((error) => {
+      console.log(error, 'success');
+    });
   }
+ 
 
   useEffect(() => {
     GetUsers();
-    //Getvendoritem();
+   
+    
   }, []);
+
+  
+
+  
   const ShowDetails = (data, type) => {
     if (type == 'itemslist') {
       Getvendoritem(data, type);
@@ -340,6 +365,8 @@ const Itemdetails = () => {
     </div>;
   }
 
+  
+
   const RenderDelete = () => {
     return <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
       <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -366,8 +393,8 @@ const Itemdetails = () => {
               </div>
             </div>
           </div>
-          <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-            <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Deactivate</button>
+          <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:fex-row-reverse">
+            <button type="button"onClick={() => Delete(bind_details.vendorid)} class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Deactivate</button>
             <button type="button" onClick={() => ShowDetails()} class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
           </div>
         </div>

@@ -137,7 +137,6 @@ const Login = () => {
                                 <input className='bg-white' type="password" placeholder="Enter OTP" name="otp" required onChange={(e) => setotp(e.target.value)} />
                                 <br />
                                 <br />
-
                                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Resend</button>
                                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" onClick={() => Getuserotp()} >Submit</button>
                             </div>
@@ -145,14 +144,6 @@ const Login = () => {
                     }
 
                 })()}
-
-
-
-
-
-
-
-
             </div>
         </div>
 

@@ -20,47 +20,49 @@ import Vendors from './components/Vendors';
 import AddItems from './components/Additems';
 import Banner from './components/Banner';
 import BannerAdd from './components/BannerAdd';
+import loggedInUser from './components/Login';
 
-import React, { useEffect, useNavigate } from 'react'
+
+import React, { useEffect, Redirect, useState} from 'react'
 
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useRoutes
+  useRoutes,
+  useNavigate
 } from "react-router-dom";
 import Layout from './components/Layout';
+import { set } from 'react-hook-form';
 
 
 
 
 
 function App() {
+  //console.log('loggedInUser', loggedInUser);
 
-  // return (
-  //   <>
-  //     {/* <Router /> */}
-  //       <Login />
 
-  //     {/* <Route path="/register" Component={Register} /> */}
+  const [user_details, setuserDetails] = useState('');
 
-  //   </>
+  
 
-  // );
+  let navigate = useNavigate();
+    const goLogin = () => {        
+        navigate("/Login");
+    };
 
-  // let navigate = useNavigate();
-  //   const goLogin = () => {        
-  //       navigate("/Login");
-  //   };
 
-  useEffect(() => {
-    const loggedInUser = sessionStorage.getItem('user_details');
-    console.log('loggedInUser', loggedInUser);
-    if (loggedInUser == null) {
-      //goLogin();       
-
-    }
-}, []);
+    useEffect(() => {
+      
+      const loggedInUser = JSON.parse(sessionStorage.getItem('user_details'));
+      console.log('loggedInUser', loggedInUser);
+      if (loggedInUser == null || loggedInUser == '') {
+        goLogin();
+      }
+  }, []);
+   
+  
 
   let routes = useRoutes([
     { path: "/", element: <Login /> },
@@ -81,7 +83,6 @@ function App() {
     { path: "/userdelivery", element: <Userdelivery /> },
     { path: "/Vendors", element: <Vendors /> },
     { path: "/Banner", element: <Banner /> },
-    
     { path: "/BannerAdd", element: <BannerAdd /> }  // ...
   ]);
   return routes;
