@@ -35,8 +35,6 @@ const Banner = () => {
 
   }
 
-  
-
         const ShowDetails = (data, type) => {
             console.log('data', data);
             setBindUser(data);
