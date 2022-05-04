@@ -31,15 +31,15 @@ const AddItems = () => {
     };
 
     const ConvertImageToBase64 = (event) => {
-        //console.log('event', event.target.files[0]);
+        // console.log('event', event.target.files[0]);
         let file = event.target.files[0];
         var reader = new FileReader();
-        //console.log('file upload');
+        console.log('file upload');
         let base64;
         reader.readAsDataURL(file);
         reader.onload = () => {
             base64 = reader.result;
-            //  console.log('base64', base64);
+              console.log('base64', base64);
             setImage64(base64);
         };
         reader.onerror = (error) => {
