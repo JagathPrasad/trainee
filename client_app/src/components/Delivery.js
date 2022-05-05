@@ -5,11 +5,13 @@ import React, { useEffect, useState } from 'react';
 import popup from './popup';
 import moment from 'moment';
 import 'tw-elements';
+import { baseUrl } from './utility/api_config';
 //reference for date formats https://momentjs.com/
 
 
 
 const Delivery = () => {
+  console.log('baseUrl', baseUrl);
   const [alldelivery_details, setalldeliveryDetails] = useState([]);
 
   const [bind_details, setBindDetails] = useState({});
@@ -23,7 +25,7 @@ const Delivery = () => {
 
 
   const alldeliverylist = (x) => {
-    axios.get('https://cometh.prelinehealthcare.com/api/delivery/getalldelivery').then((res) => {
+    axios.get(baseUrl+ 'delivery/getalldelivery').then((res) => {
       console.log(res.data, 'success');
       setalldeliveryDetails(res.data);
       console.log('alldelivery_details', alldelivery_details);
@@ -32,7 +34,7 @@ const Delivery = () => {
     });
   }
   const allvendorlist = (vendorid, type) => {
-    axios.get('https://cometh.prelinehealthcare.com/api/delivery/getallvendordelivery/' + vendorid).then((res) => {
+    axios.get(baseUrl+ 'delivery/getallvendordelivery/' + vendorid).then((res) => {
       console.log(res.data, 'success');
       setallVendorDetails(res.data);
       setUserType(type);

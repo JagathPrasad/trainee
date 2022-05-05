@@ -19,13 +19,14 @@ const Layout = (props) => {
 
     useEffect(() => {
         const loggedInUser = JSON.parse(sessionStorage.getItem('user_details'));
-
         console.log('loggedInUser', loggedInUser);
         if (loggedInUser != null) {
             dispatch({ type: 'ADD_USER', payload: { user: loggedInUser } });
             // goHome();
         }
     }, []);
+
+
     return (
         <div>
 
