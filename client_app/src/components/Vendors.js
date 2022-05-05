@@ -1,4 +1,3 @@
-
 import './Vendors.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
@@ -7,12 +6,12 @@ const Vendors = () => {
   const [user_details, setUserDetails] = useState([]);
   const [bind_user, setBindUser] = useState({});
   const [user_type, setUserType] = useState('');
-  const [istrue, setTrue] = useState(false);
+  const [delete_details,setDeleteDetails]= useState([]);
+  
 
-  const [showpopup, setPopup] = useState(false);
-
-  const Getusers = (x) => {
-    axios.get('https://cometh.prelinehealthcare.com/api/admin/getactivevendors').then((res) => {
+  
+  const Getusers = (x) => {      
+    axios.get('https://cometh.prelinehealthcare.com/api/admin/getactivevendors'  ).then((res) => {
       console.log(res.data, 'success');
       setUserDetails(res.data);
       console.log('user_details', user_details);
@@ -24,6 +23,20 @@ const Vendors = () => {
     Getusers();
   },
     []);
+
+
+    const Deleteusers = (id) => {      
+      axios.delete('https://cometh.prelinehealthcare.com/api/item/deletevendoritem/' + id).then((res) => {
+        console.log(res.data, 'success');
+       // setDeleteDetails(res.data);
+       if(res.data == true){
+         //refresh the grid.
+       }
+        console.log('delete_details', delete_details);
+      }).catch((error) => {
+        console.log(error, 'success');
+      });
+    }   
 
     const ShowDetails = (data, type) => {
       console.log('data', data);
@@ -42,7 +55,7 @@ const Vendors = () => {
     }
     const RenderView = () => {
       console.log('bind', bind_user);
-      return <div class="bg-gray-200 shadow overflow-hidden sm:rounded-lg side">
+      return <div class="bg-gray-200 shadow overflow-hidden sm:rounded-lg Side">
       <div class="px-4 py-5 sm:px-6">
         <h3 class="text-lg leading-6  font-medium text-blue-900">Vendor </h3>
       </div>
@@ -127,7 +140,7 @@ const Vendors = () => {
       </div>;
     }
     const RenderEdit = () => {
-      return <div class="bg-white shadow overflow-hidden sm:rounded-lg w-6/12 right">
+      return <div class="bg-white shadow overflow-hidden sm:rounded-lg w-6/12 Right">
          <div class="mt-10 sm:mt-0">
           <div class="md:grid md:grid-cols-3 bg-gray-200 md:gap-6">
             <div class="md:col-span-1">
@@ -137,7 +150,7 @@ const Vendors = () => {
             <div class="mt-5 md:mt-0 md:col-span-3">
               <form action="#" method="POST">   
                 <div class="shadow overflow-hidden sm:rounded-md">
-                  <div class="px-3 py-2 bg-white sm:p-6">
+                  <div class="px-3 py-5 bg-white sm:p-6">
                     <div class="grid grid-cols-6 gap-6">
                       <div class="col-span-6 sm:col-span-3">
                         <label for="first-name" class="block text-sm font-medium text-gray-700 ">identity_card</label>
@@ -234,7 +247,7 @@ transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-
           </div>
         </div>
         <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-          <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Deactivate</button>
+          <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm" onClick={()=>{Deleteusers()}>Deactivate</button>
           <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
         </div>
       </div>;
@@ -338,7 +351,7 @@ transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                               </svg>
                             </td>
-                          </button>
+                          </button> 
                          
                         </td>
 
