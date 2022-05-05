@@ -1,16 +1,17 @@
 import './tabs.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-
+import { baseUrl } from './utility/api_config';
 
 const Approvals = () => {
-
+  console.log('baseUrl', baseUrl);
   const [bind_details, setDetails] = useState({});
   const [user_type, setUserType] = useState('');
   const [pending, setApprovalDetails] = useState([]);
   const [approval, setapproved] = useState([]);
+  const[user_delete,setUserDelete]=useState([]);
   const GetApproval = () => {
-    axios.get('https://cometh.prelinehealthcare.com/api/admin/getpendingapproval').then((res) => {
+    axios.get(baseUrl+'admin/getpendingapproval').then((res) => {
       console.log(res.data, 'success');
 
       setApprovalDetails(res.data);
@@ -21,7 +22,7 @@ const Approvals = () => {
 
   }
   const Approved = (user_id, type) => {
-    axios.get('https://cometh.prelinehealthcare.com/api/admin/getapprovevendor/' + user_id + "/" + type).then((res) => {
+    axios.get(baseUrl+'admin/getapprovevendor/' + user_id + "/" + type).then((res) => {
       console.log(res.data, 'success');
       setapproved(res.data);
       console.log('approval', approval);
@@ -30,12 +31,24 @@ const Approvals = () => {
     });
 
   }
-
+  const Getdelete = (user_id) => {
+    axios.get(baseUrl+ 'admin/deleteactiveuser/'+user_id).then((res) => {
+      console.log(res.data, 'success');
+      setUserDelete(res.data);
+      console.log('user_delete', user_delete);
+    }).catch((error) => {
+      console.log(error, 'success');
+    });
+  }
   useEffect(() => {
     GetApproval();
     // Approved()
 
   }, []);
+  const Delete = (user_id) => {
+    GetApproval();
+    Getdelete(user_id);
+  }
   {/* {renderAll()} */ }
 
   const ShowDetails = (data, type) => {
@@ -244,7 +257,7 @@ const Approvals = () => {
             </div>
           </div>
           <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-            <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Deactivate</button>
+            <button type="button" onClick={() => Delete(bind_details.user_id)} class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Delete</button>
             <button type="button" onClick={() => ShowDetails()} class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
           </div>
         </div>
