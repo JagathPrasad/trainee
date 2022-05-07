@@ -3,6 +3,8 @@ import './additems.css';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { baseUrl } from './utility/api_config';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'
 
 const AddItems = () => {
 
@@ -33,7 +35,7 @@ const AddItems = () => {
     const [CategoryId, setCategoryId] = useState("");
     const [Waiting, setWaiting] = useState("");
     const [Slots, setSlots] = useState("");
-
+    const [user_type, setUserType] = useState('');
     const image = (e) => {
         setSelectedfile(e.target.files);
         console.log(e.target.files[0]);
@@ -79,6 +81,7 @@ const AddItems = () => {
        console.log("item", item);
         axios.post(baseUrl+'item/postadditem', item).then((res) => {
 console.log('item added',res.data);
+   Added()
         }).catch(() => {
 
         })
@@ -92,6 +95,19 @@ console.log('item added',res.data);
 const list =()=>{
     console.log('name :',name,'caption :',caption,'Price :',Price,'Coupon :',Coupon,image64);
 }
+const Added = () => {
+    confirmAlert({
+      
+      message: 'Item added succesfully',
+      buttons: [
+        
+        {
+          label: 'OK',
+          
+        }
+      ]
+    })
+  }
 
     return (
         <div class="  overflow-hidden sm:rounded-lg  additems">
@@ -183,8 +199,8 @@ const list =()=>{
                                     </div>
                                 </div>
                                 <div class="px-4 py-3 bg-gray-300 text-right sm:px-6">
-                                    <button  onClick={list} type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
-                                    <button onClick={refreshPage} class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" >Clear</button>
+                                    <button  onClick={list} type="submit" class="inline-flex justify-center py-1 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
+                                    <button onClick={refreshPage} class="inline-flex justify-center py-1 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" >Clear</button>
 
                                 </div>
                             </div>
@@ -193,6 +209,7 @@ const list =()=>{
 
                 </div>
             </div>
+        
         </div>
     )
 
