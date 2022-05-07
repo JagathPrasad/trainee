@@ -7,9 +7,11 @@ import axios from 'axios';
 import { baseUrl } from './utility/api_config';
 
 
+
 const Items = () => {
-  console.log('baseUrl', baseUrl);
+  
   const [item_details, setItemDetails] = useState([]);
+  console.log('baseUrl', baseUrl);
   const GetUsers = () => {
     axios.get(baseUrl+'item/getallvendoritem/1bab575b-d40f-485a-a038-023747a29e82').then((res) => {
       console.log(res.data, 'success');
@@ -21,16 +23,7 @@ const Items = () => {
     });
   }
 
-  const Delete = () => {
-    axios.get(baseUrl+'item/getallvendoritem/1bab575b-d40f-485a-a038-023747a29e82').then((res) => {
-      console.log(res.data, 'success');
-      //setTimeout(1000)      
-      setItemDetails(res.data);
-      console.log('Item_details', item_details);
-    }).catch((error) => {
-      console.log(error, 'success');
-    });
-  }
+ 
 
   useEffect(() => {
     GetUsers();
