@@ -1,6 +1,6 @@
 .size{
   width:30%;
-  height:50%;
+  height:40%;
   align-self: center;
   display: flex;
   
@@ -14,7 +14,7 @@
   
 .right{
    margin-left:106%; 
-   margin-top: -83%; 
+   margin-top: -95%; 
    width:200%;
   }
   .deletecenter{
@@ -26,7 +26,7 @@
 
   .side{
     margin-left:105%; 
-   margin-top: -83%; 
+   margin-top: -93%; 
    width:250%;
    
   }
