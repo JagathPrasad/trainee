@@ -82,10 +82,6 @@ const Itemdetails = () => {
 
     console.log('bind', bind_details);
     return <div class="  rig2ht">
-
-
-
-
       <div>
         <h2 class="text-xl font-semibold leading-tight text-left  text-blue-900">{bind_details.vendor_name}</h2>
       </div>
@@ -363,14 +359,16 @@ const Itemdetails = () => {
     </div>;
   }
 
-  const RenderDelete = (vendorid) => {
+  
+
+  const RenderDelete = () => {
     confirmAlert({
       title: 'Confirm to submit',
       message: 'Are you sure to do this.',
       buttons: [
         {
           label: 'Yes',
-          onClick: () => Delete(vendorid)
+          onClick: () => Delete(bind_details.vendorid)
         },
         {
           label: 'No',
@@ -383,18 +381,15 @@ const Itemdetails = () => {
  
   return (
 
-    <div>
-      <div class=" tainer px-6 sm:px-8 w-6/12">
-        <div class="py-8">
-          <div>
-          
-            <h2 class="text-2xl font-semibold leading-tight text-left  text-blue-900">MENU 
-            <button onClick={routeadd} class="add bg-blue-500 hover:bg-blue-700 text-white font-bold  py-2 px-4 rounded">ADD
+    <div class= " tainer px-8">
+      <div>
+          <h2 class="text-2xl font-semibold leading-tight text-left  text-blue-900">MENU 
+            <button onClick={routeadd} class="add bg-blue-500 hover:bg-blue-700 text-white font-bold  py-2 rounded">ADD
             </button>
             </h2>
            
           </div>
-          <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+          <div class=" -mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
             <div
               class="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
             >
@@ -515,8 +510,7 @@ const Itemdetails = () => {
               }
             })()}
           </div> */}
-        </div>
-      </div>
+     
     </div>
 
 

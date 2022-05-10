@@ -1,8 +1,10 @@
-import './tabs.css';
+import './approval.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { baseUrl } from './utility/api_config';
 
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 const Approvals = () => {
   console.log('baseUrl', baseUrl);
   const [bind_details, setDetails] = useState({});
@@ -31,15 +33,15 @@ const Approvals = () => {
     });
 
   }
-  const Getdelete = (user_id) => {
-    axios.get(baseUrl+ 'admin/deleteactiveuser/'+user_id).then((res) => {
-      console.log(res.data, 'success');
-      setUserDelete(res.data);
-      console.log('user_delete', user_delete);
-    }).catch((error) => {
-      console.log(error, 'success');
-    });
-  }
+  // const Getdelete = (user_id) => {
+  //   axios.get(baseUrl+ 'admin/deleteactiveuser/'+user_id).then((res) => {
+  //     console.log(res.data, 'success');
+  //     setUserDelete(res.data);
+  //     console.log('user_delete', user_delete);
+  //   }).catch((error) => {
+  //     console.log(error, 'success');
+  //   });
+  // }
   useEffect(() => {
     GetApproval();
     // Approved()
@@ -47,7 +49,7 @@ const Approvals = () => {
   }, []);
   const Delete = (user_id) => {
     GetApproval();
-    Getdelete(user_id);
+    // Getdelete(user_id);
   }
   {/* {renderAll()} */ }
 
@@ -67,9 +69,9 @@ const Approvals = () => {
   }
   const RenderView = () => {
     console.log('bind', bind_details);
-    return <div class="bg-white shadow overflow-hidden sm:rounded-lg w-6/12 view">
-      <div class="px-4 py-5 sm:px-6">
-        <h3 class="text-lg leading-6 font-medium text-gray-900">User Information</h3>
+    return <div class="shadow overflow-hidden sm:rounded-lg w-full apview">
+    <div class="px-4 py-5 sm:px-6">
+        <h3 class="text-lg leading-6 font-medium  text-gray-900">User Information</h3>
         <p class="mt-1 max-w-2xl text-sm text-gray-500"></p>
       </div>
       <div class="border-t border-gray-200">
@@ -140,14 +142,13 @@ const Approvals = () => {
   }
 
   const RenderEdit = () => {
-    return <div >
+    return <div class=" shadow overflow-hidden sm:rounded-lg w-6/12 rig2ht">
+    <div class="px-4 py-5 sm:px-6">
+      <h3 class="text-lg leading-6 font-medium  text-gray-900">USER Information</h3>
+    </div>
+    <div class="border-t border-gray-200">
 
-
-      <div class="mt-10 sm:mt-0 view  ">
-        <div class="md:grid md:grid-cols-3 md:gap-6  ">
-
-          <div class="mt-5 md:mt-0 md:col-span-2 ">
-            <form action="#" method="POST">
+      <form action="#" method="POST">
               <div class="shadow overflow-hidden sm:rounded-md">
                 <div class="px-4 py-5  sm:p-6">
                   <div class="grid grid-cols-6 gap-6">
@@ -216,58 +217,39 @@ const Approvals = () => {
                   </div>
                 </div>
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
-                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
+                  <button type="submit" class="inline-flex justify-center py-1 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
+                  <button type="submit" class="inline-flex justify-center py-1 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
 
                 </div>
               </div>
             </form>
           </div>
-        </div>
-      </div>
+      
+ 
 
     </div>;
   }
 
   const RenderDelete = () => {
-
-    return <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-      <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-
-        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-
-
-        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
-        <div class="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-            <div class="sm:flex sm:items-start">
-              <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-
-                <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                </svg>
-              </div>
-              <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Deactivate account</h3>
-                <div class="mt-2">
-                  <p class="text-sm text-gray-500">Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-            <button type="button" onClick={() => Delete(bind_details.user_id)} class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">Delete</button>
-            <button type="button" onClick={() => ShowDetails()} class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
-          </div>
-        </div>
-      </div>
-    </div>;
+    confirmAlert({
+      title: 'Confirm to submit',
+      message: 'Are you sure to do this.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => Delete(bind_details.user_id)
+        },
+        {
+          label: 'No',
+          onClick: () => alert('Click No')
+        }
+      ]
+    })
   }
 
   return (
-    <div>
-      <div class="tainer px-6 sm:px-8 w-6/12">
+    
+      <div class=" aptainer ">
 
 
         <div class="  mx-auto px-4 sm:px-8 ">
@@ -406,7 +388,7 @@ const Approvals = () => {
         </div>
       </div>
 
-    </div>
+   
 
 
 
