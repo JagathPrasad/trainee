@@ -49,6 +49,7 @@ const User = () => {
     console.log('data', data);
     setBindUser(data);
     setUserType(type);
+    //setCurrentId(data.user_id);
     //for different methods
     // if (type == 'view') {
     //   setUserType(type);
@@ -88,7 +89,7 @@ const User = () => {
     console.log('bind', bind_user);
     return <div>
 
-      <div class="mt-10 sm:mt-0 uerights">
+      <div class="mt-10 sm:mt-10 uerights">
 
         <div class="px-4 sm:px-0">
           <h3 class="text-xl font-medium leading-6 text-blue-900">User Details</h3>
@@ -110,8 +111,8 @@ const User = () => {
                 </div>
               </div>
               <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
-                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
+                <button type="submit" class="inline-flex justify-center py-1.5 px-1.5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
+                <button type="submit" class="inline-flex justify-center py-1.5 px-1.5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
               </div>
             </div>
           </form>
@@ -121,13 +122,14 @@ const User = () => {
   }
 
   const RenderDelete = () => {
+  
     confirmAlert({
-      title: 'Confirm to submit',
+      title: 'Confirm to Delete',
       message: 'Are you sure to do this.',
       buttons: [
         {
           label: 'Yes',
-          onClick: () => Delete('')
+          onClick: () => Delete()
         },
         {
           label: 'No',
@@ -141,9 +143,9 @@ const User = () => {
     <div>
       {/* <Navbar />
       <Sidebar /> */}
+      <br></br>
+      <div class="px-4 sm:px-8 w-6/12">
 
-      <div class="w-6/12 px-4 sm:px-8">
-        <div class="py-8">
           <div>
             <h2 class="text-2xl font-semibold leading-tight text-left text-blue-900">USERS</h2>
           </div>
@@ -259,7 +261,7 @@ const User = () => {
               }
             })()}
           </div> */}
-        </div>
+        
         <div>{(() => {
           switch (user_type) {
             case "view": return RenderView();

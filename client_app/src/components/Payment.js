@@ -125,27 +125,27 @@ const Payments = () => {
                         <label for="address" class="block text-sm font-medium text-gray-700"> Name</label>
                         <input type="text" name="address" id="address" autocomplete="address" value={bind_user.name} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                       </div>
-                      <div class="col-span-3 sm:	col-span-4">
+                      <div class="col-span-3 sm:col-span-4">
                         <label for="amount" class="block text-sm font-medium text-gray-700">ITEM NAME</label>
                         <input type="text" name="amount" id="amount" autocomplete="amount" value={bind_user.item_name} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                       </div>
     
-    <div class="col-span-3 sm:	col-span-4">
+    <div class="col-span-3 sm:col-span-4">
                         <label for="amount" class="block text-sm font-medium text-gray-700">MOBILE NO</label>
                         <input type="text" name="amount" id="amount" autocomplete="amount" value={bind_user.mobile_no} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                       </div>
     
-    <div class="col-span-3 sm:	col-span-4">
+    <div class="col-span-3 sm:col-span-4">
                         <label for="amount" class="block text-sm font-medium text-gray-700">delivery_time</label>
                         <input type="text" name="amount" id="amount" autocomplete="amount" value={bind_user.delivery_time} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                       </div>
     
-    <div class="col-span-3 sm:	col-span-4">
+    <div class="col-span-3 sm:col-span-4">
                         <label for="amount" class="block text-sm font-medium text-gray-700">iscancelled</label>
                         <input type="text" name="amount" id="amount" autocomplete="amount" value={bind_user.iscancelled} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                       </div>
     
-    <div class="col-span-3 sm:	col-span-4">
+    <div class="col-span-3 sm:col-span-4">
                         <label for="amount" class="block text-sm font-medium text-gray-700">isdelivered</label>
                         <input type="text" name="amount" id="amount" autocomplete="amount" value={bind_user.isdelivered} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                       </div> 
