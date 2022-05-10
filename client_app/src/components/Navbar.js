@@ -10,6 +10,7 @@ import React, { useState, useContext } from 'react';
 import { store } from '../store/user';
 //import React, { useCallback, useState,  } from 'react';
 //import './Login.js'
+import { BrowserRouter as Router,  useNavigate} from "react-router-dom";
 
 
 const Navbar = (props) => {
@@ -17,12 +18,18 @@ const Navbar = (props) => {
   const { state } = useContext(store);
   console.log('asdfasdfsasfafdsafdsadfasdfasdfa', state.user);
   const [islogged, setLogged] = useState(true);
+  const[User, setUser]=useState(false);
+
+  let navigate = useNavigate();
+    const goLogin = () => {        
+        navigate("/Login");
+    };
 
   const logOut = () => {
     if (islogged == true) {
       sessionStorage.clear();
-      // setUser(false);
-      //history.push('/Login');
+    setUser(false);
+    goLogin();
     }
     else {
       sessionStorage.setItem('user_details');
@@ -75,7 +82,11 @@ const Navbar = (props) => {
                         <hr />
                         <li><button>Settings</button></li>
                         <li><button>Profiles</button></li>
+                        <div>
                         <li><button onClick={() => { logOut() }}>Logout</button></li>
+                        
+                        </div>
+
                       </ul>
                     </div>
                   </div>
