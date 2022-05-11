@@ -5,29 +5,33 @@
     display: flex;
     
     }
+    @media  screen and (min-width: 600px ) and (orientation:landscape)  {
     .container {
         max-width:52%;
         margin-left: 10%;
         display: flex;
 
     }
-    
+}
+@media  screen and (min-width: 350px ) and (orientation:landscape)  {  
  .Right{
      margin-left:106%; 
      margin-top: -53%; 
      width:220%;
-    }
+    }}
+    @media  screen and (min-width: 350px ) and (orientation:landscape)  {  
     .deletecenter{
         margin-top: -55%;
         margin-left: 35%;
         width: 106%;
         
-    }
+    }}
+    @media  screen and (min-width: 350px ) and (orientation:landscape)  {  
     .Side{
         margin-left:105%; 
        margin-top: -45%; 
        width:250%;
        
-      }
+      }}
    
     
