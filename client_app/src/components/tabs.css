@@ -1,3 +1,22 @@
+@media  screen and (min-width: 360px ) and (orientation:landscape)  {
+ 
+  .rig2ht{
+    margin-left:105%;
+    margin-top:-45%;
+    width:70%;
+  }
+}
+ 
+  
+
+
+@media  screen and (min-width: 600px ) and (orientation:landscape)  {
+
+  .tainer {
+    top: 10%;
+     max-width: 50%;
+    left : 10%;
+   }
 .tab-list {
     
     padding-left: 20%;
@@ -11,10 +30,7 @@
     margin-bottom: -1px;
     padding: 0.5rem 0.75rem;
   }
-  .tainer {
-    max-width: 50%;
-   left : 10%;
-}
+
   .tab-list-active {
     background-color: white;
     
@@ -27,18 +43,21 @@
     margin-top: -30%;
     width:70%;
 }
-.rig2ht{
-  margin-left:105%;
-  margin-top: -45%;
-  width:70%;
-}
-.add{
-  margin-left:65%;
-  width:10%;
-}
+
+
 
 .deletecenter{
   margin-top: -55%;
   margin-left: 35%;
   width: 106%;
+}
+
+
+
+}
+
+
+
+.add{
+  margin-left:35%;
 }

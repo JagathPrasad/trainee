@@ -18,7 +18,7 @@ const Itemdetails = () => {
  
  
   const GetUsers = () => {
-    axios.get('https://cometh.prelinehealthcare.com/api/item/getvendoritems').then((res) => {
+    axios.get(baseUrl+'item/getvendoritems').then((res) => {
       console.log(res.data, 'success');
       //setTimeout(1000)      
       setItemDetails(res.data);
@@ -28,7 +28,7 @@ const Itemdetails = () => {
     });
   }
   const Getvendoritem = (vendorid, type) => {
-    axios.get('https://cometh.prelinehealthcare.com/api/item/getallvendoritem/' + vendorid).then((res) => {
+    axios.get(baseUrl+'item/getallvendoritem/' + vendorid).then((res) => {
       console.log(res.data, 'success');
       //setTimeout(1000)      
       ItemDetails(res.data);
@@ -181,7 +181,7 @@ const Itemdetails = () => {
 
   const RenderView = () => {
     console.log('bind', bind_details);
-    return <div class="shadow overflow-hidden sm:rounded-lg w-6/12 rig2ht">
+    return <div class="shadow px-4 sm:rounded-lg w-7/12 rig2ht">
       <div class="px-4 py-5 sm:px-6">
         <h3 class="text-lg leading-6 font-medium  text-gray-900">Food Information</h3>
 
@@ -265,7 +265,7 @@ const Itemdetails = () => {
   const RenderEdit = () => {
 
 
-    return <div class=" shadow overflow-hidden sm:rounded-lg w-6/12 rig2ht">
+    return <div class=" shadow overflow-hidden sm:rounded-lg w-7/12 rig2ht">
       <div class="px-4 py-5 sm:px-6">
         <h3 class="text-lg leading-6 font-medium  text-gray-900">Food Information</h3>
       </div>
@@ -383,18 +383,19 @@ const Itemdetails = () => {
 
   return (
 
-    <div class= " tainer px-8">
-      <div>
-          <h2 class="text-2xl font-semibold leading-tight text-left  text-blue-900">MENU 
-            <button onClick={routeadd} class="add bg-blue-500 hover:bg-blue-700 text-white font-bold  py-2 rounded">ADD
+    <div class= " px-8 tainer ">
+      <br></br>
+     <div class="  mx-auto px-4 sm:px-8 ">
+          <h2 class="text-xl font-semibold leading-tight text-left text-blue-900">MENU
+
+        
+            <button onClick={routeadd} class="add w-2/12 bg-blue-500 hover:bg-blue-700 text-white font-bold  rounded">ADD
             </button>
             </h2>
            
           </div>
-          <div class=" -mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-            <div
-              class="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
-            >
+          
+           
               <table class=" object-left leading-normal ">
                 <thead>
                   <tr>
@@ -493,8 +494,8 @@ const Itemdetails = () => {
 
                 </tbody>
               </table>
-            </div>
-          </div>
+           
+        
           <div>{(() => {
             switch (user_type) {
               case "itemslist": return RenderallView();

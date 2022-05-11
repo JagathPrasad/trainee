@@ -12,6 +12,8 @@ const Approvals = () => {
   const [pending, setApprovalDetails] = useState([]);
   const [approval, setapproved] = useState([]);
   const[user_delete,setUserDelete]=useState([]);
+  const [currentid, setCurrentId] = useState([]);
+
   const GetApproval = () => {
     axios.get(baseUrl+'admin/getpendingapproval').then((res) => {
       console.log(res.data, 'success');
@@ -48,8 +50,18 @@ const Approvals = () => {
 
   }, []);
   const Delete = (user_id) => {
-    GetApproval();
-    // Getdelete(user_id);
+    //Getusers();
+    //Getdelete(user_id);
+    axios.delete(baseUrl + 'admin/deleteactivevendor/' + user_id).then((res) => {
+      console.log(res.data, 'success');
+      if (res.data === true) {
+        GetApproval();
+      }
+      //setUserDelete(res.data);
+      console.log('user_delete', user_delete);
+    }).catch((error) => {
+      console.log(error, 'success');
+    });
   }
   {/* {renderAll()} */ }
 
@@ -57,7 +69,7 @@ const Approvals = () => {
     console.log('data', data);
     setDetails(data);
     setUserType(type);
-
+    setCurrentId(data.user_id);
   }
 
 
@@ -142,9 +154,9 @@ const Approvals = () => {
   }
 
   const RenderEdit = () => {
-    return <div class=" shadow overflow-hidden sm:rounded-lg w-6/12 rig2ht">
+    return <div class=" shadow overflow-hidden sm:rounded-lg apview ">
     <div class="px-4 py-5 sm:px-6">
-      <h3 class="text-lg leading-6 font-medium  text-gray-900">USER Information</h3>
+      <h3 class="text-lg leading-6 font-medium  text-gray-900">User Information</h3>
     </div>
     <div class="border-t border-gray-200">
 
@@ -237,7 +249,7 @@ const Approvals = () => {
       buttons: [
         {
           label: 'Yes',
-          onClick: () => Delete(bind_details.user_id)
+          onClick: () => Delete(currentid)
         },
         {
           label: 'No',
@@ -250,26 +262,10 @@ const Approvals = () => {
   return (
     
       <div class=" aptainer ">
-
-
-        <div class="  mx-auto px-4 sm:px-8 ">
+<div >
           <h2 class="text-xl font-semibold leading-tight text-left text-blue-900">PENDING APPROVAL</h2>
-
         </div>
-
-
-
-        <div >
-
-          <div class="px-4 sm:px-8"  >
-            <div class="py-8">
-              <div>
-                <h2 class=" text-xl font-semibold leading-tight text-left text-blue-900"></h2>
-              </div>
-              <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                <div
-                  class="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
-                >
+        <div>
                   <table class="min-w-full leading-normal">
                     <thead>
                       <tr>
@@ -365,8 +361,8 @@ const Approvals = () => {
 
                     </tbody>
                   </table>
-                </div>
-              </div>
+                
+              
               <div>{(() => {
                 switch (user_type) {
                   case "view": return RenderView();
@@ -383,8 +379,8 @@ const Approvals = () => {
               }
             })()}
           </div> */}
-            </div>
-          </div>
+            
+          
         </div>
       </div>
 

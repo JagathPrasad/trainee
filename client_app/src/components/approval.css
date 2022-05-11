@@ -1,9 +1,16 @@
+@media  screen and (min-width: 360px ) and (orientation:landscape)  {
+ 
+
+.aptainer{
+    width: 50%;
+   left :10%;
+}
+}
+@media  screen and (min-width: 360px ) and (orientation:landscape)  {
+ 
+
 .apview{
     margin-left:105%;
-  margin-top: -75%;
-  width:70%;
-}
-.aptainer{
-    max-width: 70%;
-   left : 10%;
-}
+    margin-top: -25%;
+    width:50%;
+  }}
