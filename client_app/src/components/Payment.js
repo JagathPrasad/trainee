@@ -125,37 +125,66 @@ const Payments = () => {
                         <label for="address" class="block text-sm font-medium text-gray-700"> Name</label>
                         <input type="text" name="address" id="address" autocomplete="address" value={bind_user.name} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                       </div>
-                      <div class="col-span-3 sm:	col-span-4">
+                      <div class="col-span-3 sm:col-span-4">
                         <label for="amount" class="block text-sm font-medium text-gray-700">ITEM NAME</label>
                         <input type="text" name="amount" id="amount" autocomplete="amount" value={bind_user.item_name} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                       </div>
     
-    <div class="col-span-3 sm:	col-span-4">
+    <div class="col-span-3 sm:col-span-4">
                         <label for="amount" class="block text-sm font-medium text-gray-700">MOBILE NO</label>
                         <input type="text" name="amount" id="amount" autocomplete="amount" value={bind_user.mobile_no} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                       </div>
     
-    <div class="col-span-3 sm:	col-span-4">
+    <div class="col-span-3 sm:col-span-4">
                         <label for="amount" class="block text-sm font-medium text-gray-700">delivery_time</label>
+                        
                         <input type="text" name="amount" id="amount" autocomplete="amount" value={bind_user.delivery_time} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                       </div>
+
+                      
     
-    <div class="col-span-3 sm:	col-span-4">
+    <div class="col-span-3 sm:col-span-4">
                         <label for="amount" class="block text-sm font-medium text-gray-700">iscancelled</label>
-                        <input type="text" name="amount" id="amount" autocomplete="amount" value={bind_user.iscancelled} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                        {(() => {
+
+if (bind_user.iscancelled == true) {
+
+  return <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Yes</dd>
+
+} else {
+
+  return <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">No</dd>
+
+}
+
+})()}
+                        
                       </div>
     
-    <div class="col-span-3 sm:	col-span-4">
+    <div class="col-span-3 sm:col-span-4">
                         <label for="amount" class="block text-sm font-medium text-gray-700">isdelivered</label>
-                        <input type="text" name="amount" id="amount" autocomplete="amount" value={bind_user.isdelivered} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                        {(() => {
+
+if (bind_user.isdelivered == true) {
+
+  return <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Yes</dd>
+
+} else {
+
+  return <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">No</dd>
+
+}
+
+})()}
+                       
                       </div> 
     
     
                     </div>
                   </div>
                   <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
-                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
+                    <button type="submit" class="inline-flex justify-center py-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
+                    <button type="submit" class="inline-flex justify-center py-2 px-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
                   </div>
                 </div>
               </form>

@@ -256,8 +256,6 @@ transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-
 
   return (
     <div>
-      
-
       <div class=" container mx-auto px-3 sm:px-4">
         <div class="py-3">
           <div>

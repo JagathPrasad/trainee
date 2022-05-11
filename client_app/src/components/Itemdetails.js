@@ -14,6 +14,7 @@ const Itemdetails = () => {
   const [bind_details, setDetails] = useState({});
   const [user_type, setUserType] = useState('');
   const [showpopup, setPopup] = useState(false);
+  const [Item_delete, setItem_delete] = useState([]);
   
  
  
@@ -48,22 +49,18 @@ const Itemdetails = () => {
       {
         Getvendoritem();
       }
-      console.log('Item_details', item_details);
+      console.log('Item_delete', Item_delete);
     }).catch((error) => {
       console.log(error, 'success');
     });
   }
- 
 
   useEffect(() => {
-    GetUsers();
-   
+    GetUsers();  
     
   }, []);
 
-  
-
-  
+    
   const ShowDetails = (data, type) => {
     if (type == 'itemslist') {
       Getvendoritem(data, type);
@@ -381,6 +378,7 @@ const Itemdetails = () => {
     })
   }
 
+ 
   return (
 
     <div class= " px-8 tainer ">

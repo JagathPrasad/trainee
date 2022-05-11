@@ -20,7 +20,7 @@ import Vendors from './components/Vendors';
 import AddItems from './components/Additems';
 import Banner from './components/Banner';
 import BannerAdd from './components/BannerAdd';
-import loggedInUser from './components/Login';
+
 
 
 import React, { useEffect, Redirect, useState} from 'react'
