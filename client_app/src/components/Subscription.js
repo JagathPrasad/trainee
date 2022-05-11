@@ -252,7 +252,7 @@ const Subscription = () => {
   return (
     <div>
       <br></br>
-      <div class="w-6/12 px-4 sm:px-8">
+      <div class="sm:w-6/12 px-4 sm:px-8">
         <h1 class=" text-2xl font-bold leading-tight text-left text-blue-900">SUBSCRIPTION</h1>
 
           <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">

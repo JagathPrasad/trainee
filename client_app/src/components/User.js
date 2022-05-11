@@ -11,8 +11,9 @@ const User = () => {
   const [user_details, setUserDetails] = useState([]);
   const [bind_user, setBindUser] = useState({});
   const [user_type, setUserType] = useState('');
-  const [istrue, setTrue] = useState(false);
+  //const [istrue, setTrue] = useState(false);
   const [user_delete, setUserDelete] = useState([]);
+  const [currentid, setCurrentId] = useState([]);
 
   const Getusers = (x) => {
     axios.get(baseUrl + 'admin/getactiveusers').then((res) => {
@@ -35,7 +36,7 @@ const User = () => {
     //Getdelete(user_id);
     axios.delete(baseUrl + 'admin/deleteactiveuser/' + user_id).then((res) => {
       console.log(res.data, 'success');
-      if (res.data == true) {
+      if (res.data === true) {
         Getusers();
       }
       //setUserDelete(res.data);
@@ -49,7 +50,7 @@ const User = () => {
     console.log('data', data);
     setBindUser(data);
     setUserType(type);
-    //setCurrentId(data.user_id);
+    setCurrentId(data.user_id);
     //for different methods
     // if (type == 'view') {
     //   setUserType(type);
@@ -129,7 +130,7 @@ const User = () => {
       buttons: [
         {
           label: 'Yes',
-          onClick: () => Delete()
+          onClick: () => Delete(currentid)
         },
         {
           label: 'No',
@@ -144,7 +145,7 @@ const User = () => {
       {/* <Navbar />
       <Sidebar /> */}
       <br></br>
-      <div class="px-4 sm:px-8 w-6/12">
+      <div class="px-4 sm:px-8 sm:w-6/12">
 
           <div>
             <h2 class="text-2xl font-semibold leading-tight text-left text-blue-900">USERS</h2>
@@ -153,7 +154,7 @@ const User = () => {
             <div
               class="inline-block  shadow-md rounded-lg overflow-hidden"
             >
-              <table class="w-100 leading-normal">
+              <table class="object-left leading-normal">
                 <thead>
                   <tr>
                     <th
