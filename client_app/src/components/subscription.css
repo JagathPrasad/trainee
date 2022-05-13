@@ -20,3 +20,9 @@
     width:75%;
   }
 }
+/* @media only screen and (max-width: 500px){
+  table, thead, tbody, th, td, tr {
+      display: relative; 
+  }}
+   */
+  

@@ -259,7 +259,7 @@ const Subscription = () => {
             <div
               class="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
             >
-              <table class="min-w-full leading-normal">
+              <table class="min-w-full leading-normal hlstr">
                 <thead>
                   <tr>
                     <th

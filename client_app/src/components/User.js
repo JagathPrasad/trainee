@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 import { baseUrl } from './utility/api_config';
+import { useForm } from 'react-hook-form';
 
 const User = () => {
   console.log('baseUrl', baseUrl);
@@ -14,6 +15,10 @@ const User = () => {
   //const [istrue, setTrue] = useState(false);
   const [user_delete, setUserDelete] = useState([]);
   const [currentid, setCurrentId] = useState([]);
+
+  const { update, handleSubmit } = useForm();
+  const [name, setName] = useState("");
+  const [mobile_no, setMobile_No] = useState("");
 
   const Getusers = (x) => {
     axios.get(baseUrl + 'admin/getactiveusers').then((res) => {
@@ -25,6 +30,44 @@ const User = () => {
     });
   }
 
+  const onUpdate = (data, e) => {
+    
+     let user = {
+         user_id: bind_user.user_id,
+         name: name,
+         mobile_no: mobile_no,
+     };
+     console.log("user", user);
+    
+     axios.post(baseUrl+'admin/postupdateuser', user).then((res) => {
+     console.log('user updated',res.data);
+     Update();
+     
+     }).catch(() => {
+
+     })
+    }
+
+    const refreshPage = () => {
+      window.location.reload();
+  }
+    const list =()=>{
+    console.log('name :',name,'mobile_no :',mobile_no,);
+  }
+  const Update = () => {
+    confirmAlert({
+      
+      message: 'User Updated succesfully',
+      buttons: [
+        
+        {
+          label: 'OK',
+          onClick: () => refreshPage(),
+        }
+      ]
+    })
+    
+  }
 
   useEffect(() => {
     Getusers();
@@ -97,23 +140,23 @@ const User = () => {
         </div>
         <br></br>
         <div class="mt-5 md:mt-0 md:col-span-2">
-          <form action="#" method="POST">
+          <form onSubmit={handleSubmit(onUpdate)} action="#" method="POST">
             <div class="shadow overflow-hidden sm:rounded-md">
               <div class="px-4 py-5 bg-gray-200 sm:p-6">
                 <div class="grid grid-cols-6 gap-6">
                   <div class="col-span-3 sm:col-span-4">
-                    <label for="address" class="block text-sm font-medium text-gray-700"> Name</label>
-                    <input type="text" name="address" id="address" autocomplete="address" value={bind_user.name} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    <label for="name" class="block text-sm font-medium text-gray-700"> Name</label>
+                    <input type="text" name="name" id="name" autocomplete="name" Value={bind_user.name}  onChange={(e)=>setName(e.target.value)} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
                   <div class="col-span-3 sm:col-span-4">
-                    <label for="amount" class="block text-sm font-medium text-gray-700">Mobile No</label>
-                    <input type="text" name="amount" id="amount" autocomplete="amount" value={bind_user.mobile_no} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    <label for="mobile_no" class="block text-sm font-medium text-gray-700">Mobile No</label>
+                    <input type="text" name="mobile_no" id="mobile_no" autocomplete="mobile_no" Value={bind_user.mobile_no}  onChange={(e)=>setMobile_No(e.target.value)} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
                 </div>
               </div>
               <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                <button type="submit" class="inline-flex justify-center py-1.5 px-1.5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
-                <button type="submit" class="inline-flex justify-center py-1.5 px-1.5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
+                <button onClick={list} type="submit" class="inline-flex justify-center py-1.5 px-1.5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
+                <button  onClick={refreshPage}  class="inline-flex justify-center py-1.5 px-1.5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
               </div>
             </div>
           </form>
