@@ -2,7 +2,7 @@
  
   .rig2ht{
     margin-left:105%;
-    margin-top:-45%;
+    margin-top:-40%;
     width:70%;
   }
 }
@@ -13,9 +13,9 @@
 @media  screen and (min-width: 600px ) and (orientation:landscape)  {
 
   .tainer {
-    top: 10%;
-     max-width: 50%;
-    left : 10%;
+      top: 10%;
+      max-width: 55%;
+      left : 10%;
    }
 .tab-list {
     

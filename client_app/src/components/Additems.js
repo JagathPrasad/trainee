@@ -122,16 +122,16 @@ const Added = () => {
                             <div class=" bg-blue-300 shadow  overflow-hidden sm:rounded-md">
                                 <div class="px-4 py-5 bg-gray-300 sm:p-6">
                                     <div class="grid grid-cols-6 gap-6">
-                                        <div class="col-span-1 sm:col-span-3">
+                                        <div class="col-span-6 sm:col-span-3">
                                             <label for="name" class="block text-sm  font-medium border-black text-gray-700">Food Name</label>
                                             <input type="text" name="name" id="name" Value={name} onChange={(e)=>setName(e.target.value)} class=" mt-1 block w-6/12  py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none  sm:text-sm" />
                                         </div>
 
-                                        <div class="col-span-1 sm:col-span-3">
+                                        <div class="col-span-6 sm:col-span-3">
                                             <label for="caption" class="block text-sm font-medium text-gray-700"> Caption</label>
                                             <input type="text" name="caption" id="caption"Value={caption} onChange={(e)=>setCaption(e.target.value)}  class="mt-1 block w-6/12 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none  sm:text-sm" />
                                         </div>
-                                        <div class="col-span-1 sm:col-span-3">
+                                        <div class="col-span-6 sm:col-span-3">
                                             <label for="description" class="block text-sm font-medium text-gray-700"> Discription</label>
                                             <input type="text" name="description" id="description"Value={Discription} onChange={(e)=>setDiscription(e.target.value)}  class="mt-1 block w-6/12 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none  sm:text-sm" />
                                         </div>
@@ -144,13 +144,13 @@ const Added = () => {
 
 
 
-                                        <div class=" col-span-1 sm:col-span-3">
+                                        <div class=" col-span-6 sm:col-span-3">
                                             <label for="image" class="block text-sm font-medium text-gray-700"> Food Image</label>
                                             <input type="file" name="image" id="image" autocomplete="image" onChange={ConvertImageToBase64} class="mt-1 block w-6/12 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                         </div>
 
 
-                                        <div class="col-span-1 sm:col-span-3">
+                                        <div class="col-span-6 sm:col-span-3">
                                             <label for="serving" class="block text-sm font-medium text-gray-700">Serving</label>
                                             <input type="text" name="serving" id="serving" autocomplete="serving" Value={Serving} onChange={(e)=>setServing(e.target.value)} class="mt-1 block w-6/12 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                         </div>
@@ -178,17 +178,17 @@ const Added = () => {
 
                                             </select>
                                         </div>
-                                        <div class="col-span-1 sm:col-span-3">
+                                        <div class="col-span-6 sm:col-span-3">
                                             <label for=" category_id" class="block text-sm font-medium text-gray-700"> Category Id</label>
                                             <input type="number" name=" category_id" id=" category_id" autocomplete=" category_id" Value={CategoryId} onChange={(e)=>setCategoryId(e.target.value)} class="mt-1 block w-6/12 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                         </div>
 
-                                        <div class="col-span-1 sm:col-span-3">
+                                        <div class="col-span-6 sm:col-span-3">
                                             <label for=" vendorprepartiontime" class="block text-sm font-medium text-gray-700"> Waiting</label>
                                             <input type="number" name=" vendorprepartiontime" id=" vendorprepartiontime" autocomplete=" vendorprepartiontime"  Value={Waiting} onChange={(e)=>setWaiting(e.target.value)}class="mt-1 block w-6/12 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                         </div>
 
-                                        <div class="col-span-1 sm:col-span-3">
+                                        <div class="col-span-6 sm:col-span-3">
                                             <label for="city" class="block text-sm font-medium text-gray-700">Slots</label>
                                             <input type="text" name="city" id="city" autocomplete="address-level2"  Value={Slots} onChange={(e)=>setSlots(e.target.value)}class="mt-1 block w-6/12 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                                         </div>
