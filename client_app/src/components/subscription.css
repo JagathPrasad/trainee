@@ -1,15 +1,18 @@
-/* .containers{
-    max-width: 50%;
+@media screen and (min-width: 400px) and (orientation: landscape) {
+.containers{
+    max-width: 70%;
     margin-left:10px;
     margin-top: 10px;
     
-  } */
-
+  }
+}
+  @media screen and (min-width: 400px) and (orientation: landscape) {
   .rigght{
     margin-left:105%;
-    margin-top: -53%;
+    margin-top: -60%;
     width:75%;
   }
+}
 
   .srigght{
     margin-left:105%;
