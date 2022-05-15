@@ -139,8 +139,9 @@ const Login = () => {
                                 <br />
                                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" onClick={() => Getuserotp()} >Submit</button>
                                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Cancel</button>
+                                {/* <button method="get" action="/Login" type="submit">Resend</button> */}
                                 
-                           <button>Resend <i class="fas fa-angle-double-right"></i></button>
+                                {/* <button onclick="location.href=''" type="button">Resend</button> */}
                             </div>
                         );
                     }

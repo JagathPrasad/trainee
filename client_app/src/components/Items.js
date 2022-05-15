@@ -11,6 +11,7 @@ import { baseUrl } from './utility/api_config';
 const Items = () => {
   
   const [item_details, setItemDetails] = useState([]);
+  
   console.log('baseUrl', baseUrl);
   const GetUsers = () => {
     axios.get(baseUrl+'item/getallvendoritem/1bab575b-d40f-485a-a038-023747a29e82').then((res) => {

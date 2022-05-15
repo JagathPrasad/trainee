@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import popup from './popup';
 import { baseUrl } from './utility/api_config';
+import { useForm } from 'react-hook-form';
 
 
 
@@ -10,11 +11,23 @@ import { baseUrl } from './utility/api_config';
 
 const Subscription = () => {
   const [subscription_details, setSubscriptionDetails] = useState([]);
-
   const [bind_details, setBindDetails] = useState({});
-
   const [user_type, setUserType] = useState('');
   const [subscribe_details, setSubscribeDetails] = useState([]);
+  const { update, handleSubmit } = useForm();
+  const [description, setdescription] = useState("");
+  const [mon, setmon] = useState("");
+  const [tue, settue] = useState("");
+  const [wed, setwed] = useState("");
+  const [thu, setthu] = useState("");
+  const [fri, setfri] = useState("");
+  //const [vendor_image, setvendor_image] = useState("");
+  const [vendor_name, setvendor_name] = useState("");
+  //const monthly_amount = parseInt('1234', 10)
+  const [monthly_amount, setmonthly_amount] = useState(0);
+  const [weekly_amount, setweekly_amount] = useState(0);
+  const [image64, setImage64] = useState("");
+
 
 
 
@@ -38,11 +51,76 @@ const Subscription = () => {
   // }
 
 
+  const onUpdate = (data, e) => {
+    
+    let subscription = {
+        id:bind_details.id,
+        description: description,
+        mon: mon,
+        tue: tue,
+        wed:wed,
+        thu:thu,
+        fri:fri,
+        vendor_image:image64,
+        vendor_name:vendor_name,
+        monthly_amount:parseInt(monthly_amount),
+        weekly_amount:parseInt(weekly_amount)
+    };
+    console.log("subscription", subscription);
+    axios.post(baseUrl+'subscription/postupdatesubscription', subscription).then((res) => {
+    console.log('subscription updated',res.data);
+   Updated();
+    }).catch(() => {
+
+    })
+   }
+
+
   useEffect(() => {
     subscriptionlist();
     //subscribelist();
   },
     []);
+
+    const ConvertImageToBase64 = (event) => {
+      // console.log('event', event.target.files[0]);
+      let file = event.target.files[0];
+      var reader = new FileReader();
+      console.log('file upload');
+      let base64;
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+          base64 = reader.result;
+            console.log('base64', base64);
+          setImage64(base64);
+      };
+      reader.onerror = (error) => {
+          console.log('error :', error);
+      };
+  };
+
+  const refreshPage = () => {
+    window.location.reload();
+}
+  const list =()=>{
+  console.log('description :',description,'mon :',mon, 'tue :', tue, 'wed:', wed, 'thu:', thu, 'fri:', fri,  'vendor_name :',vendor_name ,'weekly_amount :', weekly_amount , 'monthly_amount :', monthly_amount );
+}
+
+const Updated = (confirmAlert) => {
+  confirmAlert({
+    
+    message: 'User Updated succesfully',
+    buttons: [
+      
+      {
+        label: 'OK',
+        onClick: () => refreshPage(),
+      }
+    ]
+  })
+  
+}
+
 
   const ShowDetails = (data, type) => {
     console.log('data', data);
@@ -156,84 +234,83 @@ const Subscription = () => {
         </div>
         <br></br>
         <div class="mt-5 md:mt-0 md:col-span-2">
-          <form action="#" method="POST">
+          <form onSubmit={handleSubmit(onUpdate)} action="#" method="POST">
             <div class="shadow overflow-hidden sm:rounded-md">
               <div class="px-4 py-5 bg-gray-200 sm:p-6">
                 <div class="grid grid-cols-6 gap-6">
                   <div class="col-span-6 sm:col-span-6">
                     <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                    <input type="text" name="description" id="description" autocomplete="description" value={bind_details.description} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm bg-white border-gray-300 rounded-md" />
+                    <input type="text" name="description" id="description" autocomplete="description" Value={bind_details.description} onChange={(e)=>setdescription(e.target.value)} class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm bg-white border-gray-300 rounded-md" />
                   </div>
 
                   <div class="col-span-4 sm:col-span-3">
                     <label for="monday" class="block text-sm font-medium text-gray-700"> Monday</label>
-                    <input type="text" name="monday" id="monday" autocomplete="monday" value={bind_details.mon} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    <input type="text" name="monday" id="monday" autocomplete="monday" Value={bind_details.mon}  onChange={(e)=>setmon(e.target.value)}class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
                   <div class="col-span-4 sm:col-span-3">
                     <label for="tuesday" class="block text-sm font-medium text-gray-700"> Tuesday</label>
-                    <input type="text" name="tuesday" id="tueday" autocomplete="tuesday" value={bind_details.tue} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    <input type="text" name="tuesday" id="tueday" autocomplete="tuesday" Value={bind_details.tue} onChange={(e)=>settue(e.target.value)} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
                   <div class="col-span-4 sm:col-span-3">
                     <label for="wednesday" class="block text-sm font-medium text-gray-700"> Wednesday</label>
-                    <input type="text" name="wednesday" id="wednesday" autocomplete="wednesday" value={bind_details.wed} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    <input type="text" name="wednesday" id="wednesday" autocomplete="wednesday" Value={bind_details.wed} onChange={(e)=>setwed(e.target.value)} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
                   <div class="col-span-4 sm:col-span-3">
                     <label for="thursday" class="block text-sm font-medium text-gray-700"> Thursday</label>
-                    <input type="text" name="thursday" id="thursday" autocomplete="thursday" value={bind_details.thu} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    <input type="text" name="thursday" id="thursday" autocomplete="thursday" Value={bind_details.thu} onChange={(e)=>setthu(e.target.value)} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
                   <div class="col-span-4 sm:col-span-3">
                     <label for="friday" class="block text-sm font-medium text-gray-700"> Friday</label>
-                    <input type="text" name="friday" id="friday" autocomplete="friday" value={bind_details.fri} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    <input type="text" name="friday" id="friday" autocomplete="friday" Value={bind_details.fri} onChange={(e)=>setfri(e.target.value)}class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  </div>
+                  <div class=" col-span-1 sm:col-span-3">
+                      <label for="image" class="block text-sm font-medium text-gray-700"> Vendor Image</label>
+                      <input type="file" name="image" id="image" autocomplete="image" onChange={ConvertImageToBase64} class="mt-1 block w-6/12 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                   </div>
 
-                  <div class="col-span-6 sm:col-span-4">
-                    <label for="email-address" class="block text-sm font-medium text-gray-700">Vendor Image</label>
-                    <div class="flex justify-center">
-                      <div class="mb-3 w-96">
-                        <label for="formFile" class="form-label inline-block mb-2 text-gray-700"> Select an Image</label>
-                        <input class="form-control
-                     block
-                     w-full
-                     px-3
-                     py-1.5
-                     text-base
-                     font-normal
-                    text-gray-700
-                    bg-white bg-clip-padding
-                     border border-solid border-gray-300
-                     rounded
-                    transition
-                    ease-in-out
-                      m-0
-                   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="formFile"></input>
-                      </div>
-                    </div>
-                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  {/* <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                       <dt class="text-sm font-medium text-gray-500">Existing Image</dt>
                       <img
                         class="w-full h-full rounded-full "
                         src={bind_details.vendor_image}
                         alt=""
-                      />  </div>
-                  </div>
+                      />  </div> */}
+                      
+<div class=" px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+
+<dt class="text-sm font-large text-gray-900">Existing Image</dt>
+
+<img
+
+  class="col-span-8 sm:col-span-8 "
+
+  src={bind_details.vendor_image}
+
+  alt=""
+
+/> </div>
+<br />
+
+
+
 
                   <div class="col-span-4 sm:col-span-5">
                     <label for="vendor-name" class="block text-sm font-medium text-gray-700"> Vendor Name</label>
-                    <input type="text" name="vendor-name" id="vendor-name" autocomplete="vendor-name" value={bind_details.vendor_name} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    <input type="text" name="vendor-name" id="vendor-name" autocomplete="vendor-name" Value={bind_details.vendor_name} onChange={(e)=>setvendor_name(e.target.value)} class="mt-1  focus:ring-indigo-500 bg-white focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
                   <div class="col-span-6 sm:col-span-3">
                     <label for="monthly-amount" class="block text-sm font-medium text-gray-700">Monthly Amount</label>
-                    <input type="text" name="monthly-amount" id="monthly-amount" autocomplete="monthly-amount" value={bind_details.monthly_amount} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    <input type="text" name="monthly-amount" id="monthly-amount" autocomplete="monthly-amount" Value={bind_details.monthly_amount} onChange={(e)=>setmonthly_amount(e.target.value)} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
                   <div class="col-span-6 sm:col-span-3">
                     <label for="weekly-amount" class="block text-sm font-medium text-gray-700">Weekly Amount</label>
-                    <input type="text" name="weekly-amount" id="weekly-amount" autocomplete="weekly-amount" value={bind_details.weekly_amount} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                    <input type="text" name="weekly-amount" id="weekly-amount" autocomplete="weekly-amount" Value={bind_details.weekly_amount} onChange={(e)=>setweekly_amount(e.target.value)} class="mt-1 bg-white focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                   </div>
                 </div>
               </div>
               <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                <button type="submit" class="inline-flex justify-center py-1.5 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
-                <button type="submit" class="inline-flex justify-center py-1.5 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
+                <button onClick={list} type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
+                <button onClick={refreshPage} class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
               </div>
 
             </div>
@@ -244,8 +321,6 @@ const Subscription = () => {
 
     </div>;
   }
-
-  
   
 
 

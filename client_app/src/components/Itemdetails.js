@@ -15,6 +15,7 @@ const Itemdetails = () => {
   const [user_type, setUserType] = useState('');
   const [showpopup, setPopup] = useState(false);
   const [Item_delete, setItem_delete] = useState([]);
+  const [currentid, setCurrentId] = useState([]);
   
  
  
@@ -40,35 +41,52 @@ const Itemdetails = () => {
     });
   }  
 
-  const Delete = (vendorid) => {
-    axios.delete(baseUrl+'/item/deletevendoritem/'+ vendorid).then((res) => {
-      console.log(res.data, 'success');
-      //setTimeout(1000)      
-      //setItemDetails(res.data);
-      if(res.data == true)
-      {
-        Getvendoritem();
-      }
-      console.log('Item_delete', Item_delete);
-    }).catch((error) => {
-      console.log(error, 'success');
-    });
-  }
+  // const Delete = (id) => {
+  //   axios.delete(baseUrl+'/item/deletevendoritem/'+ id).then((res) => {
+  //     console.log(res.data, 'success');
+  //     //setTimeout(1000)      
+  //     //setItemDetails(res.data);
+  //     if(res.data == true)
+  //     {
+  //       Getvendoritem();
+  //     }
+  //     console.log('Item_delete', Item_delete);
+  //   }).catch((error) => {
+  //     console.log(error, 'success');
+  //   });
+  // }
 
   useEffect(() => {
     GetUsers();  
     
   }, []);
 
+  const Delete = (id) => {
+    //Getusers();
+    //Getdelete(user_id);
+    axios.delete(baseUrl + '/item/deletevendoritem/' + id).then((res) => {
+      console.log(res.data, 'success');
+      if (res.data === true) {
+        GetUsers();
+      }
+      //setUserDelete(res.data);
+      console.log('Item_delete', Item_delete);
+    }).catch((error) => {
+      console.log(error, 'success');
+    });
+  }
+
     
   const ShowDetails = (data, type) => {
+    
+    
+     setCurrentId(data.id);
     if (type == 'itemslist') {
       Getvendoritem(data, type);
     } else {
       console.log('data', data);
       setDetails(data);
-      setUserType(type);
-
+     setUserType(type);
     }
 
   }
@@ -359,8 +377,6 @@ const Itemdetails = () => {
     </div>;
   }
 
-  
-
   const RenderDelete = () => {
     confirmAlert({
       title: 'Confirm to submit',
@@ -368,7 +384,7 @@ const Itemdetails = () => {
       buttons: [
         {
           label: 'Yes',
-          onClick: () => Delete(bind_details.vendorid)
+          onClick: () => Delete(currentid)
         },
         {
           label: 'No',

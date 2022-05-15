@@ -13,6 +13,7 @@ const Order = () => {
   const [bind_user, setBindUser] = useState({});
   const [user_type, setUserType] = useState('');
   const [other_details, setOtherDetails] = useState({});
+  
   console.log('baseUrl', baseUrl);
 
 
@@ -45,12 +46,14 @@ const Order = () => {
 
   const ShowDetails = (data, type) => {
     console.log('(data, type', data, type);
+   
     if (type == 'userorder') {
       Getuserorder(data, type);
     } else {
       console.log('data', data);
       setBindUser(data);
       setUserType(type);
+      
     }
 
   }

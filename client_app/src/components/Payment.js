@@ -11,12 +11,14 @@ import { baseUrl } from './utility/api_config';
 
 
 
+
 const Payments = () => {
 
     const [payment_details, setPaymentDetails] = useState([]);
     const [user_details, setuserDetails] = useState([]);
     const [bind_user, setBindUser] = useState({});
     const [user_type, setUserType] = useState('');
+    //const mediaQuery = window.matchMedia('(min-width: 768px)')
     console.log('baseUrl', baseUrl);
 
     const Getpayments = (x) => {
@@ -301,8 +303,8 @@ if (bind_user.isdelivered == true) {
 
 
     return (
-        <div>
-            <div class="px-8">
+        
+            <div class="py-8">
                 <div class="py-8">
                     <div>
                         <h2 class="text-2xl font-semibold leading-tight text-left text-blue-900">Payment list</h2>
@@ -438,7 +440,7 @@ if (bind_user.isdelivered == true) {
                 </div>
             </div>
 
-        </div>
+        
     );
 
 }
