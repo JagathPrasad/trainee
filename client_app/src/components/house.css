@@ -3,18 +3,23 @@
     margin-left:12%;
     margin-top: 1%;
   } */
+  @media  screen and (min-width: 600px ) and (orientation:landscape)  {
 
   .riight{
     margin-left:105%;
     margin-top: -41%;
     width:75%;
   }
+}
+
+@media  screen and (min-width: 600px ) and (orientation:landscape)  {
 
   .hriight{
     margin-left:105%;
     margin-top: -34%;
     width:75%;
   }
+}
 
   .dropposition{
     margin-left: 0%;

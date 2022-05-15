@@ -4,15 +4,25 @@
     margin-top: 10px;
     
   } */
+  
+  @media  screen and (min-width: 600px ) and (orientation:landscape)  {
 
   .rigght{
     margin-left:105%;
     margin-top: -53%;
     width:75%;
   }
-
+  }
+  @media  screen and (min-width: 600px ) and (orientation:landscape)  {
   .srigght{
     margin-left:105%;
     margin-top: -46%;
     width:75%;
   }
+}
+/* @media only screen and (max-width: 500px){
+  table, thead, tbody, th, td, tr {
+      display: relative; 
+  }}
+   */
+  

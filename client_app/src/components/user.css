@@ -1,25 +1,44 @@
-.size{
-width:50%;
-height:40%;
-align-self: center;
-display: flex;
 
-}
-/* .tainer {
-    max-width:50%;
-    margin-left:10%;
-} */
-.uvrights{
+
+.size{
+  width:50%;
+  height:40%;
+  align-self: center;
+  display: flex;
+  
+  }
+  /* .tai1ner {
+      max-width:50%;
+      margin-left:10%;
+  } */
+  /* .uvrights{
     margin-left:70%;
-    margin-top:-37%;
+    margin-top:-53%;
     width:50%;
   }
+
   .uerights{
     margin-left:70%;
-    margin-top: -44%;
+    margin-top: -60%;
     width:50%;
-  }
+  } */
+   
+  @media  screen and (min-width: 600px ) and (orientation:landscape)  {
 
  
+  .uvrights{
+    
+      margin-left:70%;
+      margin-top:-26%;
+      width:50%;
+    }
+  }
+  @media  screen and (min-width: 600px ) and (orientation:landscape)  {
 
+    .uerights{
+      margin-left:70%;
+      margin-top:-32%;
+      width:50%;
+    }
+  }
   

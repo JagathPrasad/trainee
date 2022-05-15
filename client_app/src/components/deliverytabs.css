@@ -13,24 +13,27 @@
   .hide {
     display: none;
   }
-  
+  @media  screen and (min-width: 600px ) and (orientation:landscape)  {
   .righht{
     margin-left:105%;
     margin-top: -35%;
     width:75%;
   }
+}
+@media  screen and (min-width: 600px ) and (orientation:landscape)  {
   .drighht{
     margin-left:105%;
     margin-top: -28%;
     width:75%;
   }
-
+}
+@media  screen and (min-width: 600px ) and (orientation:landscape)  {
   .vrighht{
     margin-left:105%;
     margin-top: -34%;
     width:75%;
   }
-  
+}
    .deletecenter{
     margin-left:55%;
     margin-top: -65%;
