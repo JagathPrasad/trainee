@@ -1,7 +1,13 @@
-.additems{
-    margin-left: 11%;
-    max-width: 80%;
+@media only screen and (max-width: 360px)and (max-hight: 740px ) {
+
+    .additems{
+        margin-left: 11%;
+        max-width: 80%;
+    }
 }
+@media only screen and (max-width: 360px)and (max-hight: 740px ) {
+
 .form-1{
 max-width: 100%;
+}
 }
