@@ -29,6 +29,7 @@ const Itemdetails = () => {
   const [isPremium, setisPremium] = useState(false)
   const [CategoryId, setCategoryId] = useState(4);
   const [serving, setServing] = useState();
+  const [currentid, setCurrentId] = useState('');
   const onSubmit = (data, e) => {
     // console.log('data',data);
     let item = {
@@ -47,8 +48,7 @@ const Itemdetails = () => {
     };
 
     console.log("item", item);
-    axios.post(baseUrl + 'item/postupdateitem', item).then((res) =>
-     {
+    axios.post(baseUrl + 'item/postupdateitem', item).then((res) => {
       console.log('item Updated', res.data);
 
       Updated();
@@ -78,7 +78,7 @@ const Itemdetails = () => {
     };
   };
 
- 
+
 
   const GetUsers = () => {
     axios.get(baseUrl + 'item/getvendoritems').then((res) => {
@@ -128,15 +128,15 @@ const Itemdetails = () => {
 
 
   const ShowDetails = (data, type) => {
-    
-    
-     setCurrentId(data.id);
+
+
+    setCurrentId(data.id);
     if (type == 'itemslist') {
       Getvendoritem(data, type);
     } else {
       console.log('data', data);
       setDetails(data);
-     setUserType(type);
+      setUserType(type);
     }
 
   }
@@ -147,13 +147,13 @@ const Itemdetails = () => {
   }
   const Updated = () => {
     confirmAlert({
-      
+
       message: 'Item Updated succesfully',
       buttons: [
-        
+
         {
           label: 'OK',
-          onClick: () =>refreshPage(),
+          onClick: () => refreshPage(),
         }
       ]
     })
@@ -343,7 +343,7 @@ const Itemdetails = () => {
   const RenderEdit = () => {
 
 
-    return<div class="bg-gray-200 shadow overflow-hidden sm:rounded-lg w-full rig2ht">
+    return <div class="bg-gray-200 shadow overflow-hidden sm:rounded-lg w-full rig2ht">
       <div class="px-4 py-5 w-full sm:px-6">
         <h3 class="text-lg leading-6 font-medium  text-gray-900">Food Information</h3>
       </div>
@@ -355,7 +355,7 @@ const Itemdetails = () => {
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-6">
                   <label for="name" class="block text-sm  font-medium text-gray-700">Food Name</label>
-                  <input type="text" name="name" id="name"  Value={bind_details.name} onChange={(e) => setName(e.target.value)} class="mt-1  focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  <input type="text" name="name" id="name" Value={bind_details.name} onChange={(e) => setName(e.target.value)} class="mt-1  focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
 
                 <div class="col-span-6 sm:col-span-6">
@@ -425,7 +425,7 @@ const Itemdetails = () => {
               </div>
             </div>
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-              <button  type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
+              <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
 
               <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
 
