@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './Banner.css';
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from './utility/api_config';
 
 
 const Banner = () => {
@@ -12,7 +13,7 @@ const Banner = () => {
     const [user_type, setUserType] = useState('');    
 
     const Getbanner = (x) => {
-        axios.get('http://cometh.prelinehealthcare.com/api/admin/getallbanner').then((res) => {
+        axios.get(baseUrl +'admin/getallbanner').then((res) => {
             console.log(res.data, 'success');
             setBannerDetails(res.data);
             console.log('banner_details', banner_details);

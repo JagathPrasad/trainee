@@ -78,13 +78,7 @@ const AddItems = () => {
             is_premium: isPremium,
             category_id: CategoryId,
         };
-       console.log("item", item);
-        axios.post(baseUrl+'item/postadditem', item).then((res) => {
-console.log('item added',res.data);
-   Added()
-        }).catch(() => {
-
-        })
+         
     }
     //  useEffect(() => {
     //    additems();

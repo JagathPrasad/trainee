@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react'
 import './BannerAdd.css';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { baseUrl } from './utility/api_config';
+
 
 
 const BannerAdd = (banner) => {
   const { Add, handleSubmit } = useForm();
-  const [baseImage, setBaseImage] = useState("");
+  const [image64, setImage64] = useState("");
+  const [name, setName] = useState(""); 
+  const [selectedfile, setSelectedfile] = useState([]);
   // const [item_details, setItemDetails] = useState([]);
   // const Setitems = () => {   
   //     axios.get('https://cometh.prelinehealthcare.com/api/admin/postaddbanner/'+ banner).then((res) => {
@@ -23,39 +27,45 @@ const BannerAdd = (banner) => {
   //     Setitems();
   // }, []);
 
-  const onSubmit = (data, e) => {
+  const image = (e) => {
+    setSelectedfile(e.target.files);
+    console.log(e.target.files[0]);
+    console.log(e.target.files[0].name);
+    console.log(e.target.files[0].size);
+    console.log(e.target.files[0].type);
+  };
+  const ConvertImageToBase64 = (event) => {
+    // console.log('event', event.target.files[0]);
+    let file = event.target.files[0];
+    var reader = new FileReader();
+    console.log('file upload');
+    let base64;
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        base64 = reader.result;
+        console.log('base64', base64);
+        setImage64(base64);
+    };
+    reader.onerror = (error) => {
+        console.log('error :', error);
+    };
+};
 
-    console.log("data", data);
+  const onSubmit = (data, e) => {
     let banner = {
-      name: data.name,
-      image: data.image,
+      id: '00000000-0000-0000-0000-000000000000',
+      name: name,
+      image: image64,
 
     };
-    axios.post('https://cometh.prelinehealthcare.com/api/admin/postaddbanner/' + banner)
-
-
+    axios.post(baseUrl +'admin/postaddbanner/' + banner)
   }
-
-  const uploadImage = async (e) => {
-    const file = e.target.files[0];
-    const base64 = await convertBase64(file);
-    setBaseImage(base64);
-  };
-  const convertBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      };
-
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  };
-
+  const refreshPage = () => {
+    window.location.reload();
+}
+const list = () => {
+    console.log('name :', name,  image64);
+}
 
   return (
     <div class=" overflow-hidden sm:rounded-lg banneradd">
@@ -71,33 +81,22 @@ const BannerAdd = (banner) => {
               <div class="shadow overflow-hidden sm:rounded-md">
                 <div class="px-4 py-5 bg-white sm:p-6">
                   <div class="grid grid-cols-6 gap-6">
-                    <div class="col-span-6 sm:col-span-3">
-                      <label for="name" class="block text-sm  font-medium text-gray-700">Food Name</label>
-                      <input type="text" name="name" id="name" class="mt-1 bg-blue-100 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                    </div>
+                  <div class="col-span-1 sm:col-span-3">
+                                            <label for="name" class="block text-sm  font-medium border-black text-gray-700">Food Name</label>
+                                            <input type="text" name="name" id="name" Value={name} onChange={(e) => setName(e.target.value)} class=" mt-1 block w-6/12  py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none  sm:text-sm" />
+                                        </div>
 
-                    <div class="col-span-6 sm:col-span-4">
-                      <label for="email-address" class="block text-sm font-medium text-gray-700"> Food Image</label>
-                      <div class="flex justify-center">
-                        <div class="mb-3 w-96">
-                          <input type="file" onChange={(e) => {
-                            uploadImage(e);
-                          }}
-                          />
-                          <br></br>
-                          <img src={baseImage} height="200px" />
-
-                        </div>
-                      </div>
-
-                    </div>
+                                        <div class=" col-span-1 sm:col-span-3">
+                                            <label for="image" class="block text-sm font-medium text-gray-700"> Food Image</label>
+                                            <input type="file" name="image" id="image" autocomplete="image" onChange={ConvertImageToBase64} class="mt-1 block w-6/12 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+                                        </div>
 
                   </div>
                 </div>
-                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                  <button onClick={() => BannerAdd('Added Succesfully')} class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">ADD</button>
+                <div class="px-2 py-2 bg-gray-50 text-right sm:px-4">
+                  <button onClick={list} class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">ADD</button>
 
-                  <button class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
+                  <button  onClick={refreshPage} class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
 
                 </div>
               </div>
